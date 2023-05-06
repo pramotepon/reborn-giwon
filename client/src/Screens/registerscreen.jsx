@@ -3,6 +3,17 @@ import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
 
 function RegisterScreen() {
+
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const handleChangeUserName = (event) => {
+      setUsername(event.target.value);
+  };
+  const handleChangePassword = (event) => {
+      setPassword(event.target.value);
+  };
+  
     return (
       <LoginLayout>
         <form action="" className="form-login form-regis">
