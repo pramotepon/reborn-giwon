@@ -1,0 +1,95 @@
+*{
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text-100:#212F33;
+    --bg-60:#415B63;
+    --bg-30:#84B9C9;
+    --bg-10:#A5E8FC;
+}
+
+body {
+    background: var(--bg-60);
+}
+
+.login-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /* width: 1451px;
+    height: 861px; */
+    align-items:center;
+    justify-content: center;
+    margin:80px auto;
+
+}
+
+.login-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* align-items:center; */
+    /* justify-content: center; */
+    padding: 0px;
+    /* position: absolute; */
+    /* width: 1026px;*/
+    height: 700px; 
+    /* left: calc(50% - 1026px/2 + 0.5px);*/
+    /*top: 80px; */
+    box-shadow: -4px 5px 33px #000000;
+    border-radius: 20px;
+    
+}
+
+.login-card-text {
+    display: flex;
+    background-color: var(--bg-30);
+    color:var(--text-100);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    gap: 10px;
+    width: 376px;
+    height: 700px;
+    border-radius: 0px 20px 20px 0px;
+
+}
+
+.login-card-pic > img {
+    /* width: 50%;
+    height: 50%; */
+    /* position: absolute; */
+    width: 650px;
+    height: 700px;
+    left: 0px;
+    top: 0px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.btn-login {
+    flex: none;
+    flex-grow: 0;
+    width: 150px;
+    height: 60px;
+    left: 113px;
+    top: 468px;
+    background-color: var(--bg-10);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border:none;
+    font-size: 20px;
+    color: var(--text-100);
+}
+
+.input-login {
+    border:none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 220px;
+    height: px;
+}
