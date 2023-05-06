@@ -68,9 +68,11 @@ function NewPassScreen() {
               </button>
             </div>
             <div>
+            <Link to="/login">
               <button className="btn-cancel-regis"
               style={{ fontWeight: "bold" }}
               onClick={handleCancel} >Cancel</button>
+            </Link>
             </div>
           </div>
         </form>
