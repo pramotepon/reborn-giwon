@@ -1,0 +1,10 @@
+/* 000000 212F33 415B63 84B9C9 A5E8FC FFFFFF */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap');
+:root{
+    --black: #000000;
+    --green-blue: #212F33;
+    --green-blue-soft: #415B63;
+    --blue: #84B9C9;
+    --blue-soft: #A5E8FC;
+    --white: #FFFFFF;
+}
