@@ -14,6 +14,7 @@
 
 body {
     background: var(--bg-60);
+    font-weight: bold;
 }
 
 .login-container {

@@ -31,7 +31,7 @@ function LoginScreen() {
         />
       </div>
       <div>
-        <p>Plaese fill a password</p>
+        <p>Please fill a password</p>
       </div>
       <div>
         <button className="btn-login">Login</button>
