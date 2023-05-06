@@ -50,7 +50,7 @@ function ResetPassScreen() {
       <LoginLayout>
         <form action="" className="form-reset">
           <div className="reset-text">
-            <h2>Reset Password</h2>
+            <h2 style={{ fontWeight: "bold" }}>Reset Password</h2>
           </div>
 
           <div className="reset-text" >
@@ -108,7 +108,7 @@ function ResetPassScreen() {
             <div>
               <button
                 className="btn-save-regis"
-                style={{ marginRight: "26px" }}
+                style={{ marginRight: "26px", fontWeight: "bold" }}
                 onClick={handleSave}
               >
                 Reset Password
@@ -116,6 +116,7 @@ function ResetPassScreen() {
             </div>
             <div>
               <button className="btn-cancel-regis"
+              style={{ fontWeight: "bold" }}
               onClick={handleCancel} >Cancel</button>
             </div>
           </div>

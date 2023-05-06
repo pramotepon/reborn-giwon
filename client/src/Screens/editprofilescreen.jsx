@@ -54,7 +54,7 @@ function EditProfileScreen() {
   <LoginLayout>
 <form action="" className="form-login form-regis">
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
-            <h2>Edit Profile</h2>
+            <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
           </div>
 
           <div className="regis-text" style={{ marginBottom: "10px" }}>
@@ -133,7 +133,7 @@ function EditProfileScreen() {
             <div>
               <button
                 className="btn-save-regis"
-                style={{ marginRight: "26px" }}
+                style={{ marginRight: "26px", fontWeight: "bold" }}
                 onClick={handleSave}
               >
                 Save
@@ -141,6 +141,7 @@ function EditProfileScreen() {
             </div>
             <div>
               <button className="btn-cancel-regis"
+              style={{ fontWeight: "bold" }}
               onClick={handleCancel} >Cancel</button>
             </div>
           </div>

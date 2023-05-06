@@ -32,11 +32,11 @@ function LoginScreen() {
   <LoginLayout>
     <form action="" className="form-login">
       <div className="login-text-top">
-        <h2>Login</h2>
+        <h2 style={{ fontWeight: "bold" }}>Login</h2>
       </div>
 
       <div className="login-text">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" >Email</label>
         <input
           type="email"
           name="email"
@@ -58,18 +58,19 @@ function LoginScreen() {
         />
       </div>
       <div>
-        <p>Please fill a password</p>
+        <p >Please fill a password</p>
       </div>
       <div>
         <button className="btn-login"
+        style={{ fontWeight: "bold" }}
         onClick={handleLogin}>Login</button>
       </div>
       <div>
-        <p>Forget Password?</p>
+        <Link to="/resetpass" style={{ color: '#212F33', fontWeight: 'bold', textDecoration: 'none' }}>Forget Password?</Link>
       </div>
       <div>
         <p>
-          Don't hava an account? <b>Sign up</b>
+          Don't hava an account? <Link to="/register" style={{ color: '#212F33', fontWeight: 'bold', textDecoration: 'none' }}>Sign up</Link>
         </p>
       </div>
     </form>
