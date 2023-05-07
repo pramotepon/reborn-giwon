@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../assets/css/LandingPage.css'
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
+
+    const scrollChangNavbar = () => {
+        //! Put the class name that you want to use
+        // Class name that will be added to the navbar element in the "scrolled" state
+        const SCROLLED_STATE_CLASS = "my-bg-white"
+        //! Use your own ID or selector
+        // The id of navigation bar HTML element
+        const NAVBAR_ID = "my-nav"
+        // Get the navigation bar element
+        const navbar = document.getElementById(NAVBAR_ID)
+        // OnScroll event handler
+        const onScroll = () => {
+            // Get scroll value
+            const scroll = document.documentElement.scrollTop
+            // If scroll value is more than 0 - means the page is scrolled, add or remove class based on that
+            if (scroll > 0) {
+                navbar.classList.add(SCROLLED_STATE_CLASS);
+            } else {
+                navbar.classList.remove(SCROLLED_STATE_CLASS)
+            }
+        }
+        // Use the function
+        window.addEventListener('scroll', onScroll)
+    }
+
+    const titlePage = () => {
+        document.title = 'G-Trainee Fitness & Health'
+    }
+
+    useEffect(() => {
+        scrollChangNavbar();
+        titlePage();
+    }, []);
     return (
         <div>
             {/* Navbar */}
@@ -21,25 +54,25 @@ const LandingPage = () => {
                         {/* Block for grid col-6 Menu list */}
                         <ul className="navbar-nav col-lg-6 justify-content-lg-center">
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Home</a>
+                                <a className="nav-link" aria-current="page" href="#section-heroes">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Review</a>
+                                <a className="nav-link" href="#section-review">Review</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
+                                <a className="nav-link" href="#section-what-we-do">About</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">How to use?</a>
+                                <a className="nav-link" href="#section-step-by-step">How to use?</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Dev team</a>
+                                <a className="nav-link" href="#section-dev-team">Dev team</a>
                             </li>
                         </ul>
                         {/* Block for grid col-3 End Button */}
                         <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <button className="btn my-nav-btn me-3">Register</button>
-                            <button className="btn my-nav-btn">Login</button>
+                            <Link to={'/register'} className="btn my-nav-btn me-3">Register</Link>
+                            <Link to={'/login'} className="btn my-nav-btn">Login</Link>
                         </div>
                         {/* End Block for grid col-3 End Button */}
                     </div>
@@ -55,7 +88,7 @@ const LandingPage = () => {
                     {/* Heroes content */}
                     <section className="hero-text container">
                         {/* Logo Image */}
-                        <img src="./assets/images/logo-lg.png" alt="g-trainee-logo" />
+                        <img src="./src/image/landing_page/logo-lg.png" alt="g-trainee-logo" />
                         {/* Heroes Text */}
                         <p className="mt-5">
                             It is a long established fact that a reader will be distracted by
@@ -140,10 +173,10 @@ const LandingPage = () => {
                 {/* What We do Section */}
                 <article className="section-what-we-do pt-5 pb-5 container-fluid" id="section-what-we-do">
                     {/* row */}
-                    <div className="row">
+                    <div className="row text-white">
                         {/* col-7 */}
                         <div className="col-7">
-                            <img src="./assets/images/Group_14.png" alt="prototype-feature" width="100%" />
+                            <img src="./src/image/landing_page/Group_14.png" alt="prototype-feature" width="100%" />
                         </div>
                         {/* end col-7 */}
                         {/* col-5 */}
@@ -227,7 +260,7 @@ const LandingPage = () => {
                 </article>
                 {/* End Step by step section */}
                 {/* add jenniecard by pang*/}
-                <article className="section-review container text-light pt-5 pb-5 mb-5" id="section-dev-team">
+                <article className="section-dev-team container text-light pt-5 pb-5 mb-5" id="section-dev-team">
                     <div className="container">
                         <div className="col-sm">
                             {/*add card jennie1*/}
@@ -243,7 +276,7 @@ const LandingPage = () => {
                                             {/* Card body */}
                                             <div className="card-body">
                                                 {/* Card title */}
-                                                <h5 className="card-title text-center">Card title</h5>
+                                                <h5 className="card-title text-center">Arlif Tagaree</h5>
                                                 {/* Card paragraph */}
                                                 <p className="card-text">
                                                     Some quick example text to build on the card title and make up
@@ -263,7 +296,7 @@ const LandingPage = () => {
                                             {/* Card body */}
                                             <div className="card-body">
                                                 {/* Card title */}
-                                                <h5 className="card-title text-center">Card title</h5>
+                                                <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
                                                 {/* Card paragraph */}
                                                 <p className="card-text">
                                                     Some quick example text to build on the card title and make up
@@ -283,7 +316,64 @@ const LandingPage = () => {
                                             {/* Card body */}
                                             <div className="card-body">
                                                 {/* Card title */}
-                                                <h5 className="card-title text-center">Card title</h5>
+                                                <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
+                                                {/* Card paragraph */}
+                                                <p className="card-text">
+                                                    Some quick example text to build on the card title and make up
+                                                    the bulk of the card's content.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {/* End Card Content */}
+                                    </div>
+                                    {/* Reviews Section content col 4 */}
+                                    <div className="col-md-4 mt-4">
+                                        {/* Card Content */}
+                                        <div className="card my-bg-secondary">
+                                            {/* image tumnail */}
+                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                            {/* Card body */}
+                                            <div className="card-body">
+                                                {/* Card title */}
+                                                <h5 className="card-title text-center">Pramote Phan-on</h5>
+                                                {/* Card paragraph */}
+                                                <p className="card-text">
+                                                    Some quick example text to build on the card title and make up
+                                                    the bulk of the card's content.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {/* End Card Content */}
+                                    </div>
+                                    {/* Reviews Section content col 4 */}
+                                    <div className="col-md-4 mt-4">
+                                        {/* Card Content */}
+                                        <div className="card my-bg-secondary">
+                                            {/* image tumnail */}
+                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                            {/* Card body */}
+                                            <div className="card-body">
+                                                {/* Card title */}
+                                                <h5 className="card-title text-center">Sasiwan Janma</h5>
+                                                {/* Card paragraph */}
+                                                <p className="card-text">
+                                                    Some quick example text to build on the card title and make up
+                                                    the bulk of the card's content.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {/* End Card Content */}
+                                    </div>
+                                    {/* Reviews Section content col 4 */}
+                                    <div className="col-md-4 mt-4">
+                                        {/* Card Content */}
+                                        <div className="card my-bg-secondary">
+                                            {/* image tumnail */}
+                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                            {/* Card body */}
+                                            <div className="card-body">
+                                                {/* Card title */}
+                                                <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
                                                 {/* Card paragraph */}
                                                 <p className="card-text">
                                                     Some quick example text to build on the card title and make up
@@ -295,7 +385,9 @@ const LandingPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div></div></article>
+                        </div>
+                    </div>
+                </article>
             </main>
             {/* End Block Main */}
             {/* Footer */}
