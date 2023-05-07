@@ -11,6 +11,7 @@ import RegisterScreen from './Screens/registerscreen.jsx';
 import ResetPassScreen from './Screens/resetpassscreen.jsx';
 import NewPassScreen from './Screens/newpassscreen.jsx';
 import EditProfileScreen from './Screens/editprofilescreen.jsx';
+import Navbar from './components/Navbar.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     path: '/editprofile',
     element: <EditProfileScreen />
   },
+  {
+    path: '/navbar',
+    element: <Navbar />
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

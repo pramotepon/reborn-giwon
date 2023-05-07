@@ -1,0 +1,46 @@
+/* 
+--black: #000000;
+--green-blue: #212F33;
+--green-blue-soft: #415B63;
+--blue: #84B9C9;
+--blue-soft: #A5E8FC;
+--white: #FFFFFF; */
+@import "./root.css";
+/* 
+  Base Setup 
+*/
+* {
+  font-family: 'Kanit', sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+/* Background */
+.my-bg-primary {
+  background-color: var(--green-blue);
+}
+.my-bg-secondary {
+  background-color: var(--green-blue-soft);
+}
+.my-bg-blue {
+  background-color: var(--blue);
+}
+.my-bg-blue-soft {
+  background-color: var(--blue-soft);
+}
+/* Text color */
+.my-text-primary {
+  background-color: var(--green-blue);
+}
+.my-text-secondary {
+  background-color: var(--green-blue-soft);
+}
+.my-text-blue {
+  background-color: var(--blue);
+}
+.my-text-blue-soft {
+  background-color: var(--blue-soft);
+}
+/* 
+  End Base Setup 
+*/

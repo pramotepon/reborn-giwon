@@ -71,8 +71,8 @@ const LandingPage = () => {
                         </ul>
                         {/* Block for grid col-3 End Button */}
                         <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <Link to={'/register'} className="btn my-nav-btn me-3">Register</Link>
-                            <Link to={'/login'} className="btn my-nav-btn">Login</Link>
+                            <a href='/register' className="btn my-nav-btn me-3">Register</a>
+                            <a href='/login' className="btn my-nav-btn">Login</a>
                         </div>
                         {/* End Block for grid col-3 End Button */}
                     </div>
