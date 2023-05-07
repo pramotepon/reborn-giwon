@@ -197,9 +197,6 @@ html{
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.step-line-content-block{
-
-}
 .step-line-content-block div{
   border: 1px solid #13B7CC;
   width: 75px;
