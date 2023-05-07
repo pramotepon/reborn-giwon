@@ -1,13 +1,60 @@
 import React from "react";
 import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function EditProfileScreen() {
+
+  const [displayname, setDisplayname] = useState();
+  const [height, setHeight] = useState();
+  const [weight, setWeight] = useState();
+  const [gender, setGender] = useState();
+  const [image, setImage] = useState();
+
+  const handleChangeDisplayname = (event) => {
+      setDisplayname(event.target.value);
+  };
+  const handleChangeHeight = (event) => {
+      setHeight(event.target.value);
+  };
+  const handleChangeWeight = (event) => {
+      setWeight(event.target.value);
+  };
+  const handleChangeGender = (event) => {
+      setGender(event.target.value);
+  };
+  const handleChangeImage = (event) => {
+      setImage(event.target.value);
+  };
+
+  const handleSave = (event) => {
+    event.preventDefault(); 
+  
+    const formData = {
+      displayname,
+      height,
+      weight,
+      gender,
+      image,
+    };
+  
+    console.log(formData);
+  
+  };
+
+  const handleCancel = () => {
+    setDisplayname("");
+    setHeight("");
+    setWeight("");
+    setGender("");
+    setImage("");
+  };
+
     return (
   <LoginLayout>
 <form action="" className="form-login form-regis">
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
-            <h2>Edit Profile</h2>
+            <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
           </div>
 
           <div className="regis-text" style={{ marginBottom: "10px" }}>
@@ -25,6 +72,7 @@ function EditProfileScreen() {
               name="DisplayName"
               placeholder=""
               className="input-regis"
+              onChange={handleChangeDisplayname}
             />
           </div>
           <div className="hw">
@@ -37,6 +85,7 @@ function EditProfileScreen() {
                 name="Height"
                 placeholder=""
                 className="input-regis"
+                onChange={handleChangeHeight}
               />
             </div>
             <div className="regis-text" style={{ marginBottom: "10px" }}>
@@ -48,16 +97,23 @@ function EditProfileScreen() {
                 name="Weight"
                 placeholder=""
                 className="input-regis weight-regis"
+                onChange={handleChangeWeight}
               />
             </div>
           </div>
           <div className="regis-text" style={{ fontSize : "18px" }}>
             <label htmlFor="gender">Gender</label>
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" 
+            onChange={handleChangeGender}
+            />
             Male
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" 
+            onChange={handleChangeGender}
+            />
             Female
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" 
+            onChange={handleChangeGender}
+            />
             Prefer not to say
           </div>
           <div style={{ marginTop: "10px" }}>
@@ -67,6 +123,7 @@ function EditProfileScreen() {
               placeholder="img"
               accept="image/*"
               id="file-regis"
+              onChange={handleChangeImage}
             />
             <label htmlFor="file-regis" id="file-regis">
               Upload Image File
@@ -76,13 +133,16 @@ function EditProfileScreen() {
             <div>
               <button
                 className="btn-save-regis"
-                style={{ marginRight: "26px" }}
+                style={{ marginRight: "26px", fontWeight: "bold" }}
+                onClick={handleSave}
               >
                 Save
               </button>
             </div>
             <div>
-              <button className="btn-cancel-regis">Cancel</button>
+              <button className="btn-cancel-regis"
+              style={{ fontWeight: "bold" }}
+              onClick={handleCancel} >Cancel</button>
             </div>
           </div>
         </form>
