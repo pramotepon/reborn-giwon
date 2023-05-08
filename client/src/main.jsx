@@ -12,6 +12,7 @@ import ResetPassScreen from './Screens/resetpassscreen.jsx';
 import NewPassScreen from './Screens/newpassscreen.jsx';
 import EditProfileScreen from './Screens/editprofilescreen.jsx';
 import Navbar from './components/Navbar.jsx'
+import ButtonNewActivity from './components/ButtonNewActivity.jsx'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/navbar',
     element: <Navbar />
+  },
+  {
+    path: '/buttoncomponent',
+    element: <ButtonNewActivity />
   }
 ])
 
