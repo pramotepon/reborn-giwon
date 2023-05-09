@@ -11,9 +11,9 @@ const schema = mongoose.Schema({
     image: { type: String, default: null },
     goal: { type: Number, default: null },
 }, {
-    collection: 'users'
+    collection: "users"
 });
 
-const User = mongoose.model('User', schema);
+const user = mongoose.model('User', schema);
 
-export default User;
+export default user;
