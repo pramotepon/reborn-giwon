@@ -17,21 +17,39 @@ npm run dev
 ```
 
 ## Dev Team
+---
 ### Arlif Tagaree
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+
+---
 ### Cheewathun Lerttanapit
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
 ### Pongpeera Ratana-arporn
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
 ### Pramote Phan-on
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
 ### Sasiwan Janma
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
 ### Thatpong Paleekan
-```
-```
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
