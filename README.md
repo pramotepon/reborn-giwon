@@ -5,13 +5,13 @@
 git clone https://github.com/pramotepon/reborn-giwon.git
 ```
 2. Open project in vsCode or textEditer etc.
-2. Install package for project.
+3. Install package for project.
 ```bash
 npm install
 ```
-3. Create file .env in root path ( Can see prototype from .env.example ).
-4. Complete write .env file.
-5. Run project.
+4. Create file .env in root path ( Can see prototype from .env.example ).
+5. Complete write .env file.
+6. Run project.
 ```bash
 npm run dev
 ```
