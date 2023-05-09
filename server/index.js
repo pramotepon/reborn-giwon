@@ -4,10 +4,9 @@ import express from 'express';
 import User from './models/User.js';
 import Activity from './models/Activity.js';
 
-
 const app = express();
 
-import { mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 app.use(express.json());
 
@@ -15,9 +14,33 @@ const username = process.env.MONGO_USER;
 const password = process.env.MONGO_PASSWORD;
 const cluster = "cluster0.iuonl31";
 const dbname = "g_won";
-// j6iBY2bnnDfV7f8Q
-mongoose.connect(`mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`);
+
+mongoose
+  .connect(
+    `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(() => {
+    console.log("MongoDB connected...");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find();
+    console.log(users);
+    if (users.length === 0) {
+      return res.status(404).json({ message: "No users found" });
+    }
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
 
 app.listen(8080, () => {
-    console.log('Server is running.');
+  console.log("Server is running.");
 });
