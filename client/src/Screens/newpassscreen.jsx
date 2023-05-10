@@ -34,26 +34,26 @@ function NewPassScreen() {
             <h2 style={{ fontWeight: "bold" }}>Set New Password</h2>
           </div>
 
-          <div className="reset-text" >
+          <div className="reset-text">
             <label htmlFor="newpass">New Password</label>
             <input
               type="password"
               name="email"
               placeholder=""
               className="input-regis"
-              style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangePassword}
             />
           </div>
 
-          <div className="reset-text" >
+          <div className="reset-text">
             <label htmlFor="confirmpass">Comfirm Password</label>
             <input
               type="password"
               name="email"
               placeholder=""
               className="input-regis"
-              style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangePassword}
             />
           </div>
@@ -69,11 +69,15 @@ function NewPassScreen() {
               </button>
             </div>
             <div>
-            <Link to="/login">
-              <button className="btn-cancel-regis"
-              style={{ fontWeight: "bold" }}
-              onClick={handleCancel} >Cancel</button>
-            </Link>
+              <Link to="/login">
+                <button
+                  className="btn-cancel-regis"
+                  style={{ fontWeight: "bold" }}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
         </form>

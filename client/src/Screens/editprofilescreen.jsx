@@ -3,8 +3,17 @@ import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
+import { useNavigate } from 'react-router-dom';
 
-function EditProfileScreen() {
+
+function EditProfileScreen( props ) {
+  console.log(props.location);
+  const navigate = useNavigate();
+
+  function goBack(e) {
+    e.preventDefault(); 
+    navigate(-1);
+  }
 
   const [displayname, setDisplayname] = useState();
   const [height, setHeight] = useState();
@@ -28,42 +37,38 @@ function EditProfileScreen() {
       setImage(event.target.value);
   };
 
-  const handleSave = (event) => {
-    event.preventDefault(); 
+  // const handleSave = (event) => {
+  //   event.preventDefault(); 
   
-    const formData = {
-      displayname,
-      height,
-      weight,
-      gender,
-      image,
-    };
+  //   const formData = {
+  //     displayname,
+  //     height,
+  //     weight,
+  //     gender,
+  //     image,
+  //   };
   
-    console.log(formData);
+  //   console.log(formData);
   
-  };
+  // };
 
-  const handleCancel = () => {
-    setDisplayname("");
-    setHeight("");
-    setWeight("");
-    setGender("");
-    setImage("");
-  };
+  // const handleCancel = () => {
+  //   setDisplayname("");
+  //   setHeight("");
+  //   setWeight("");
+  //   setGender("");
+  //   setImage("");
+  // };
 
     return (
-  <LoginLayout>
-<form action="" className="form-login form-regis">
+      <LoginLayout>
+        <form action="" className="form-login form-regis">
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
             <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
           </div>
 
-          <div className="regis-text" style={{ marginBottom: "10px" }}>
-           
-          </div>
-          <div className="regis-text" style={{ marginBottom: "10px" }}>
-          
-          </div>
+          <div className="regis-text" style={{ marginBottom: "10px" }}></div>
+          <div className="regis-text" style={{ marginBottom: "10px" }}></div>
           <div className="regis-text" style={{ marginBottom: "10px" }}>
             <label htmlFor="password" style={{ display: "flex" }}>
               DisplayName
@@ -102,19 +107,13 @@ function EditProfileScreen() {
               />
             </div>
           </div>
-          <div className="regis-text" style={{ fontSize : "18px" }}>
+          <div className="regis-text" style={{ fontSize: "18px" }}>
             <label htmlFor="gender">Gender</label>
-            <input type="radio" name="gender" 
-            onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Male
-            <input type="radio" name="gender" 
-            onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Female
-            <input type="radio" name="gender" 
-            onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
           <div style={{ marginTop: "10px" }}>
@@ -135,19 +134,23 @@ function EditProfileScreen() {
               <button
                 className="btn-save-regis"
                 style={{ marginRight: "26px", fontWeight: "bold" }}
-                onClick={handleSave}
+                onClick={(e) => goBack(e)}
               >
                 Save
               </button>
             </div>
             <div>
-              <button className="btn-cancel-regis"
-              style={{ fontWeight: "bold" }}
-              onClick={handleCancel} >Cancel</button>
+              <button
+                className="btn-cancel-regis"
+                style={{ fontWeight: "bold" }}
+                onClick={(e) => goBack(e)}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </form>
-  </LoginLayout>
+      </LoginLayout>
     );
 }
 
