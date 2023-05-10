@@ -15,17 +15,15 @@ const password = process.env.MONGO_PASSWORD;
 const cluster = "cluster0.iuonl31";
 const dbname = "g_won";
 
-mongoose
-  .connect(
-    `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
-  .then(() => {
-    console.log("MongoDB connected...");
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+mongoose.connect(process.env.MONGO_USER_URI,
+  {
+    dbName: process.env.MONGO_DATABASE,
+    writeConcern: "majority",
+    retryWrites: true,
+    user: process.env.MONGO_USER,
+    pass: process.env.MONGO_PASS
+  }
+);
 
 app.get("/users", async (req, res) => {
   try {
