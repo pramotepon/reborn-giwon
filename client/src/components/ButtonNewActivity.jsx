@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../assets/css/components/buttonNewActivity.css"
 
 const ButtonNewActivity = () => {
-  const [activity, setActivity] = useState("asdad");
+  const [activity, setActivity] = useState();
 
   let newActivity;
 
