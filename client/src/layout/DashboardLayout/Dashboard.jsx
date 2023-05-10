@@ -8,15 +8,13 @@ const Dashboard = ({ children }) => {
 		<div className="dashboard">
 			<Navbar />
 
-			<div class="row">
-				<div className="userAndGoal" class="col-3">
+			<div className="row">
+				<div className="userAndGoal col-3">
 					<UserProfile />
 					<GoalProgress />
 				</div>
 
-				<div className="rightContainer" class="col-9">
-					{children}
-				</div>
+				<div className="rightContainer col-9">{children}</div>
 			</div>
 			<br></br>
 		</div>

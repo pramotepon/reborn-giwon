@@ -8,12 +8,12 @@ const UserProfile = () => {
 
 	return (
 		<div className="userProfile">
-			<img src="http://placekitten.com/200/200" class="img-fluid" alt="" />
+			<img src="http://placekitten.com/200/200" className="img-fluid" alt="" />
 			<div className="displayName">
 				<p className="displayNameText">DisplayName</p>
 			</div>
 			<p className="currentWeightText">
-				Current Weight : <strong>{weight}</strong> kg
+				Current Weight : <span>{weight}</span> kg
 			</p>
 			<Button variant="">
 				<FontAwesomeIcon
