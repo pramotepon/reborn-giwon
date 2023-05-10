@@ -12,9 +12,7 @@ const UserProfile = () => {
 			<div className="displayName">
 				<p className="displayNameText">DisplayName</p>
 			</div>
-			<p className="currentWeightText">
-				Current Weight : <span>{weight}</span> kg
-			</p>
+			<p className="currentWeightText">Current Weight : {weight} kg</p>
 			<Button variant="">
 				<FontAwesomeIcon
 					className="editIcon"

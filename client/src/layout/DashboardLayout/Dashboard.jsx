@@ -7,7 +7,7 @@ import "../../assets/css/DashboardScreen.css";
 const Dashboard = ({ children }) => {
 	return (
 		<div className="dashboard">
-			<Navbar />
+			{/* <Navbar /> */}
 
 			<div className="row">
 				<div className="userAndGoal col-3 mt-5 pt-4">
