@@ -11,4 +11,8 @@ activityController.hello = (req, res) => {
     res.json('Hello');
 }
 
+activityController.test = (req, res) => {
+    res.json('test');
+}
+
 export default activityController;
