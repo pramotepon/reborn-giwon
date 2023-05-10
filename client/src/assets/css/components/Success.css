@@ -1,0 +1,41 @@
+*{
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+}
+
+.congrats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#85b9c9;
+    border: #02fefe solid 2px;
+    border-radius: 20px;
+    width: 70%;
+    margin: 40px 30px auto 140px;
+}
+.congratsGIF {
+
+    width: 40%;
+}
+
+.congrats p {
+    font-size: 36px;
+    color: white;
+}
+
+.congratsText {
+    margin-top: 50px;
+}
+
+.newGoal {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 220px;
+    height: 50px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
+}
