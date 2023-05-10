@@ -17,6 +17,6 @@ const schema = mongoose.Schema({
     collection: "activities"
 });
 
-const activity = mongoose.model('Activity', schema);
+const Activity = mongoose.model('Activity', schema);
 
-export default activity;
+export default Activity;
