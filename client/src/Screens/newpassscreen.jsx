@@ -2,6 +2,7 @@ import React from "react";
 import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import '../assets/css/login.css'
 
 function NewPassScreen() {
 
