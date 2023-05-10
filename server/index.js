@@ -3,10 +3,10 @@ dotenv.config();
 import express from 'express';
 import User from './models/User.js';
 import Activity from './models/Activity.js';
+import mongoose from 'mongoose';
+import activityRouter from './routes/activities.js';
 
 const app = express();
-
-import mongoose from 'mongoose';
 
 app.use(express.json());
 
@@ -25,19 +25,7 @@ mongoose.connect(process.env.MONGO_USER_URI,
   }
 );
 
-app.get("/users", async (req, res) => {
-  try {
-    const users = await User.find();
-    console.log(users);
-    if (users.length === 0) {
-      return res.status(404).json({ message: "No users found" });
-    }
-    res.json(users);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server Error" });
-  }
-});
+app.use('/activities', activityRouter);
 
 app.listen(8080, () => {
   console.log("Server is running.");
