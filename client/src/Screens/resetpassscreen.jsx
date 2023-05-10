@@ -2,6 +2,7 @@ import React from "react";
 import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import '../assets/css/login.css'
 
 function ResetPassScreen() {
 
@@ -53,7 +54,7 @@ function ResetPassScreen() {
             <h2 style={{ fontWeight: "bold" }}>Reset Password</h2>
           </div>
 
-          <div className="reset-text" >
+          <div className="reset-text">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -65,9 +66,7 @@ function ResetPassScreen() {
           </div>
           <div className="hw-reset">
             <div className="reset-text">
-              <label htmlFor="Height">
-                Height
-              </label>
+              <label htmlFor="Height">Height</label>
               <input
                 type="text"
                 name="Height"
@@ -77,9 +76,7 @@ function ResetPassScreen() {
               />
             </div>
             <div className="reset-text">
-              <label htmlFor="CurrentWeight">
-                Current Weight
-              </label>
+              <label htmlFor="CurrentWeight">Current Weight</label>
               <input
                 type="text"
                 name="Weight"
@@ -89,19 +86,16 @@ function ResetPassScreen() {
               />
             </div>
           </div>
-          <div className="reset-text" style={{ fontSize : "18px",display: 'flex', flexDirection: 'row' }}>
+          <div
+            className="reset-text"
+            style={{ fontSize: "18px", display: "flex", flexDirection: "row" }}
+          >
             <label htmlFor="gender">Gender</label>
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Male
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Female
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
           <div className="btn-regis">
@@ -115,11 +109,15 @@ function ResetPassScreen() {
               </button>
             </div>
             <div>
-            <Link to="/login">
-              <button className="btn-cancel-regis"
-              style={{ fontWeight: "bold" }}
-              onClick={handleCancel} >Cancel</button>
-            </Link>
+              <Link to="/login">
+                <button
+                  className="btn-cancel-regis"
+                  style={{ fontWeight: "bold" }}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
         </form>

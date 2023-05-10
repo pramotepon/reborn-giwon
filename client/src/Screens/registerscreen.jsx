@@ -2,6 +2,7 @@ import React from "react";
 import LoginLayout from "../layout/loginlayout/loginlay";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import '../assets/css/login.css'
 
 function RegisterScreen() {
 
@@ -78,7 +79,7 @@ function RegisterScreen() {
               name="email"
               placeholder=""
               className="input-regis"
-              style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangeEmail}
             />
           </div>
@@ -91,7 +92,7 @@ function RegisterScreen() {
               name="password"
               placeholder=""
               className="input-regis"
-              style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangePassword}
             />
           </div>
@@ -104,7 +105,7 @@ function RegisterScreen() {
               name="DisplayName"
               placeholder=""
               className="input-regis"
-              style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangeDisplayname}
             />
           </div>
@@ -118,7 +119,7 @@ function RegisterScreen() {
                 name="Height"
                 placeholder=""
                 className="input-regis"
-                style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+                style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
                 onChange={handleChangeHeight}
               />
             </div>
@@ -131,24 +132,18 @@ function RegisterScreen() {
                 name="Weight"
                 placeholder=""
                 className="input-regis weight-regis"
-                style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+                style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
                 onChange={handleChangeWeight}
               />
             </div>
           </div>
-          <div className="regis-text" style={{ fontSize : "18px" }}>
+          <div className="regis-text" style={{ fontSize: "18px" }}>
             <label htmlFor="gender">Gender</label>
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Male
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Female
-            <input type="radio" name="gender" 
-              onChange={handleChangeGender}
-            />
+            <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
           <div style={{ marginTop: "10px" }}>
@@ -175,11 +170,15 @@ function RegisterScreen() {
               </button>
             </div>
             <div>
-            <Link to="/login">
-              <button className="btn-cancel-regis"
-              style={{ fontWeight: "bold" }}
-              onClick={handleCancel}>Cancel</button>
-            </Link>
+              <Link to="/login">
+                <button
+                  className="btn-cancel-regis"
+                  style={{ fontWeight: "bold" }}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
         </form>
