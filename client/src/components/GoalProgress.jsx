@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Doughnut } from "react-chartjs-2";
 
 import "../assets/css/components/GoalProgress.css";
+
 ChartJS.register(ArcElement);
 
 const GoalProgess = () => {
@@ -31,7 +32,7 @@ const GoalProgess = () => {
 					/>
 				</Button>
 			</h3>
-			<Doughnut class="w-75 h-75" data={chartData} />
+			<Doughnut className="w-75 h-75" data={chartData} />
 		</div>
 	);
 };

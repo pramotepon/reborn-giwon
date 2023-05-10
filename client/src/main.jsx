@@ -7,12 +7,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import "./assets/css/login.css";
-import ButtonNewActivity from "./components/ButtonNewActivity.jsx";
-import Navbar from "./components/Navbar.jsx";
-import "./index.css";
+// import "./assets/css/login.css";
+// import "./index.css";
 import Dashboard from "./layout/DashboardLayout/Dashboard.jsx";
 import EditProfileScreen from "./Screens/editprofilescreen.jsx";
+import GoalSelectionScreen from "./Screens/GoalSelectionScreen.jsx";
 import LandingPage from "./Screens/LandingPage.jsx";
 import LoginScreen from "./Screens/loginscreen.jsx";
 import NewPassScreen from "./Screens/newpassscreen.jsx";
@@ -47,6 +46,10 @@ const router = createBrowserRouter([
 	{
 		path: "/dashboard",
 		element: <Dashboard />,
+	},
+	{
+		path: "/goalselection",
+		element: <GoalSelectionScreen />,
 	},
 ]);
 
