@@ -23,16 +23,16 @@ const GoalProgess = () => {
 
 	return (
 		<div className="goalProgress">
-			<h3>
+			<p className="goalProgressInfo">
 				Goal : <strong>{goal}</strong> kg{" "}
-				<Button variant="">
+				<Button variant="" href="/specificgoal">
 					<FontAwesomeIcon
 						className="editIcon"
 						icon="fa-regular fa-pen-to-square"
 					/>
 				</Button>
-			</h3>
-			<Doughnut className="w-75 h-75" data={chartData} />
+			</p>
+			<Doughnut className="w-50 h-50" data={chartData} />
 		</div>
 	);
 };

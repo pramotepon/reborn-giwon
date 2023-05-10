@@ -7,6 +7,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./layout/DashboardLayout/Dashboard.jsx";
+import ActivityCardScreen from "./Screens/ActivityCardScreen.jsx";
 import EditProfileScreen from "./Screens/editprofilescreen.jsx";
 import GoalSelectionScreen from "./Screens/GoalSelectionScreen.jsx";
 import LandingPage from "./Screens/LandingPage.jsx";
@@ -14,6 +15,7 @@ import LoginScreen from "./Screens/loginscreen.jsx";
 import NewPassScreen from "./Screens/newpassscreen.jsx";
 import RegisterScreen from "./Screens/registerscreen.jsx";
 import ResetPassScreen from "./Screens/resetpassscreen.jsx";
+import SpecificGoalScreen from "./Screens/SpecificGoalScreen.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
 	{
 		path: "/goalselection",
 		element: <GoalSelectionScreen />,
+	},
+	{
+		path: "/specificgoal",
+		element: <SpecificGoalScreen />,
+	},
+	{
+		path: "/activitycard",
+		element: <ActivityCardScreen />,
 	},
 ]);
 

@@ -115,7 +115,7 @@ const GoalSelection = () => {
 			<div className="d-grid gap-2">
 				<Button
 					variant="success"
-					href={ownGoal === 4 ? "/specificgoalpath" : "/activitycard"}
+					href={ownGoal === 4 ? "/specificgoal" : "/activitycard"}
 					className="btn btn-lg"
 					type="button"
 				>
