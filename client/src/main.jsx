@@ -16,6 +16,8 @@ import NewPassScreen from "./Screens/newpassscreen.jsx";
 import RegisterScreen from "./Screens/registerscreen.jsx";
 import ResetPassScreen from "./Screens/resetpassscreen.jsx";
 import SpecificGoalScreen from "./Screens/SpecificGoalScreen.jsx";
+import SuccessScreen from "./Screens/SuccessScreen.jsx";
+import CRUDScreen from "./Screens/CRUDScreen.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
 	{
 		path: "/activitycard",
 		element: <ActivityCardScreen />,
+	},
+	{
+		path: "/success",
+		element: <SuccessScreen />,
+	},
+	{
+		path: "/createcrud",
+		element: <CRUDScreen />,
 	},
 ]);
 
