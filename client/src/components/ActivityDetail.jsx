@@ -1,80 +1,58 @@
-import React from "react";
+import React, { useEffect } from 'react'
+import { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../assets/css/components/CRUD.css"
 
 const ActivityDetail = () => {
+  const [name, setName] = useState('')
+  const [duration, setDuration] = useState(0)
+  const [type, setType] = useState()
+  const [date, setDate] = useState()
+  const [weight, setWeight] = useState(0)
+  const [text, setText] = useState('')
+
   return (
-    <div
-      class="rounded my-bg-blue p-4 mt-3"
-      style={{ marginRight: "20px", height: "" }}
-    >
-      <div class="row">
-        {/* first column */}
-        <div class="">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNBxfBozL0lyKSrAWXsNNw-gyBUbp2Zmu5Q&usqp=CAU"
-            alt="..."
-            class=" rounded img-fluid pt-3"
-          ></img>
+    <div className="card-container text-white">
+      <div className="row p-5">
+        {/* Left */}
+        <div className="col-6">
+          <div className="add-image">
+            <FontAwesomeIcon className="imageIcon" icon="fa-regular fa-image" style={{ color: "#b4bcca", }} />
+            <FontAwesomeIcon className="plusIcon" icon="fa-solid fa-circle-plus" style={{ color: "#b4bcca", }} />
+          </div>
+          <div className="name">
+            <label htmlFor="name">Activity Name</label>
+            <p>name</p>
+          </div>
+          <div className="duration">
+            <label htmlFor="duration">Activity Duration</label>
+            <p>Duration</p>
+          </div>
+        </div>
+        {/* Right */}
+        <div className="col-6">
+          <div className="type">
+            <label htmlFor="type">Activity Type</label>
+            <p>Type</p>
+          </div>
+
+          <div className="date">
+            <label htmlFor="date">Date</label>
+            <p>Date</p>
+          </div>
+          <div className="weight">
+            <label htmlFor="weight">Current Weight (kg)</label>
+            <p>Date (kg)</p>
+          </div>
         </div>
 
-        {/* secound column */}
-        <div class="">
-          <form>
-            <div class="form-group row">
-              <label for="staticEmail" class="custom-label">
-                Acctivity name1
-              </label>
-              <div class="col-sm-10 ">
-                <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext bg-white rounded "
-                  id="staticEmail"
-                  value="Running"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="staticEmail" class="custom-label">
-                Acctivity name2
-              </label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext bg-white rounded"
-                  id="staticEmail"
-                  value="Running"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="staticEmail" class="custom-label">
-                Acctivity name3
-              </label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext bg-white rounded"
-                  id="staticEmail"
-                  value="Running"
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1" class="custom-label">
-                Describe your journal
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-          </form>
+        <div className='duration'>
+          <label htmlFor="weight">Describe your journal</label>
+          <p>Describe your journal</p>
         </div>
+
       </div>
     </div>
-  );
+  )
 };
 export default ActivityDetail;

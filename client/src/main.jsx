@@ -47,7 +47,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/dashboard",
-		element: <Dashboard />,
+		element: <ActivityCardScreen />,
 	},
 	{
 		path: "/goalselection",
@@ -57,10 +57,10 @@ const router = createBrowserRouter([
 		path: "/specificgoal",
 		element: <SpecificGoalScreen />,
 	},
-	{
-		path: "/activitycard",
-		element: <ActivityCardScreen />,
-	},
+	// {
+	// 	path: "/activitycard",
+	// 	element: <ActivityCardScreen />,
+	// },
 	{
 		path: "/activitydetail",
 		element: <ActivityDetailScreen />,
