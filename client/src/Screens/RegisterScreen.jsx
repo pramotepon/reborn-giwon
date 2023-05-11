@@ -1,26 +1,26 @@
 import React from "react";
-import LoginLayout from "../layout/loginlayout/loginlay";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
-import { useNavigate } from 'react-router-dom';
 
+function RegisterScreen() {
 
-function EditProfileScreen( props ) {
-  console.log(props.location);
-  const navigate = useNavigate();
-
-  function goBack(e) {
-    e.preventDefault(); 
-    navigate(-1);
-  }
-
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [displayname, setDisplayname] = useState();
   const [height, setHeight] = useState();
   const [weight, setWeight] = useState();
   const [gender, setGender] = useState();
   const [image, setImage] = useState();
 
+  const handleChangeEmail = (event) => {
+      setEmail(event.target.value);
+      console.log(event.target.value);
+  };
+  const handleChangePassword = (event) => {
+      setPassword(event.target.value);
+  };
   const handleChangeDisplayname = (event) => {
       setDisplayname(event.target.value);
   };
@@ -37,38 +37,68 @@ function EditProfileScreen( props ) {
       setImage(event.target.value);
   };
 
-  // const handleSave = (event) => {
-  //   event.preventDefault(); 
+  const handleSave = (event) => {
+    event.preventDefault(); 
   
-  //   const formData = {
-  //     displayname,
-  //     height,
-  //     weight,
-  //     gender,
-  //     image,
-  //   };
+    const formData = {
+      email,
+      password,
+      displayname,
+      height,
+      weight,
+      gender,
+      image,
+    };
   
-  //   console.log(formData);
+    console.log(formData);
   
-  // };
+  };
 
-  // const handleCancel = () => {
-  //   setDisplayname("");
-  //   setHeight("");
-  //   setWeight("");
-  //   setGender("");
-  //   setImage("");
-  // };
+  const handleCancel = () => {
+    setEmail("");
+    setPassword("");
+    setDisplayname("");
+    setHeight("");
+    setWeight("");
+    setGender("");
+    setImage("");
+  };
+  
 
     return (
       <LoginLayout>
         <form action="" className="form-login form-regis">
+
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
-            <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
+            <h2 style={{ fontWeight: "bold" }}>Register</h2>
           </div>
 
-          <div className="regis-text" style={{ marginBottom: "10px" }}></div>
-          <div className="regis-text" style={{ marginBottom: "10px" }}></div>
+          <div className="regis-text" style={{ marginBottom: "10px" }}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder=""
+              className="input-regis"
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+              onChange={handleChangeEmail}
+            />
+          </div>
+
+          <div className="regis-text" style={{ marginBottom: "10px" }}>
+            <label htmlFor="password" style={{ display: "flex" }}>
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder=""
+              className="input-regis"
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+              onChange={handleChangePassword}
+            />
+          </div>
+
           <div className="regis-text" style={{ marginBottom: "10px" }}>
             <label htmlFor="password" style={{ display: "flex" }}>
               DisplayName
@@ -78,10 +108,13 @@ function EditProfileScreen( props ) {
               name="DisplayName"
               placeholder=""
               className="input-regis"
+              style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               onChange={handleChangeDisplayname}
             />
           </div>
+
           <div className="hw">
+
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
                 Height
@@ -91,9 +124,11 @@ function EditProfileScreen( props ) {
                 name="Height"
                 placeholder=""
                 className="input-regis"
+                style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
                 onChange={handleChangeHeight}
               />
             </div>
+
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
                 Weight
@@ -103,9 +138,11 @@ function EditProfileScreen( props ) {
                 name="Weight"
                 placeholder=""
                 className="input-regis weight-regis"
+                style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
                 onChange={handleChangeWeight}
               />
             </div>
+
           </div>
           <div className="regis-text" style={{ fontSize: "18px" }}>
             <label htmlFor="gender">Gender</label>
@@ -116,6 +153,7 @@ function EditProfileScreen( props ) {
             <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
+
           <div style={{ marginTop: "10px" }}>
             <input
               type="file"
@@ -129,29 +167,34 @@ function EditProfileScreen( props ) {
               Upload Image File
             </label>
           </div>
+
           <div className="btn-regis">
             <div>
               <button
                 className="btn-save-regis"
                 style={{ marginRight: "26px", fontWeight: "bold" }}
-                onClick={(e) => goBack(e)}
+                onClick={handleSave}
               >
                 Save
               </button>
             </div>
+
             <div>
-              <button
-                className="btn-cancel-regis"
-                style={{ fontWeight: "bold" }}
-                onClick={(e) => goBack(e)}
-              >
-                Cancel
-              </button>
+              <Link to="/login">
+                <button
+                  className="btn-cancel-regis"
+                  style={{ fontWeight: "bold" }}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
+
         </form>
       </LoginLayout>
     );
 }
 
-export default EditProfileScreen
+export default RegisterScreen
