@@ -8,6 +8,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./layout/DashboardLayout/Dashboard.jsx";
 import ActivityCardScreen from "./Screens/ActivityCardScreen.jsx";
+import ActivityDetailScreen from "./Screens/ActivityDetailScreen.jsx";
 import EditProfileScreen from "./Screens/editprofilescreen.jsx";
 import GoalSelectionScreen from "./Screens/GoalSelectionScreen.jsx";
 import LandingPage from "./Screens/LandingPage.jsx";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
 	{
 		path: "/activitycard",
 		element: <ActivityCardScreen />,
+	},
+	{
+		path: "/activitydetail",
+		element: <ActivityDetailScreen />,
 	},
 	{
 		path: "/success",
