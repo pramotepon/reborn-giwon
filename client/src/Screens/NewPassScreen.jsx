@@ -1,5 +1,5 @@
 import React from "react";
-import LoginLayout from "../layout/loginlayout/loginlay";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
@@ -30,6 +30,7 @@ function NewPassScreen() {
     return (
       <LoginLayout>
         <form action="" className="form-reset">
+
           <div className="reset-text">
             <h2 style={{ fontWeight: "bold" }}>Set New Password</h2>
           </div>
@@ -60,14 +61,17 @@ function NewPassScreen() {
 
           <div className="btn-regis">
             <div>
+            <Link to="/login">
               <button
                 className="btn-save-regis"
                 style={{ marginRight: "26px", fontWeight: "bold" }}
-                onClick={handleSave}
+                // onClick={handleSave}
               >
                 Reset Password
               </button>
+            </Link>
             </div>
+
             <div>
               <Link to="/login">
                 <button
@@ -80,6 +84,7 @@ function NewPassScreen() {
               </Link>
             </div>
           </div>
+
         </form>
       </LoginLayout>
     );
