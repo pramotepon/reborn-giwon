@@ -108,6 +108,12 @@ html{
   border: 1px solid #000000;
   transition: 0.2s;
 }
+.my-nav .my-nav-btn.my-btn-register:hover {
+  font-weight: bold;
+}
+.my-nav .my-nav-btn.my-btn-login:hover {
+  font-weight: bold;
+}
 .my-nav.my-bg-white .my-nav-btn:hover{
   background-color: #000000;
   color: white;
