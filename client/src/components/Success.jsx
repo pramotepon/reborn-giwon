@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../assets/css/components/Success.css"
 import Congrats from '../assets/Congrats.json'
 import Lottie from 'lottie-react';
+import { Link } from 'react-router-dom';
 
 
 const Success = () => {
@@ -13,7 +14,7 @@ const Success = () => {
         
         <Lottie animationData={Congrats} className='congratsGIF'/>
 
-        <button className='newGoal'>Start New Goal</button>
+        <Link className='newGoal' to={"/goalselection"}>Start New Goal</Link>
     </div>
   );
 }
