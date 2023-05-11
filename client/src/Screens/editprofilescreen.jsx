@@ -1,5 +1,5 @@
 import React from "react";
-import LoginLayout from "../layout/loginlayout/loginlay";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
@@ -63,12 +63,14 @@ function EditProfileScreen( props ) {
     return (
       <LoginLayout>
         <form action="" className="form-login form-regis">
+
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
             <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
           </div>
 
           <div className="regis-text" style={{ marginBottom: "10px" }}></div>
           <div className="regis-text" style={{ marginBottom: "10px" }}></div>
+
           <div className="regis-text" style={{ marginBottom: "10px" }}>
             <label htmlFor="password" style={{ display: "flex" }}>
               DisplayName
@@ -81,6 +83,7 @@ function EditProfileScreen( props ) {
               onChange={handleChangeDisplayname}
             />
           </div>
+
           <div className="hw">
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
@@ -94,6 +97,7 @@ function EditProfileScreen( props ) {
                 onChange={handleChangeHeight}
               />
             </div>
+
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
                 Weight
@@ -107,6 +111,7 @@ function EditProfileScreen( props ) {
               />
             </div>
           </div>
+
           <div className="regis-text" style={{ fontSize: "18px" }}>
             <label htmlFor="gender">Gender</label>
             <input type="radio" name="gender" onChange={handleChangeGender} />
@@ -116,6 +121,7 @@ function EditProfileScreen( props ) {
             <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
+
           <div style={{ marginTop: "10px" }}>
             <input
               type="file"
@@ -129,6 +135,7 @@ function EditProfileScreen( props ) {
               Upload Image File
             </label>
           </div>
+
           <div className="btn-regis">
             <div>
               <button
@@ -139,6 +146,7 @@ function EditProfileScreen( props ) {
                 Save
               </button>
             </div>
+
             <div>
               <button
                 className="btn-cancel-regis"
@@ -149,6 +157,7 @@ function EditProfileScreen( props ) {
               </button>
             </div>
           </div>
+
         </form>
       </LoginLayout>
     );

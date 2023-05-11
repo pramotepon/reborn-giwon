@@ -1,5 +1,5 @@
 import React from "react";
-import LoginLayout from "../layout/loginlayout/loginlay";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
@@ -50,6 +50,7 @@ function ResetPassScreen() {
     return (
       <LoginLayout>
         <form action="" className="form-reset">
+
           <div className="reset-text">
             <h2 style={{ fontWeight: "bold" }}>Reset Password</h2>
           </div>
@@ -64,7 +65,9 @@ function ResetPassScreen() {
               onChange={handleChangeEmail}
             />
           </div>
+
           <div className="hw-reset">
+
             <div className="reset-text">
               <label htmlFor="Height">Height</label>
               <input
@@ -75,6 +78,7 @@ function ResetPassScreen() {
                 onChange={handleChangeHeight}
               />
             </div>
+
             <div className="reset-text">
               <label htmlFor="CurrentWeight">Current Weight</label>
               <input
@@ -85,7 +89,9 @@ function ResetPassScreen() {
                 onChange={handleChangeCurrentWeight}
               />
             </div>
+
           </div>
+
           <div
             className="reset-text"
             style={{ fontSize: "18px", display: "flex", flexDirection: "row" }}
@@ -98,16 +104,20 @@ function ResetPassScreen() {
             <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
+
           <div className="btn-regis">
             <div>
+            <Link to="/login">
               <button
                 className="btn-save-regis"
                 style={{ marginRight: "26px", fontWeight: "bold" }}
-                onClick={handleSave}
+                // onClick={handleSave}
               >
                 Reset Password
               </button>
+              </Link>
             </div>
+
             <div>
               <Link to="/login">
                 <button
@@ -120,6 +130,7 @@ function ResetPassScreen() {
               </Link>
             </div>
           </div>
+
         </form>
       </LoginLayout>
     );

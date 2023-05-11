@@ -1,5 +1,5 @@
 import React from "react";
-import LoginLayout from "../layout/loginlayout/loginlay";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
@@ -68,6 +68,7 @@ function RegisterScreen() {
     return (
       <LoginLayout>
         <form action="" className="form-login form-regis">
+
           <div className="regis-text-top" style={{ marginBottom: "10px" }}>
             <h2 style={{ fontWeight: "bold" }}>Register</h2>
           </div>
@@ -83,6 +84,7 @@ function RegisterScreen() {
               onChange={handleChangeEmail}
             />
           </div>
+
           <div className="regis-text" style={{ marginBottom: "10px" }}>
             <label htmlFor="password" style={{ display: "flex" }}>
               Password
@@ -96,6 +98,7 @@ function RegisterScreen() {
               onChange={handleChangePassword}
             />
           </div>
+
           <div className="regis-text" style={{ marginBottom: "10px" }}>
             <label htmlFor="password" style={{ display: "flex" }}>
               DisplayName
@@ -109,7 +112,9 @@ function RegisterScreen() {
               onChange={handleChangeDisplayname}
             />
           </div>
+
           <div className="hw">
+
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
                 Height
@@ -123,6 +128,7 @@ function RegisterScreen() {
                 onChange={handleChangeHeight}
               />
             </div>
+
             <div className="regis-text" style={{ marginBottom: "10px" }}>
               <label htmlFor="password" style={{ display: "flex" }}>
                 Weight
@@ -136,6 +142,7 @@ function RegisterScreen() {
                 onChange={handleChangeWeight}
               />
             </div>
+
           </div>
           <div className="regis-text" style={{ fontSize: "18px" }}>
             <label htmlFor="gender">Gender</label>
@@ -146,6 +153,7 @@ function RegisterScreen() {
             <input type="radio" name="gender" onChange={handleChangeGender} />
             Prefer not to say
           </div>
+
           <div style={{ marginTop: "10px" }}>
             <input
               type="file"
@@ -159,6 +167,7 @@ function RegisterScreen() {
               Upload Image File
             </label>
           </div>
+
           <div className="btn-regis">
             <div>
               <button
@@ -169,6 +178,7 @@ function RegisterScreen() {
                 Save
               </button>
             </div>
+
             <div>
               <Link to="/login">
                 <button
@@ -181,6 +191,7 @@ function RegisterScreen() {
               </Link>
             </div>
           </div>
+
         </form>
       </LoginLayout>
     );

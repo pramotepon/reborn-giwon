@@ -2,6 +2,7 @@ import React from "react";
 import Dashboard from "../layout/DashboardLayout/Dashboard";
 import ActivityCard from "../components/ActivityCard";
 import ButtonNewActivity from "../components/ButtonNewActivity";
+import { Link } from "react-router-dom";
 
 const ActivityCardScreen = () => {
 	let mockActivities = [
@@ -27,7 +28,9 @@ const ActivityCardScreen = () => {
 	return (
 		<Dashboard>
 			<div className="mb-3">
+			<Link to="/createcrud">
 				<ButtonNewActivity activity={mockActivities} />
+			</Link>
 			</div>
 			{mockActivities.map((x, index) => {
 				return <ActivityCard activity={x} key={index} />;
