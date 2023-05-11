@@ -3,7 +3,7 @@ import React from 'react'
 const testConflict = () => {
   return (
     <div>
-        <p>Plugsza</p>
+        <p>Plugsza 55+</p>
     </div>
   )
 }
