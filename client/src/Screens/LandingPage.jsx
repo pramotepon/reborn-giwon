@@ -71,8 +71,8 @@ const LandingPage = () => {
                         </ul>
                         {/* Block for grid col-3 End Button */}
                         <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <a href='/register' className="btn my-nav-btn me-3">Register</a>
-                            <a href='/login' className="btn my-nav-btn">Login</a>
+                            <a href='/register' className="btn my-nav-btn me-3 my-btn-register">Register</a>
+                            <a href='/login' className="btn my-nav-btn my-btn-login">Login</a>
                         </div>
                         {/* End Block for grid col-3 End Button */}
                     </div>
@@ -270,7 +270,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
@@ -290,7 +290,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
@@ -310,7 +310,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
@@ -329,7 +329,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
@@ -348,7 +348,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
@@ -367,7 +367,7 @@ const LandingPage = () => {
                                     {/* Reviews Section content col 4 */}
                                     <div className="col-md-4 mt-4">
                                         {/* Card Content */}
-                                        <div className="card my-bg-secondary">
+                                        <div className="card my-bg-secondary h-100">
                                             {/* image tumnail */}
                                             <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                             {/* Card body */}
