@@ -13,7 +13,7 @@ const ActivityCard = (props) => {
         </div>
         <div className="col-sm-8">
           <h2>
-            <strong>{props.activity.title}</strong>
+            <a href="/activitydetail" className="text-decoration-none text-dark link-primary"><strong>{props.activity.title}</strong></a>
           </h2>
           <div className="my-top-right-button">
             <button className="btn p-0">
