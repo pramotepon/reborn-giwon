@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../assets/css/components/buttonNewActivity.css"
 
-const ButtonNewActivity = () => {
-  const [activity, setActivity] = useState();
+const ButtonNewActivity = (props) => {
+  const [activity, setActivity] = useState(props.activity);
 
   let newActivity;
 
