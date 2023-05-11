@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import '../assets/css/LandingPage.css'
-import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
 
@@ -108,7 +107,7 @@ const LandingPage = () => {
                     {/* Reviews Section content row */}
                     <div className="row">
                         {/* Reviews Section content col 4 */}
-                        <div className="col-md-4 mt-4">
+                        <div className="col-md-12 col-lg-4 mt-4">
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
@@ -128,7 +127,7 @@ const LandingPage = () => {
                         </div>
                         {/* End Reviews Section content col 4 */}
                         {/* Reviews Section content col 4 */}
-                        <div className="col-md-4 mt-4">
+                        <div className="col-md-6 col-lg-4 mt-4">
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
@@ -148,7 +147,7 @@ const LandingPage = () => {
                         </div>
                         {/* End Reviews Section content col 4 */}
                         {/* Reviews Section content col 4 */}
-                        <div className="col-md-4 mt-4">
+                        <div className="col-md-6 col-lg-4 mt-4">
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
@@ -175,34 +174,36 @@ const LandingPage = () => {
                     {/* row */}
                     <div className="row text-white">
                         {/* col-7 */}
-                        <div className="col-7">
+                        <div className="col-xl-7 d-none d-xl-block">
                             <img src="./src/image/landing_page/Group_14.png" alt="prototype-feature" width="100%" />
                         </div>
                         {/* end col-7 */}
                         {/* col-5 */}
-                        <div className="col-5">
-                            {/* Header 2 */}
-                            <h2>What we do?</h2>
-                            {/* paragraph text-header-3 pading-top 5 */}
-                            <p className="h3 pt-5">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                                reprehenderit obcaecati facere porro voluptatum nostrum, labore
-                                quae ea itaque natus tempore fugiat, eum optio, doloremque
-                                deserunt autem perspiciatis amet consectetur! Lorem ipsum dolor
-                                sit amet consectetur adipisicing elit. In suscipit maxime, maiores
-                                sequi dolorem illum ducimus repellendus veritatis repudiandae
-                                minus fuga laudantium delectus iure totam voluptatum animi
-                                accusantium minima nostrum?
-                            </p>
+                        <div className="col-xl-5 position-relative z-100 p-5 p-xl-3 what-we-do d-flex align-items-center">
+                            <div>
+                                {/* Header 2 */}
+                                <h2>What we do?</h2>
+                                {/* paragraph text-header-3 pading-top 5 */}
+                                <p className="h3 pt-5">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                                    reprehenderit obcaecati facere porro voluptatum nostrum, labore
+                                    quae ea itaque natus tempore fugiat, eum optio, doloremque
+                                    deserunt autem perspiciatis amet consectetur! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. In suscipit maxime, maiores
+                                    sequi dolorem illum ducimus repellendus veritatis repudiandae
+                                    minus fuga laudantium delectus iure totam voluptatum animi
+                                    accusantium minima nostrum?
+                                </p>
+                            </div>
                         </div>
                         {/* end col-5 */}
                     </div>
                     {/* end row */}
-                    <div className="liner-end" />
+                    <div className="liner-end z-90"></div>
                 </article>
                 {/* End What We do Section */}
                 {/* Step by step section */}
-                <article className="section-step-by-step pt-5 pb-5 container" id="section-step-by-step">
+                <article className="section-step-by-step pt-5 pb-5 container z-100" id="section-step-by-step">
                     <h1 className="text-center text-light mb-5 pb-5">Step by step</h1>
                     <hr className="mt-5" />
                     <div className="step-line-block container mt-5">
@@ -262,132 +263,129 @@ const LandingPage = () => {
                 {/* add jenniecard by pang*/}
                 <article className="section-dev-team container text-light pt-5 pb-5 mb-5" id="section-dev-team">
                     <div className="container">
-                        <div className="col-sm">
-                            {/*add card jennie1*/}
-                            <div className="row">
-                                <h2 className="text-center pb-5">Dev Team</h2>
-                                <div className="row">
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">Arlif Tagaree</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
-                                    </div>
-                                    {/*add card jennie2*/}
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
-                                    </div>
-                                    {/*add card jennie3*/}
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
-                                    </div>
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">Pramote Phan-on</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
-                                    </div>
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">Sasiwan Janma</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
-                                    </div>
-                                    {/* Reviews Section content col 4 */}
-                                    <div className="col-md-4 mt-4">
-                                        {/* Card Content */}
-                                        <div className="card my-bg-secondary h-100">
-                                            {/* image tumnail */}
-                                            <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
-                                            {/* Card body */}
-                                            <div className="card-body">
-                                                {/* Card title */}
-                                                <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
-                                                {/* Card paragraph */}
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up
-                                                    the bulk of the card's content.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* End Card Content */}
+                        {/*add card jennie1*/}
+                        <h2 className="text-center pb-5">Dev Team</h2>
+                        <div className="row">
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">Arlif Tagaree</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
                                     </div>
                                 </div>
+                                {/* End Card Content */}
+                            </div>
+                            {/*add card jennie2*/}
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* End Card Content */}
+                            </div>
+                            {/*add card jennie3*/}
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* End Card Content */}
+                            </div>
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">Pramote Phan-on</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* End Card Content */}
+                            </div>
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">Sasiwan Janma</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* End Card Content */}
+                            </div>
+                            {/* Reviews Section content col 4 */}
+                            <div className="col-lg-6 col-xl-4 mt-4">
+                                {/* Card Content */}
+                                <div className="card my-bg-secondary h-100">
+                                    {/* image tumnail */}
+                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    {/* Card body */}
+                                    <div className="card-body">
+                                        {/* Card title */}
+                                        <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
+                                        {/* Card paragraph */}
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up
+                                            the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* End Card Content */}
                             </div>
                         </div>
                     </div>
                 </article>
+                {/* End jenniecard by pang*/}
             </main>
             {/* End Block Main */}
             {/* Footer */}
