@@ -69,7 +69,9 @@ html{
 /* 
     Import & Config
 */
-
+.card-title{
+  font-size: 1.5rem;
+}
 /* 
   CSS Site
 */
@@ -160,6 +162,9 @@ html{
   position: relative;
   width: 100%;
 }
+.what-we-do{
+  background-color: none;
+}
 /* Hide scrollbar for Chrome, Safari and Opera */
 .section-what-we-do::-webkit-scrollbar {
   display: none;
@@ -194,6 +199,9 @@ html{
 .section-step-by-step h1 {
   text-shadow: 2px 3px 0 #000, 3px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
+.section-step-by-step hr{
+
+}
 .step-line-block {
   display: flex;
   justify-content: space-around;
@@ -226,7 +234,29 @@ html{
   border: 1px solid #84b9c9;
   box-shadow: 4px 3px 13px 1px #a5e8fc;
 }
-
+.z-90{
+  z-index: 90;
+}
+.z-100{
+  z-index: 100;
+}
+@media only screen and (max-width: 480px) {
+  .step-line-block {
+    /* display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    flex-direction: column;
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    align-items: center;
+  }
+}
 @media only screen and (max-width: 992px) {
   .my-nav{
     background-color: #fff;
@@ -240,5 +270,11 @@ html{
     color: black;
     border: 1px solid #000000;
     transition: 0.2s;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .what-we-do{
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
