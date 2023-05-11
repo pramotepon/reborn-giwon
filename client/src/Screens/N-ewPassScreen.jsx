@@ -1,5 +1,5 @@
 import React from "react";
-import LoginLayout from "../layout/Login-Layout/LoginLayout";
+import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
