@@ -113,7 +113,7 @@ function ResetPassScreen() {
                 style={{ marginRight: "26px", fontWeight: "bold" }}
                 // onClick={handleSave}
               >
-                Reset Password
+                Set New Password
               </button>
               </Link>
             </div>
