@@ -1,11 +1,16 @@
-import User from '../../models/User.js';
+import Activity from "../../models/Activity.js";
 
-const activityShowOne = (req, res) => {
-    res.json('Hello from register');
-}
+const activityShowOne = async (req, res) => {
+  const { id } = req.params;
+  const showOne = await Activity.findOne({
+    _id: id,
+  });
+  
+  res.json(showOne);
+};
 
 const activityShowOneController = {
-    activityShowOne: activityShowOne
+  activityShowOne: activityShowOne,
 };
 
 export default activityShowOneController;
