@@ -13,9 +13,12 @@ const router = express.Router();
     GET
 */
 // User Login
+// http://127.0.0.1:8080/users/login
 router.get('/login', userLoginController.login);
+// Get user data
+router.get('/user/:id', userGoalSuccessController.checkGoalSuccess);
 // Goal success.
-router.get('/users/login', userGoalSuccessController.checkGoalSuccess);
+router.get('/goal-success/:id', userGoalSuccessController.checkGoalSuccess);
 // User Check access Password reset
 router.get('/verify-before-reset-password/:id', userVerifyResetPasswordController.verifyResetPassword);
 
