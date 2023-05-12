@@ -7,11 +7,11 @@ import activityEditController from '../controllers/toey/activityEditController.j
 import activityDeleteController from '../controllers/arlif/activityDeleteController.js';
 
 const router = express.Router();
-
 /* 
     GET
 */
 // Fetch One Activities detail (R)
+// http://127.0.0.1:8080/activities/1231
 router.get('/:id', activityShowOneController.activityShowOne);
 // Fetch Activities detail (R)
 router.get('/user/:id', activityAllController.activityShow);
