@@ -3,6 +3,7 @@ dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
 import activityRouter from './routes/activities.js';
+import userRouter from './routes/users.js'
 
 const app = express();
 
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_USER_URI,
   }
 );
 
+app.use('/users', userRouter);
 app.use('/activities', activityRouter);
 
 app.listen(8080, () => {
