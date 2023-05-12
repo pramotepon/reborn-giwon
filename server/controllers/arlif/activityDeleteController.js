@@ -1,7 +1,12 @@
-import User from '../../models/User.js';
+import Activity from "../../models/Activity.js";
 
-const activityDelete = (req, res) => {
-    res.json('Hello from register');
+const activityDelete = async (req, res) => {
+    const { id } = req.params;
+    const activityLob = await Activity.deleteOne({
+        _id:id,
+    })
+    res.json("Activity is deleted")
+    
 }
 
 const activityDeleteController = {
