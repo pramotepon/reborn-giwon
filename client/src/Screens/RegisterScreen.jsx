@@ -180,7 +180,7 @@ function RegisterScreen() {
           <span style={{ whiteSpace: "nowrap" }}>Prefer not to say</span>
         </div>
 
-        <div style={{ marginTop: "10px" }}>
+        <div>
           <input
             type="file"
             name="file"
