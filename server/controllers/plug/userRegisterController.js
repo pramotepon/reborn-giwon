@@ -1,6 +1,9 @@
 import User from '../../models/User.js';
 import { v2 as cloudinary } from 'cloudinary'
 import bcrypt from 'bcryptjs'
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 // Configuration 
 cloudinary.config({
