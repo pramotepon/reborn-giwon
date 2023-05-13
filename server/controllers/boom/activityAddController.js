@@ -33,8 +33,6 @@ const cloudinaryImageUpload = async (img) => {
 		crop: "fill",
 	});
 
-	deleteFile("xkmjgs5gxjqofqpanw5o");
-
 	return {
 		url: response.secure_url,
 		publicId: response.public_id,
