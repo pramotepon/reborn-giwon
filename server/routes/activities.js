@@ -21,7 +21,6 @@ router.get("/user/:id", activityAllController.activityShow);
 */
 // Add activity (C) :user_id //!Boom
 router.post("/add/", activityAddController.addActivity);
-
 /* 
     PUT
 */

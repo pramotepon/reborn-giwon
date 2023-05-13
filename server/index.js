@@ -1,13 +1,22 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
+import { v2 as cloudinary } from 'cloudinary'
 import activityRouter from './routes/activities.js';
 import userRouter from './routes/users.js'
 
-const app = express();
+dotenv.config();
 
+const app = express();
 app.use(express.json());
+const PORT = 8080;
+
+// Configuration 
+cloudinary.config({
+  cloud_name: "dvaolcq3n",
+  api_key: "763929584218726",
+  api_secret: "IUabsGIfumXPr_mEudYj0wuiaPw"
+});
 
 mongoose.connect(process.env.MONGO_USER_URI,
   {
@@ -22,6 +31,6 @@ mongoose.connect(process.env.MONGO_USER_URI,
 app.use('/users', userRouter);
 app.use('/activities', activityRouter);
 
-app.listen(8080, () => {
-  console.log("Server is running.");
+app.listen(PORT, () => {
+  console.log(`Server is running. ${PORT}`);
 });
