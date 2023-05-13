@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import activityRouter from './routes/activities.js';
 import userRouter from './routes/users.js'
 import cookieParser from 'cookie-parser'
+import testController from './controllers/plug/testController.js'
 
 dotenv.config();
 
@@ -21,6 +22,8 @@ mongoose.connect(process.env.MONGO_USER_URI,
     pass: process.env.MONGO_PASS
   }
 );
+
+app.get('/delete', testController.testCont);
 
 app.use('/users', userRouter);
 app.use('/activities', activityRouter);

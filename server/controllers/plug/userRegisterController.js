@@ -25,18 +25,14 @@ const register = async (req, res) => {
 
 		let url_image = image;
 
-		if (image) {
-			// Get the extension of the uploaded file
-			var file_extension = image.split(".").pop();
-			// Check if the uploaded file is allowed
-			if (!array_of_allowed_files.includes(file_extension)) {
-				throw Error("Invalid file");
-			}
-			const result = await cloudinary.uploader.upload(image, {
-				height: 150,
-				width: 150,
-				crop: "fill",
-			});
+        if (image) {
+            // Get the extension of the uploaded file
+            let file_extension = image.split(".").pop();
+            // Check if the uploaded file is allowed
+            if (!array_of_allowed_files.includes(file_extension)) {
+                throw Error('Invalid file');
+            }
+            const result = await cloudinary.uploader.upload(image, { height: 150, width: 150, crop: "fill" });
 
 			if (!result) {
 				throw Error("Cloud image server have a poblem.");
