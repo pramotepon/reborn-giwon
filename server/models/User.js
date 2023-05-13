@@ -16,24 +16,6 @@ const schema = mongoose.Schema({
     collection: "users"
 });
 
-// Hash password
-schema.methods.encryptPassword = async (password) => {
-    // Generate salt
-    const salt = await bcrypt.genSalt(5);
-    // Hash password by password and salt
-    const hashPassword = await bcrypt.hash(password, salt);
-    // Return hash password
-    return hashPassword;
-}
-
-// Compare password
-schema.methods.checkPassword = async (password) => {
-    // Bcrypt compare (password from aggrument, password from schema)
-    const isValid = await bcrypt.compare(password, this.password);
-    // Return true or false
-    return isValid;
-}
-
 const user = mongoose.model('User', schema);
 
 
