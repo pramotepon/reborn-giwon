@@ -1,22 +1,16 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import { v2 as cloudinary } from 'cloudinary'
 import activityRouter from './routes/activities.js';
 import userRouter from './routes/users.js'
+import cookieParser from 'cookie-parser'
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 const PORT = 8080;
-
-// Configuration 
-cloudinary.config({
-  cloud_name: "dvaolcq3n",
-  api_key: "763929584218726",
-  api_secret: "IUabsGIfumXPr_mEudYj0wuiaPw"
-});
 
 mongoose.connect(process.env.MONGO_USER_URI,
   {
