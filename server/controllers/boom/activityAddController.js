@@ -2,17 +2,18 @@ import { v2 as cloudinary } from "cloudinary";
 import * as dotenv from "dotenv";
 import Activity from "../../models/Activity.js";
 import User from "../../models/User.js";
+import deleteFile from "../deleteCloudinaryImage.js";
 
 dotenv.config();
 
 // Cloudinary configuration
-cloudinary.config({
-	cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
-	api_key: process.env.CLOUDINARY_BOOM_API_KEY,
-	api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
-});
 
 const cloudinaryImageUpload = async (img) => {
+	cloudinary.config({
+		cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
+		api_key: process.env.CLOUDINARY_BOOM_API_KEY,
+		api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
+	});
 	if (!img) {
 		throw new Error("No image provided.");
 	}
@@ -32,7 +33,12 @@ const cloudinaryImageUpload = async (img) => {
 		crop: "fill",
 	});
 
-	return response.url;
+	deleteFile("xkmjgs5gxjqofqpanw5o");
+
+	return {
+		url: response.secure_url,
+		publicId: response.public_id,
+	};
 };
 
 const addActivity = async (req, res) => {
@@ -48,8 +54,12 @@ const addActivity = async (req, res) => {
 
 	try {
 		let imageCloudUrl = null;
+		let cloudinaryPublicId = null;
+
 		if (image) {
-			imageCloudUrl = await cloudinaryImageUpload(image);
+			const uploadResult = await cloudinaryImageUpload(image);
+			imageCloudUrl = uploadResult.url;
+			cloudinaryPublicId = uploadResult.publicId;
 		}
 
 		const newActivity = new Activity({
@@ -60,6 +70,7 @@ const addActivity = async (req, res) => {
 			duration,
 			description,
 			image: imageCloudUrl,
+			cloudinary_public_id: cloudinaryPublicId,
 		});
 
 		await newActivity.save();
