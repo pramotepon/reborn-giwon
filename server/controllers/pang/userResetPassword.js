@@ -1,7 +1,14 @@
 import User from '../../models/User.js';
 
+
 const resetPassword = (req, res) => {
-    res.json('Hello from login');
+
+    let id = req.params.id;
+    const filter = { _id: id };
+    const update = { age: 59 };
+
+    let doc = await User.findOneAndUpdate(filter, update);
+    res.json('Hello')
 }
 
 const userResetPassword = {

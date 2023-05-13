@@ -14,15 +14,15 @@ const router = express.Router();
     GET
 */
 // Get user data
-router.get('/user/:id', userGetDataController.userData);
+router.get('/profile', userGetDataController.userData);
 // Goal success.
 router.get('/goal-success/:id', userGoalSuccessController.checkGoalSuccess);
-// User Check access Password reset
-router.get('/verify-before-reset-password/:id', userVerifyResetPasswordController.verifyResetPassword);
 
 /* 
-    POST
+POST
 */
+// User Check access Password reset
+router.post('/verify-before-reset-password', userVerifyResetPasswordController.verifyResetPassword);
 // User register
 router.post('/register', userRegisterController.register);
 // User Login

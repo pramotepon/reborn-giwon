@@ -1,10 +1,23 @@
 import User from '../../models/User.js';
 
-const userData = async (req, res) => {
+import jwt from 'jsonwebtoken'
+import * as dotenv from 'dotenv';
 
-    const user = await User.find();
-    
-    res.json(user);
+dotenv.config();
+
+const jwtSecret = process.env.JWT_KEY;
+
+const userData = async (req, res) => {
+    const { token } = req.cookies;
+    if(token){
+        jwt.verify(token, jwtSecret, {}, async (err, user) => {
+            if(err) throw err;
+            const { displayName, weight, goal, _id } = await User.findById(user.id);
+            res.json({ displayName, weight, goal, _id });
+        });
+    }else{
+        res.json(null);
+    }
 }
 
 const userGetDataController = {
