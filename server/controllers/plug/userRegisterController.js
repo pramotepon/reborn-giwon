@@ -23,6 +23,7 @@ const register = async (req, res) => {
 		// const array_of_allowed_files = ["png", "jpeg", "jpg", "gif"];
 
 		let url_image = image;
+		let public_id_image = null;
 
         // if (image) {
         //     // Get the extension of the uploaded file
@@ -40,6 +41,7 @@ const register = async (req, res) => {
 		// }
 		const result = await cloudinary.uploader.upload(image, { height: 150, width: 150, crop: "fill" });
 		url_image = result.url;
+		public_id_image = result.public_id;
 		await User.create({
 			email,
 			displayName,
@@ -47,6 +49,7 @@ const register = async (req, res) => {
 			weight,
 			gender,
 			image: url_image,
+			cloudinary_public_id: public_id_image,
 			password: bcrypt.hashSync(password, bcryptSalt),
 		});
 
