@@ -4,12 +4,22 @@ import mongoose from 'mongoose';
 import activityRouter from './routes/activities.js';
 import userRouter from './routes/users.js'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 dotenv.config();
 
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  credentials: true,
+};
+
 const app = express();
-app.use(express.json());
+app.use(express.json({
+  limit: '200kb'
+}));
 app.use(cookieParser());
+app.use(cors(corsOptions));
+
 const PORT = 8080;
 
 mongoose.connect(process.env.MONGO_USER_URI,

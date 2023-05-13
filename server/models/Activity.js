@@ -17,6 +17,7 @@ const schema = mongoose.Schema(
 		},
 		description: String,
 		image: String,
+		cloudinary_public_id: String,
 	},
 	{
 		collection: "activities",

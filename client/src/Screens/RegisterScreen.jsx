@@ -1,55 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../assets/css/login.css";
+import axios from 'axios'
 
 function RegisterScreen() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [displayname, setDisplayname] = useState();
+  const [displayName, setDisplayname] = useState();
   const [height, setHeight] = useState();
   const [weight, setWeight] = useState();
   const [gender, setGender] = useState();
   const [image, setImage] = useState();
 
+
+
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
+    console.log(email);
   };
   const handleChangePassword = (event) => {
     setPassword(event.target.value);
+    console.log(password);
   };
   const handleChangeDisplayname = (event) => {
     setDisplayname(event.target.value);
+    console.log(displayName);
   };
   const handleChangeHeight = (event) => {
     setHeight(event.target.value);
+    console.log(height);
   };
   const handleChangeWeight = (event) => {
     setWeight(event.target.value);
+    console.log(weight);
   };
   const handleChangeGender = (event) => {
     setGender(event.target.value);
+    console.log(gender);
   };
   const handleChangeImage = (event) => {
-    setImage(event.target.value);
+    const file = event.target.files[0];
+    setFileToBase(file);
+    console.log(file);
   };
 
-  const handleSave = (event) => {
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    }
+  }
+
+  const handleSave = async (event) => {
     event.preventDefault();
 
     const formData = {
       email,
       password,
-      displayname,
+      displayName,
       height,
       weight,
       gender,
       image,
     };
 
-    console.log(formData);
+    const userData = await axios.post('http://127.0.0.1:8080/users/register', formData);
+
+
+    console.log(userData);
   };
 
   const handleCancel = () => {
@@ -62,9 +83,11 @@ function RegisterScreen() {
     setImage("");
   };
 
+  // useEffect(() => { }, [gender]);
+
   return (
     <LoginLayout>
-      <form action="" className="form-login form-regis">
+      <form action="" className="form-login form-regis" encType="multipart/form-data">
         <div className="regis-text-top" style={{ marginBottom: "10px" }}>
           <h2 style={{ fontWeight: "bold" }}>Register</h2>
         </div>
@@ -161,6 +184,8 @@ function RegisterScreen() {
             type="radio"
             name="gender"
             style={{ marginLeft: "5px" }}
+            value='male'
+            checked={gender === "male"}
             onChange={handleChangeGender}
           />
           <span style={{ whiteSpace: "nowrap" }}>Male</span>
@@ -168,6 +193,8 @@ function RegisterScreen() {
             type="radio"
             name="gender"
             style={{ marginLeft: "5px" }}
+            value='female'
+            checked={gender === "female"}
             onChange={handleChangeGender}
           />
           <span style={{ whiteSpace: "nowrap" }}>Female</span>
@@ -175,6 +202,8 @@ function RegisterScreen() {
             type="radio"
             name="gender"
             style={{ marginLeft: "5px" }}
+            value='prefer not to say'
+            checked={gender === "prefer not to say"}
             onChange={handleChangeGender}
           />
           <span style={{ whiteSpace: "nowrap" }}>Prefer not to say</span>

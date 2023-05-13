@@ -1,5 +1,4 @@
-import User from '../../models/User.js';
-
+import User from "../../models/User.js";
 
 const resetPassword = async (req, res) => {
     let body = req.body;
@@ -13,9 +12,6 @@ const resetPassword = async (req, res) => {
     else {
         res.json({"status": "success", "message" : "Password reset successfully"})
     }
-
-}
-
 
 const userResetPassword = {
     resetPassword: resetPassword
