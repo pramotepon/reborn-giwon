@@ -1,6 +1,6 @@
 import User from '../../models/User.js';
-
 import { v2 as cloudinary } from 'cloudinary'
+import bcrypt from 'bcryptjs'
 
 // Configuration 
 cloudinary.config({
@@ -8,6 +8,8 @@ cloudinary.config({
     api_key: process.env.IMAGE_API_KEY,
     api_secret: process.env.IMAGE_API_SECRET
 });
+
+const bcryptSalt = bcrypt.genSaltSync(10);
 
 // Function register
 const register = async (req, res) => {
@@ -36,15 +38,15 @@ const register = async (req, res) => {
             url_image = result.url;
         }
 
-        let user = new User();
-        user.email = email;
-        user.displayName = displayName;
-        user.height = height;
-        user.weight = weight;
-        user.gender = gender;
-        user.image = url_image;
-        user.password = await user.encryptPassword(password);
-        await user.save();
+        const user = await User.create({
+            email,
+            displayName,
+            height,
+            weight,
+            gender,
+            image: url_image,
+            password: bcrypt.hashSync(password, bcryptSalt)
+        });
         res.json(user);
 
     } catch (e) {
