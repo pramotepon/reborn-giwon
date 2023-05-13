@@ -11,7 +11,7 @@ const addActivity = (req, res) => {
 		calendar,
 		duration,
 		description,
-		image,
+		image, //PC PATH
 	} = req.body;
 
 	const newActivity = new Activity({
