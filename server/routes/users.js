@@ -6,6 +6,7 @@ import userResetPassword from '../controllers/pang/userResetPassword.js';
 import userEditProfileController from '../controllers/toey/userEditProfileController.js';
 import userUpdateGoalWeightController from '../controllers/vee/userUpdateGoalWeightController.js';
 import userGoalSuccessController from '../controllers/vee/userGoalSuccessController.js';
+import userGetDataController from '../controllers/plug/userGetDataController.js';
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ const router = express.Router();
 // http://127.0.0.1:8080/users/login
 router.get('/login', userLoginController.login);
 // Get user data
-router.get('/user/:id', userGoalSuccessController.checkGoalSuccess);
+router.get('/user/:id', userGetDataController.userData);
 // Goal success.
 router.get('/goal-success/:id', userGoalSuccessController.checkGoalSuccess);
 // User Check access Password reset

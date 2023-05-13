@@ -20,7 +20,7 @@ router.get('/user/:id', activityAllController.activityShow);
     POST
 */
 // Add activity (C) :user_id
-router.post('/add/:id', activityAddController.addActivity);
+router.post('/add', activityAddController.addActivity);
 
 /* 
     PUT
