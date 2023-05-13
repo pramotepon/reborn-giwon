@@ -54,32 +54,36 @@ const CrudCreate = () => {
 				<div className="card-left">
 					<div className="add-image">
 						<label htmlFor="file-regis">
-							<FontAwesomeIcon
-								className="imageIcon"
-								icon="fa-regular fa-image"
-								style={{ color: "#b4bcca" }}
-							/>
-							<FontAwesomeIcon
-								className="plusIcon"
-								icon="fa-solid fa-circle-plus"
-								style={{ color: "#b4bcca" }}
-							/>
-							<div>
-								<input
-									type="file"
-									id="file-regis"
-									name="file"
-									placeholder="img"
-									accept="image/*"
-									onChange={handleChangeImage}
+							<div className="hoverable-div">
+								<FontAwesomeIcon
+									className="imageIcon"
+									icon="fa-regular fa-image"
+									style={{ color: "#b4bcca" }}
 								/>
-								<span>Upload Image File</span>
+								<FontAwesomeIcon
+									className="plusIcon"
+									icon="fa-solid fa-circle-plus"
+									style={{ color: "#b4bcca" }}
+								/>
+								<div>
+									<input
+										type="file"
+										id="file-regis"
+										name="file"
+										placeholder="img"
+										accept="image/*"
+										onChange={handleChangeImage}
+									/>
+									<span>Upload Image File</span>
+								</div>
 							</div>
 						</label>
 					</div>
 
 					<div className="name">
-						<label for="name">Activity Name</label>
+						<label for="name" className="Test">
+							Activity Name
+						</label>
 						<input
 							type="text"
 							className="fill"

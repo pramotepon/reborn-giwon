@@ -138,3 +138,10 @@
     width: auto;
     height: 40px;
 }
+
+.hoverable-div{
+    cursor: pointer;
+}
+.Test{
+    cursor: pointer;
+}
