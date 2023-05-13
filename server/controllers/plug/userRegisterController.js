@@ -4,9 +4,9 @@ import { v2 as cloudinary } from 'cloudinary'
 
 // Configuration 
 cloudinary.config({
-    cloud_name: "dvaolcq3n",
-    api_key: "763929584218726",
-    api_secret: "IUabsGIfumXPr_mEudYj0wuiaPw"
+    cloud_name: process.env.IMAGE_CLOUD_NAME,
+    api_key: process.env.IMAGE_API_KEY,
+    api_secret: process.env.IMAGE_API_SECRET
 });
 
 // Function register
