@@ -13,9 +13,6 @@ const router = express.Router();
 /* 
     GET
 */
-// User Login
-// http://127.0.0.1:8080/users/login
-router.get('/login', userLoginController.login);
 // Get user data
 router.get('/user/:id', userGetDataController.userData);
 // Goal success.
@@ -28,7 +25,9 @@ router.get('/verify-before-reset-password/:id', userVerifyResetPasswordControlle
 */
 // User register
 router.post('/register', userRegisterController.register);
-
+// User Login
+// http://127.0.0.1:8080/users/login
+router.post('/login', userLoginController.login);
 /* 
     PUT
 */
