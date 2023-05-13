@@ -21,11 +21,11 @@ const cloudinaryImageUpload = async (img) => {
 	const validFileTypes = ["jpg", "jpeg", "gif", "png"];
 	const fileType = img.split(".").pop().toLowerCase();
 
-	if (!validFileTypes.includes(fileType)) {
-		throw new Error(
-			"Invalid file type. Only JPG, JPEG, GIF, and PNG files are allowed."
-		);
-	}
+	// if (!validFileTypes.includes(fileType)) {
+	// 	throw new Error(
+	// 		"Invalid file type. Only JPG, JPEG, GIF, and PNG files are allowed."
+	// 	);
+	// }
 
 	const response = await cloudinary.uploader.upload(img, {
 		height: 150,
