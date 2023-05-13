@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { Alert } from "bootstrap";
 import React, { useRef, useState } from "react";
 import "../assets/css/components/CRUD.css";
 
@@ -11,7 +12,20 @@ const CrudCreate = () => {
 	const [weight, setWeight] = useState(0);
 	const [text, setText] = useState("");
 	const [image, setImage] = useState(null);
-	const inputFileRef = useRef(null);
+
+	const handleChangeImage = (event) => {
+		const file = event.target.files[0];
+		setFileToBase(file);
+		console.log(file);
+	};
+
+	const setFileToBase = (file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setImage(reader.result);
+		};
+	};
 
 	const saveActivity = async (event) => {
 		event.preventDefault();
@@ -24,55 +38,46 @@ const CrudCreate = () => {
 			calendar: date,
 			weight: weight,
 			description: text,
+			image: image,
 		};
+		const response = await axios.post(
+			"http://127.0.0.1:8080/activities/add/",
+			activityData // Cannot use localhost but have to use 127 instead
+		);
 
-		try {
-			const response = await axios.post(
-				"http://localhost:8080/activities/add/",
-				activityData
-			);
-			console.log(response.data);
-			// Handle success
-		} catch (error) {
-			console.error(error);
-			// Handle error
-		}
-	};
-
-	const handleImageUpload = (event) => {
-		console.log("Uploading image...");
-		const file = event.target.files[0];
-		console.log("Selected file:", file);
-		setImage(file);
-	};
-
-	const openFileSelector = () => {
-		inputFileRef.current.click();
+		console.log(response);
 	};
 
 	return (
 		<div className="card-container">
 			<div className="card-top">
 				<div className="card-left">
-					<div className="add-image" onClick={openFileSelector}>
-						<FontAwesomeIcon
-							className="imageIcon"
-							icon="fa-regular fa-image"
-							style={{ color: "#b4bcca" }}
-						/>
-						<FontAwesomeIcon
-							className="plusIcon"
-							icon="fa-solid fa-circle-plus"
-							style={{ color: "#b4bcca" }}
-						/>
+					<div className="add-image">
+						<label htmlFor="file-regis">
+							<FontAwesomeIcon
+								className="imageIcon"
+								icon="fa-regular fa-image"
+								style={{ color: "#b4bcca" }}
+							/>
+							<FontAwesomeIcon
+								className="plusIcon"
+								icon="fa-solid fa-circle-plus"
+								style={{ color: "#b4bcca" }}
+							/>
+							<div>
+								<input
+									type="file"
+									id="file-regis"
+									name="file"
+									placeholder="img"
+									accept="image/*"
+									onChange={handleChangeImage}
+								/>
+								<span>Upload Image File</span>
+							</div>
+						</label>
 					</div>
-					<input
-						type="file"
-						ref={inputFileRef}
-						accept="image/*"
-						style={{ display: "none" }}
-						onChange={handleImageUpload}
-					/>
+
 					<div className="name">
 						<label for="name">Activity Name</label>
 						<input
