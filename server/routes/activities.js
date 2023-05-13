@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 
 import activityDeleteController from "../controllers/arlif/activityDeleteController.js";
 import activityShowOneController from "../controllers/arlif/activityShowOneController.js";
@@ -19,8 +19,8 @@ router.get("/user/:id", activityAllController.activityShow);
 /* 
     POST
 */
-// Add activity (C) :user_id //!Boom
-router.post("/add/", activityAddController.addActivity);
+// Add activity (C) :user_id
+router.post('/add/:id', activityAddController.addActivity);
 
 /* 
     PUT
