@@ -3,6 +3,8 @@ import axios from "axios";
 import { Alert } from "bootstrap";
 import React, { useRef, useState } from "react";
 import "../assets/css/components/CRUD.css";
+const API_URL_Boom = "http://172.29.75.87:8080/activities/add/";
+const API_URL = "http://127.0.0.1:8080/activities/add/";
 
 const CrudCreate = () => {
 	const [name, setName] = useState("");
@@ -11,41 +13,33 @@ const CrudCreate = () => {
 	const [date, setDate] = useState("");
 	const [weight, setWeight] = useState(0);
 	const [text, setText] = useState("");
-	const [image, setImage] = useState(null);
+	const [selectedFile, setSelectedFile] = useState(null);
 
-	const handleChangeImage = (event) => {
-		const file = event.target.files[0];
-		setFileToBase(file);
-		console.log(file);
-	};
-
-	const setFileToBase = (file) => {
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onloadend = () => {
-			setImage(reader.result);
-		};
+	const handleFileChange = (e) => {
+		setSelectedFile(e.target.files[0]);
 	};
 
 	const saveActivity = async (event) => {
 		event.preventDefault();
 
-		const activityData = {
-			user_id: "645de9a2c6b3517d15501e5c", // Replace with the provided user ID
-			activity_name: name,
-			duration: duration,
-			activity_type: type,
-			calendar: date,
-			weight: weight,
-			description: text,
-			image: image,
-		};
-		const response = await axios.post(
-			"http://127.0.0.1:8080/activities/add/",
-			activityData // Cannot use localhost but have to use 127 instead
-		);
+		const formData = new FormData();
+		formData.append("image", selectedFile);
+		formData.append("user_id", "645de9a2c6b3517d15501e5c"); // Replace with the provided user ID
+		formData.append("activity_name", name);
+		formData.append("duration", duration);
+		formData.append("activity_type", type);
+		formData.append("calendar", date);
+		formData.append("weight", weight);
+		formData.append("description", text);
 
-		console.log(response);
+		try {
+			const response = await axios.post(API_URL, formData);
+			console.log(response);
+
+			// Handle the response as per your application requirements
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -68,11 +62,8 @@ const CrudCreate = () => {
 								<div>
 									<input
 										type="file"
-										id="file-regis"
-										name="file"
-										placeholder="img"
 										accept="image/*"
-										onChange={handleChangeImage}
+										onChange={handleFileChange}
 									/>
 									<span>Upload Image File</span>
 								</div>
