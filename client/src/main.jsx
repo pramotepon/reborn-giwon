@@ -19,7 +19,11 @@ import RegisterScreen from "./Screens/RegisterScreen.jsx";
 import ResetPassScreen from "./Screens/ResetPassScreen.jsx";
 import SpecificGoalScreen from "./Screens/SpecificGoalScreen.jsx";
 import SuccessScreen from "./Screens/SuccessScreen.jsx";
-import UploadForm from "./Screens/uploadImageTest.jsx";
+import CRUDScreen from "./Screens/CRUDScreen.jsx";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://127.0.0.1:8080"
+axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
 	{
