@@ -14,7 +14,7 @@ function LoginLayout({ children }) {
 					<div className="login-card-pic">
 						<img className="logo" src={img.imagecard} />
 					</div>
-					<section className="login-right">
+					<section className="login-right position-relative">
 						<div className="login-card-text">
 							<div
 								className="logo-top"

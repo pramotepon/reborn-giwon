@@ -5,13 +5,6 @@ import User from "../../models/User.js";
 
 dotenv.config();
 
-// Configuration
-cloudinary.config({
-	cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
-	api_key: process.env.CLOUDINARY_BOOM_API_KEY,
-	api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
-});
-
 const bcryptSalt = bcrypt.genSaltSync(10);
 
 // Function register
@@ -26,6 +19,12 @@ const register = async (req, res) => {
 		let public_id_image = null;
 
 		if (imageType) {
+			// Configuration
+			await cloudinary.config({
+				cloud_name: process.env.IMAGE_CLOUD_NAME,
+				api_key: process.env.IMAGE_API_KEY,
+				api_secret: process.env.IMAGE_API_SECRET
+			});
 			// Get the extension of the uploaded file
 			let file_extension = imageType.split(".").pop();
 			// Check if the uploaded file is allowed

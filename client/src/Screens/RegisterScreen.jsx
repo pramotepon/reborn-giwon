@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/login.css";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
+import IsLoadingComponent from "../components/IsLoadingComponent";
 
 function RegisterScreen() {
 	const [email, setEmail] = useState();
@@ -89,12 +90,14 @@ function RegisterScreen() {
 
 	return (
 		<LoginLayout>
+			{isLoading && <IsLoadingComponent />}
 			<form
 				action=""
 				className="form-login form-regis"
 				encType="multipart/form-data"
 			>
-				{isLoading && 'Loading...'}
+				{/* {isLoading && <IsLoadingComponent />} */}
+				{/* <IsLoadingComponent /> */}
 				<div className="regis-text-top" style={{ marginBottom: "10px" }}>
 					<h2 style={{ fontWeight: "bold" }}>Register</h2>
 				</div>
