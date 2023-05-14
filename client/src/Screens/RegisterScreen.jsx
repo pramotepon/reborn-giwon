@@ -12,6 +12,8 @@ function RegisterScreen() {
 	const [weight, setWeight] = useState();
 	const [gender, setGender] = useState();
 	const [image, setImage] = useState();
+	const [imageType, setImageType] = useState();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleChangeEmail = (event) => {
 		setEmail(event.target.value);
@@ -39,8 +41,8 @@ function RegisterScreen() {
 	};
 	const handleChangeImage = (event) => {
 		const file = event.target.files[0];
+		setImageType(file.name);
 		setFileToBase(file);
-		console.log(file);
 	};
 
 	const setFileToBase = (file) => {
@@ -53,7 +55,7 @@ function RegisterScreen() {
 
 	const handleSave = async (event) => {
 		event.preventDefault();
-
+		setIsLoading(true);
 		const formData = {
 			email,
 			password,
@@ -62,14 +64,14 @@ function RegisterScreen() {
 			weight,
 			gender,
 			image,
+			imageType,
 		};
 
 		const userData = await axios.post(
 			"http://127.0.0.1:8080/users/register",
 			formData
 		);
-
-		console.log(userData);
+		setIsLoading(false);
 	};
 
 	const handleCancel = () => {
@@ -80,6 +82,7 @@ function RegisterScreen() {
 		setWeight("");
 		setGender("");
 		setImage("");
+		setImageType("");
 	};
 
 	// useEffect(() => { }, [gender]);
@@ -91,6 +94,7 @@ function RegisterScreen() {
 				className="form-login form-regis"
 				encType="multipart/form-data"
 			>
+				{isLoading && 'Loading...'}
 				<div className="regis-text-top" style={{ marginBottom: "10px" }}>
 					<h2 style={{ fontWeight: "bold" }}>Register</h2>
 				</div>
