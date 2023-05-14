@@ -1,28 +1,59 @@
 import User from '../../models/User.js';
+import { v2 as cloudinary } from "cloudinary";
+import * as dotenv from "dotenv";
 
-// const userUpdate = (req, res) => {
-//     res.json({
-//     displayName: "Hello Name",
-//     height: 180,
-//     weight: 78,
-//     gender:  "prefer not to say",
-//     image: "image.png",
-//     });
-// }
+dotenv.config();
+
+// Cloudinary configuration
+cloudinary.config({
+	cloud_name: process.env.TOEY_CLOUD_NAME,
+	api_key: process.env.TOEY_API_KEY,
+	api_secret: process.env.TOEY_API_SECRET,
+});
+
+const deleteFile = async (publicId) => {
+	try {
+		const result = await cloudinary.uploader.destroy(publicId);
+		if (result.result === "ok") {
+			console.log(`File with public ID ${publicId} has been deleted.`);
+		} else {
+			throw new Error("Failed to delete file from Cloudinary.");
+		}
+	} catch (error) {
+		throw new Error("Error deleting file from Cloudinary: " + error);
+	}
+};
 
 const userUpdate = async (req, res) => {
-    const { displayName, height, weight, gender, image } = req.body;
+    let { displayName, height, weight, gender, image } = req.body;
     const userId = req.params.id;
 
     try {
-        const user = await User.findOneAndUpdate(
-            { _id: userId },
-            { displayName, height, weight, gender, image },
-            { new: true }
-        );
+        let user = await User.findOne({ _id: userId });
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+
+        // Delete previous image from Cloudinary
+        if (user.cloudinary_public_id) {
+            await deleteFile(user.cloudinary_public_id);
+        }
+
+        // Upload new image to Cloudinary
+        let cloudinary_public_id = null;
+        if (image) {
+            const result = await cloudinary.uploader.upload(image);
+            image = result.secure_url;
+            cloudinary_public_id = result.public_id;
+        }
+
+        // Update user
+        user = await User.findOneAndUpdate(
+            { _id: userId },
+            { displayName, height, weight, gender, image, cloudinary_public_id },
+            { new: true }
+        );
+
         res.json(user);
     } catch (error) {
         console.error(error);
@@ -30,18 +61,6 @@ const userUpdate = async (req, res) => {
     }
 }
 
-// const userUpdate = async (req, res) => {
-//     const { id } = req.params; // get the user id from the request parameters
-//     const { displayName, height, weight, gender, image } = req.body; // get the updated user data from the request body
-
-//     try {
-//         // find the user by id and update its properties
-//         const updatedUser = await User.findByIdAndUpdate(id, { displayName, height, weight, gender, image }, { new: true });
-//         res.status(200).json(updatedUser); // send the updated user object as the response
-//     } catch (error) {
-//         res.status(500).json({ error: error.message }); // handle any errors that occur during the update process
-//     }
-// };
 
 const userEditProfileController = {
     userUpdate: userUpdate

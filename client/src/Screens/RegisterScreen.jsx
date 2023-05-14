@@ -66,9 +66,9 @@ function RegisterScreen() {
 			image,
 			imageType,
 		};
-
+		// http://127.0.0.1:8080/users/register
 		const userData = await axios.post(
-			"http://127.0.0.1:8080/users/register",
+			"/users/register",
 			formData
 		);
 		setIsLoading(false);
