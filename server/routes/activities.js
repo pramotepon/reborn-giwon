@@ -1,4 +1,5 @@
 import express from "express";
+import multer from "multer";
 
 import activityDeleteController from "../controllers/arlif/activityDeleteController.js";
 import activityShowOneController from "../controllers/arlif/activityShowOneController.js";
@@ -7,6 +8,8 @@ import activityAllController from "../controllers/boom/activityAllController.js"
 import activityEditController from "../controllers/toey/activityEditController.js";
 
 const router = express.Router();
+const upload = multer({ dest: "uploads/" });
+
 /* 
     GET
 */
@@ -20,7 +23,7 @@ router.get("/user/:id", activityAllController.activityShow);
     POST
 */
 // Add activity (C) :user_id
-router.post("/add/", activityAddController.addActivity);
+router.post("/add/", upload.single("image"), activityAddController.addActivity);
 
 /* 
     PUT
