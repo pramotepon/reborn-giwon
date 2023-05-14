@@ -33,7 +33,7 @@ const CrudCreate = () => {
 		formData.append("description", text);
 
 		try {
-			const response = await axios.post(API_URL, formData);
+			const response = await axios.post('activities/add/', formData);
 			console.log(response);
 
 			// Handle the response as per your application requirements
@@ -101,7 +101,7 @@ const CrudCreate = () => {
 							onChange={(e) => setType(e.target.value)}
 						>
 							<option value="run">Running</option>
-							<option value="Swimming">Bicycling</option>
+							<option value="bicycle">Bicycling</option>
 							<option value="ride">Riding</option>
 							<option value="swim">Swimming</option>
 							<option value="walk">Walking</option>
