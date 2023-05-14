@@ -6,7 +6,8 @@ import mongoose from "mongoose";
 import activityRouter from "./routes/activities.js";
 import userRouter from "./routes/users.js";
 const PORT = 8080;
-const IP_ADDRESS = "172.29.75.87"; // Replace with the IP address from step 1
+const IP_ADDRESS_Boom = "172.29.75.87";
+const IP_ADDRESS = "127.0.0.1";
 
 dotenv.config();
 
