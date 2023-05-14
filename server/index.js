@@ -5,6 +5,8 @@ import express from "express";
 import mongoose from "mongoose";
 import activityRouter from "./routes/activities.js";
 import userRouter from "./routes/users.js";
+const PORT = 8080;
+const IP_ADDRESS = "172.29.75.87"; // Replace with the IP address from step 1
 
 dotenv.config();
 
@@ -22,8 +24,6 @@ app.use(
 app.use(cookieParser());
 app.use(cors(corsOptions));
 
-const PORT = 8080;
-
 mongoose.connect(process.env.MONGO_USER_URI, {
 	dbName: process.env.MONGO_DATABASE,
 	writeConcern: "majority",
@@ -35,6 +35,6 @@ mongoose.connect(process.env.MONGO_USER_URI, {
 app.use("/users", userRouter);
 app.use("/activities", activityRouter);
 
-app.listen(PORT, () => {
-	console.log(`Server is running. ${PORT}`);
+app.listen(PORT, IP_ADDRESS, () => {
+	console.log(`Server is running on http://${IP_ADDRESS}:${PORT}`);
 });
