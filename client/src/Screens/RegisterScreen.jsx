@@ -109,7 +109,7 @@ function RegisterScreen() {
 						name="email"
 						placeholder=""
 						className="input-regis"
-						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold" }}
 						onChange={handleChangeEmail}
 					/>
 				</div>
@@ -137,7 +137,7 @@ function RegisterScreen() {
 						name="DisplayName"
 						placeholder=""
 						className="input-regis"
-						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 						onChange={handleChangeDisplayname}
 					/>
 				</div>
@@ -158,7 +158,7 @@ function RegisterScreen() {
 							name="Height"
 							placeholder=""
 							className="input-regis"
-							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 							onChange={handleChangeHeight}
 						/>
 					</div>
@@ -175,7 +175,7 @@ function RegisterScreen() {
 							name="Weight"
 							placeholder=""
 							className="input-regis weight-regis"
-							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 							onChange={handleChangeWeight}
 						/>
 					</div>

@@ -44,6 +44,7 @@ function LoginScreen() {
           name="email"
           placeholder=""
           className="input-login"
+          style={{ fontWeight: "bold" }}
           onChange={handleChangeEmail}
         />
       </div>

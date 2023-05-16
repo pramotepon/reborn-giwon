@@ -78,6 +78,7 @@ function EditProfileScreen(props) {
             name="DisplayName"
             placeholder=""
             className="input-regis"
+            style={{ fontWeight: "bold" }}
             onChange={handleChangeDisplayname}
           />
         </div>
@@ -98,6 +99,7 @@ function EditProfileScreen(props) {
               name="Height"
               placeholder=""
               className="input-regis"
+              style={{ fontWeight: "bold" }}
               onChange={handleChangeHeight}
             />
           </div>
@@ -114,6 +116,7 @@ function EditProfileScreen(props) {
               name="Weight"
               placeholder=""
               className="input-regis weight-regis"
+              style={{ fontWeight: "bold" }}
               onChange={handleChangeWeight}
             />
           </div>
