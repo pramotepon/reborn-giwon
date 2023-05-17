@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../assets/css/components/UserProfile.css";
 
-const UserProfile = () => {
-	const [weight, setWeight] = useState(95);
+const UserProfile = ({ userId, userDisplayName, userWeight }) => {
+	const [weight, setWeight] = useState(userWeight);
 
 	return (
 		<div className="userProfile">
 			<img src="http://placekitten.com/200/200" className="img-fluid" alt="" />
 			<div className="displayName">
-				<p className="displayNameText">DisplayName</p>
+				<p className="displayNameText">{userDisplayName}</p>
 			</div>
 			<p className="currentWeightText">Current Weight : {weight} kg</p>
 			<Button variant="" href="/editprofile">

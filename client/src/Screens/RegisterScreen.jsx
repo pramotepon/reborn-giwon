@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import "../assets/css/login.css";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import IsLoadingComponent from "../components/IsLoadingComponent";
+import { UserContext } from "../contexts/UserContext";
 
 function RegisterScreen() {
 	const [email, setEmail] = useState();
@@ -15,6 +16,12 @@ function RegisterScreen() {
 	const [image, setImage] = useState();
 	const [imageType, setImageType] = useState();
 	const [isLoading, setIsLoading] = useState(false);
+
+	const { user } = useContext(UserContext);
+
+	if (user) {
+		return <Navigate to={'/dashboard'} />
+	}
 
 	const handleChangeEmail = (event) => {
 		setEmail(event.target.value);

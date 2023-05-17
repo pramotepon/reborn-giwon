@@ -1,8 +1,8 @@
-import cookieParser from "cookie-parser";
+import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import express from "express";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 import activityRouter from "./routes/activities.js";
 import userRouter from "./routes/users.js";
 const PORT = 8080;

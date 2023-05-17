@@ -14,7 +14,7 @@ const router = express.Router();
     GET
 */
 // Get user data
-router.get('/profile', userGetDataController.userData);
+router.get('/profile/:token', userGetDataController.userData);
 // Goal success.
 router.get('/goal-success/:id', userGoalSuccessController.checkGoalSuccess);
 

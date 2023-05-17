@@ -8,8 +8,8 @@ import "../assets/css/components/GoalProgress.css";
 
 ChartJS.register(ArcElement);
 
-const GoalProgess = () => {
-	const [goal, setGoal] = useState(70);
+const GoalProgess = ({ userGoal }) => {
+	const [goal, setGoal] = useState(userGoal);
 
 	const chartData = {
 		datasets: [
