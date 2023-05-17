@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../../assets/css/DashboardScreen.css";
 import GoalProgress from "../../components/GoalProgress";
+import GoalSelection from "../../components/GoalSelection";
 import Navbar from "../../components/Navbar";
 import UserProfile from "../../components/UserProfile";
 import { UserContext } from "../../contexts/UserContext";
@@ -8,9 +9,16 @@ import { Navigate } from "react-router-dom";
 
 const Dashboard = ({ children }) => {
 	const { user } = useContext(UserContext);
-	console.log(user);
+
+	let displayShow;
 	if (!user) {
 		return <Navigate to={'/login'} />
+	}
+
+	if(!user.goal){
+		displayShow = <GoalSelection />;
+	}else{
+		displayShow = children;
 	}
 
 	return (
@@ -20,12 +28,12 @@ const Dashboard = ({ children }) => {
 			<div className="row mt-5 pt-5">
 				<div className="userAndGoal col-3">
 					<div className="position-fixed container-user-profile">
-						<UserProfile userId={user._id} userDisplayName={user.displayName} userWeight={user.weight} />
-						<GoalProgress userGoal={user.goal} />
+						<UserProfile userId={user._id} userDisplayName={user.displayName} userWeight={user.weight} userImage={user.image} />
+						<GoalProgress userId={user._id} userGoal={user.goal} />
 					</div>
 				</div>
 
-				<div className="rightContainer col-9">{children}</div>
+				<div className="rightContainer col-9">{displayShow}</div>
 			</div>
 			<br></br>
 		</div>

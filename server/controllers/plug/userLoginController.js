@@ -9,7 +9,7 @@ const login = async (req, res) => {
         const chkPass = bcrypt.compareSync(password, user.password);
         if (chkPass) {
             const token = createToken(user._id);
-            res.json({ email, token });
+            res.json({ token });
         } else {
             res.status(422).json('You have entered an invalid username or password');
         }

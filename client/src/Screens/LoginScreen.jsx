@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
 import { UserContext } from "../contexts/UserContext";
+import verifyToken from "../utils/verifyToken";
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
@@ -14,6 +15,8 @@ function LoginScreen() {
   const [errMessage, setErrMessage] = useState();
 
   const { user, setUser } = useContext(UserContext);
+
+  const nav = useNavigate();
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -32,7 +35,10 @@ function LoginScreen() {
       }
       const { data } = await axios.post('/users/login', formData);
       localStorage.setItem('user', JSON.stringify(data));
-      setUser(true);
+      const userData = await verifyToken(data.token);
+      // console.log(userData);
+      setUser(userData);
+      nav('/dashboard');
     } catch (e) {
       setErrMessage(e.response.data);
       Swal.fire({
@@ -43,8 +49,8 @@ function LoginScreen() {
       })
     }
   };
-  if (user){
-    return <Navigate to={'/dashboard'} />
+  if (user) {
+    return <Navigate to={'/dashboard'} />;
   }
   return (
     <LoginLayout>
