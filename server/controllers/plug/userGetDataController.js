@@ -8,14 +8,15 @@ dotenv.config();
 const jwtSecret = process.env.JWT_KEY;
 
 const userData = async (req, res) => {
-    const { token } = req.cookies;
-    if(token){
+    const { token } = req.params;
+    if (token) {
+        // กำหนด Exp times
         jwt.verify(token, jwtSecret, {}, async (err, user) => {
-            if(err) throw err;
-            const { displayName, weight, goal, _id } = await User.findById(user.id);
+            if (err) throw err;
+            const { displayName, weight, goal, _id } = await User.findOne(user.id);
             res.json({ displayName, weight, goal, _id });
         });
-    }else{
+    } else {
         res.json(null);
     }
 }
