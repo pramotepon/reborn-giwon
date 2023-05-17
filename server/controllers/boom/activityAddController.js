@@ -41,7 +41,7 @@ const addActivity = async (req, res) => {
 
 		if (req.file) {
 
-			cloudinary.config({
+			await cloudinary.config({
 				cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
 				api_key: process.env.CLOUDINARY_BOOM_API_KEY,
 				api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
