@@ -33,7 +33,9 @@ mongoose.connect(process.env.MONGO_USER_URI, {
 	user: process.env.MONGO_USER,
 	pass: process.env.MONGO_PASS,
 });
-
+app.get("/", (req, res) => {
+	res.json("Hello we are G-Won");
+});
 app.use("/users", userRouter);
 app.use("/activities", activityRouter);
 
