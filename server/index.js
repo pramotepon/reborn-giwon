@@ -10,7 +10,7 @@ dotenv.config();
 
 const IP_ADDRESS_Boom = "172.29.75.87";
 const IP_ADDRESS = "127.0.0.1";
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
 	origin: "http://localhost:5173",
