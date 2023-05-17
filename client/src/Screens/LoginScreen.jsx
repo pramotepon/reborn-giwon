@@ -61,6 +61,7 @@ function LoginScreen() {
             name="email"
             placeholder=""
             className={`input-login ${errMessage ? "border border-danger" : ""}`}
+            style={{ fontWeight: "bold" }}
             onChange={handleChangeEmail}
           />
         </div>
