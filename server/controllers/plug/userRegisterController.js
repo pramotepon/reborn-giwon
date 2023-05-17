@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { v2 as cloudinary } from "cloudinary";
 import * as dotenv from "dotenv";
 import User from "../../models/User.js";
+import createToken from '../../utils/generateToken.js';
 
 dotenv.config();
 
@@ -43,7 +44,7 @@ const register = async (req, res) => {
 			public_id_image = result.public_id;
 		}
 
-		await User.create({
+		const user = await User.create({
 			email,
 			displayName,
 			height,
@@ -53,6 +54,8 @@ const register = async (req, res) => {
 			cloudinary_public_id: public_id_image,
 			password: bcrypt.hashSync(password, bcryptSalt),
 		});
+
+		// console.log(user._id);
 
 		res.json("Registration completed.");
 	} catch (e) {

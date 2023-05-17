@@ -8,8 +8,8 @@ import "../assets/css/components/GoalProgress.css";
 
 ChartJS.register(ArcElement);
 
-const GoalProgess = () => {
-	const [goal, setGoal] = useState(70);
+const GoalProgess = ({ userId, userGoal }) => {
+	const [goal, setGoal] = useState(userGoal);
 
 	const chartData = {
 		datasets: [
@@ -24,7 +24,7 @@ const GoalProgess = () => {
 	return (
 		<div className="goalProgress">
 			<p className="goalProgressInfo">
-				Goal : <strong>{goal}</strong> kg{" "}
+				Goal : <strong>{!goal ? '?' : goal}</strong> kg{" "}
 				<Button variant="" href="/specificgoal">
 					<FontAwesomeIcon
 						className="editIcon"

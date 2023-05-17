@@ -19,6 +19,9 @@ import RegisterScreen from "./Screens/RegisterScreen.jsx";
 import ResetPassScreen from "./Screens/ResetPassScreen.jsx";
 import SpecificGoalScreen from "./Screens/SpecificGoalScreen.jsx";
 import SuccessScreen from "./Screens/SuccessScreen.jsx";
+// Context
+import { UserContextProvider } from "./contexts/UserContext.jsx";
+
 import axios from "axios";
 
 axios.defaults.baseURL = "http://127.0.0.1:8080"
@@ -80,7 +83,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<RouterProvider router={router} />
+	<UserContextProvider>
+		<RouterProvider router={router} />
+	</UserContextProvider>
 );
 
 library.add(fab, fas, far);
