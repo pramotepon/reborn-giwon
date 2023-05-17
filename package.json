@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "start": "node ./server/index.js"
-  },
   "dependencies": {
     "validator": "^13.9.0"
   }
