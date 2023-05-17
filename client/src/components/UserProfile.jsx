@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../assets/css/components/UserProfile.css";
 
-const UserProfile = ({ userId, userDisplayName, userWeight }) => {
+const UserProfile = ({ userId, userDisplayName, userWeight, userImage }) => {
 	const [weight, setWeight] = useState(userWeight);
 
 	return (
 		<div className="userProfile">
-			<img src="http://placekitten.com/200/200" className="img-fluid" alt="" />
+			<img src={userImage ? userImage : "http://placekitten.com/200/200"} className="img-fluid" alt="" />
 			<div className="displayName">
 				<p className="displayNameText">{userDisplayName}</p>
 			</div>
