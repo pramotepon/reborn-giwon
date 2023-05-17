@@ -11,12 +11,6 @@ dotenv.config();
 
 // Cloudinary configuration
 
-cloudinary.config({
-	cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
-	api_key: process.env.CLOUDINARY_BOOM_API_KEY,
-	api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
-});
-
 const getFileExtensionName = (fileName) => {
 	const parts = fileName.split(".");
 	if (parts.length === 1) {
@@ -46,6 +40,13 @@ const addActivity = async (req, res) => {
 		let cloudinaryPublicId = null;
 
 		if (req.file) {
+
+			cloudinary.config({
+				cloud_name: process.env.CLOUDINARY_BOOM_CLOUDNAME,
+				api_key: process.env.CLOUDINARY_BOOM_API_KEY,
+				api_secret: process.env.CLOUDINARY_BOOM_API_SECRET,
+			});
+
 			const fileExtension = getFileExtensionName(req.file.originalname);
 
 			if (!allowedExtensions.includes(fileExtension.toLowerCase())) {
