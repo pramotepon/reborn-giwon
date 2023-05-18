@@ -11,6 +11,7 @@ dotenv.config();
 
 // Cloudinary configuration
 
+
 const getFileExtensionName = (fileName) => {
 	const parts = fileName.split(".");
 	if (parts.length === 1) {
