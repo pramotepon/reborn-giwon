@@ -11,11 +11,6 @@ dotenv.config();
 
 // Cloudinary configuration
 
-cloudinary.config({
-	cloud_name: process.env.IMAGE_CLOUD_NAME,
-	api_key: process.env.IMAGE_API_KEY,
-	api_secret: process.env.IMAGE_API_SECRET,
-});
 
 const getFileExtensionName = (fileName) => {
 	const parts = fileName.split(".");
@@ -46,6 +41,13 @@ const addActivity = async (req, res) => {
 		let cloudinaryPublicId = null;
 
 		if (req.file) {
+
+			await cloudinary.config({
+				cloud_name: process.env.IMAGE_CLOUD_NAME,
+				api_key: process.env.IMAGE_API_KEY,
+				api_secret: process.env.IMAGE_API_SECRET,
+			});
+
 			const fileExtension = getFileExtensionName(req.file.originalname);
 
 			if (!allowedExtensions.includes(fileExtension.toLowerCase())) {

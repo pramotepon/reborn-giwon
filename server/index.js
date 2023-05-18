@@ -1,15 +1,16 @@
-import cookieParser from "cookie-parser";
+import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import express from "express";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 import activityRouter from "./routes/activities.js";
 import userRouter from "./routes/users.js";
-const PORT = 8080;
-const IP_ADDRESS_Boom = "172.29.75.87";
-const IP_ADDRESS = "127.0.0.1";
 
 dotenv.config();
+
+const IP_ADDRESS_Boom = "172.29.75.87";
+const IP_ADDRESS = "127.0.0.1";
+const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
 	origin: "http://localhost:5173",
@@ -33,6 +34,9 @@ mongoose.connect(process.env.MONGO_USER_URI, {
 	pass: process.env.MONGO_PASS,
 });
 
+app.get("/", (req, res) => {
+	res.json("Hello we are G-Won");
+});
 app.use("/users", userRouter);
 app.use("/activities", activityRouter);
 

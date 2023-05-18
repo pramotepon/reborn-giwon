@@ -15,7 +15,6 @@ const verifyResetPassword = async (req, res) => {
     else {
         res.status(401).json({"status": "error", "message" : "User not found"})
     }
-    
 }
 
 const userVerifyResetPasswordController = {

@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import "../assets/css/login.css";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import IsLoadingComponent from "../components/IsLoadingComponent";
+import { UserContext } from "../contexts/UserContext";
 
 function RegisterScreen() {
 	const [email, setEmail] = useState();
@@ -15,6 +16,12 @@ function RegisterScreen() {
 	const [image, setImage] = useState();
 	const [imageType, setImageType] = useState();
 	const [isLoading, setIsLoading] = useState(false);
+
+	const { user } = useContext(UserContext);
+
+	if (user) {
+		return <Navigate to={'/dashboard'} />
+	}
 
 	const handleChangeEmail = (event) => {
 		setEmail(event.target.value);
@@ -109,7 +116,7 @@ function RegisterScreen() {
 						name="email"
 						placeholder=""
 						className="input-regis"
-						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold" }}
 						onChange={handleChangeEmail}
 					/>
 				</div>
@@ -137,7 +144,7 @@ function RegisterScreen() {
 						name="DisplayName"
 						placeholder=""
 						className="input-regis"
-						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+						style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 						onChange={handleChangeDisplayname}
 					/>
 				</div>
@@ -158,7 +165,7 @@ function RegisterScreen() {
 							name="Height"
 							placeholder=""
 							className="input-regis"
-							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 							onChange={handleChangeHeight}
 						/>
 					</div>
@@ -175,7 +182,7 @@ function RegisterScreen() {
 							name="Weight"
 							placeholder=""
 							className="input-regis weight-regis"
-							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+							style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", fontWeight: "bold"  }}
 							onChange={handleChangeWeight}
 						/>
 					</div>

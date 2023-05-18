@@ -6,9 +6,9 @@ dotenv.config();
 
 // Cloudinary configuration
 cloudinary.config({
-	cloud_name: process.env.TOEY_CLOUD_NAME,
-	api_key: process.env.TOEY_API_KEY,
-	api_secret: process.env.TOEY_API_SECRET,
+	cloud_name: process.env.IMAGE_CLOUD_NAME,
+	api_key: process.env.IMAGE_API_KEY,
+	api_secret: process.env.IMAGE_API_SECRET,
 });
 
 const deleteFile = async (publicId) => {

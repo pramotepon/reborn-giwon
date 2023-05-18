@@ -58,6 +58,7 @@ function ResetPassScreen() {
             name="email"
             placeholder=""
             className="input-regis"
+            style={{ fontWeight: "bold" }}
             onChange={handleChangeEmail}
           />
         </div>
@@ -77,6 +78,7 @@ function ResetPassScreen() {
               name="Height"
               placeholder=""
               className="input-regis weight-regis"
+              style={{ fontWeight: "bold" }}
               onChange={handleChangeHeight}
             />
           </div>
@@ -88,6 +90,7 @@ function ResetPassScreen() {
               name="Weight"
               placeholder=""
               className="input-regis weight-regis"
+              style={{ fontWeight: "bold" }}
               onChange={handleChangeCurrentWeight}
             />
           </div>
