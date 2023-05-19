@@ -9,6 +9,24 @@ import JenniePic from "../image/Idol/jennie.png";
 const GoalSelection = ({ handleToggle }) => {
 	const [ownGoal, setOwnGoal] = useState(0);
 
+	//THIS IS VEE'S CODE
+
+	const handleConfirm = () => {
+		if (ownGoal === 0) {
+			alert("Please select goal!");
+		} else {
+			// Conditions to path
+			if (ownGoal === 4) {
+				// Redirect to /specificgoal
+				window.location.href = "/specificgoal"
+			} else {
+				// Redirect to /dashboard
+				window.location.href = "/dashboard"
+			}
+		}
+	};
+	// END OF VEE'S CODE
+
 	return (
 		<div className="goalSelection">
 			<Row className="justify-content-center">
@@ -115,7 +133,8 @@ const GoalSelection = ({ handleToggle }) => {
 			<div className="d-grid gap-2">
 				<Button
 					variant="success"
-					href={ownGoal === 4 ? "/specificgoal" : "/dashboard"}
+					// href={ownGoal === 4 ? "/specificgoal" : "/dashboard"}
+					onClick={handleConfirm}
 					className="btn btn-lg"
 					type="button"
 				>
