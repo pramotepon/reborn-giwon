@@ -12,11 +12,11 @@ function LoginScreen() {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [errMessage, setErrMessage] = useState();
-
   const { user, setUser } = useContext(UserContext);
 
   const nav = useNavigate();
+
+  let errMessage;
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -34,16 +34,19 @@ function LoginScreen() {
         password: password
       }
       const { data } = await axios.post('/users/login', formData);
+      if(data.error){
+        throw new Error(JSON.stringify(data.error));
+      }
       localStorage.setItem('user', JSON.stringify(data));
       const userData = await verifyToken(data.token);
-      // console.log(userData);
       setUser(userData);
       nav('/dashboard');
     } catch (e) {
-      setErrMessage(e.response.data);
+      const eMessage = JSON.parse(e.message);
+      errMessage = eMessage.message;
       Swal.fire({
         title: 'Login Failed!',
-        text: e.response.data,
+        text: errMessage,
         icon: 'error',
         confirmButtonText: 'Try'
       })

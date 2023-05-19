@@ -6,17 +6,27 @@ import GoalSelection from "../../components/GoalSelection";
 import Navbar from "../../components/Navbar";
 import UserProfile from "../../components/UserProfile";
 import { UserContext } from "../../contexts/UserContext";
+import SpecificGoal from "../../components/SpecificGoal";
 
 const Dashboard = ({ children }) => {
 	const { user } = useContext(UserContext);
+	const [chooseIdol, setChooseIdol] = useState(true);
 
+	const handleToggle = () => {
+		setChooseIdol((current) => !current);
+	}
 	let displayShow;
 	if (!user) {
 		return <Navigate to={"/login"} />;
 	}
 
 	if (!user.goal) {
-		displayShow = <GoalSelection />;
+		if (chooseIdol) {
+			displayShow = <GoalSelection handleToggle={handleToggle} />;
+		} else {
+			displayShow = <SpecificGoal handleToggle={handleToggle} />;
+		}
+
 	} else {
 		displayShow = children;
 	}

@@ -3,18 +3,32 @@ import bcrypt from 'bcryptjs'
 import createToken from '../../utils/generateToken.js';
 
 const login = async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (user) {
-        const chkPass = bcrypt.compareSync(password, user.password);
-        if (chkPass) {
-            const token = createToken(user._id);
-            res.json({ token });
-        } else {
-            res.status(422).json('You have entered an invalid username or password');
+    try {
+        const { email, password } = req.body;
+        const error = new Error();
+        if (!email || !password) {
+            error.message = "Email or Password invalid";
+            error.status_code = 422;
+            throw error;
         }
-    } else {
-        res.status(422).json('You have entered an invalid username or password');
+        const user = await User.findOne({ email });
+        if (user) {
+            const chkPass = bcrypt.compareSync(password, user.password);
+            if (chkPass) {
+                const token = createToken(user._id);
+                res.json({ token });
+            } else {
+                error.message = "You have entered an invalid email or password";
+                error.status_code = 422;
+                throw error;
+            }
+        } else {
+            error.message = "You have entered an invalid email or password";
+            error.status_code = 422;
+            throw error;
+        }
+    } catch (e) {
+        res.json({ error: e });
     }
 }
 
