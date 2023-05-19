@@ -28,9 +28,8 @@ const ActivityCardScreen = () => {
 	return (
 		<Dashboard>
 			<div className="mb-3">
-			<Link to="/createcrud">
+			
 				<ButtonNewActivity activity={mockActivities} />
-			</Link>
 			</div>
 			{mockActivities.map((x, index) => {
 				return <ActivityCard activity={x} key={index} />;
