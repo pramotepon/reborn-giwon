@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { Alert } from "bootstrap";
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "../assets/css/components/CRUD.css";
-const API_URL_Boom = "http://172.29.75.87:8080/activities/add/";
-const API_URL = "http://127.0.0.1:8080/activities/add/";
+import { UserContext } from "../contexts/UserContext";
 
 const CrudCreate = () => {
+	const { user } = useContext(UserContext);
+
 	const [name, setName] = useState("");
 	const [duration, setDuration] = useState(0);
 	const [type, setType] = useState("");
@@ -24,7 +25,7 @@ const CrudCreate = () => {
 
 		const formData = new FormData();
 		formData.append("image", selectedFile);
-		formData.append("user_id", "645de9a2c6b3517d15501e5c"); // Replace with the provided user ID
+		formData.append("user_id", user._id); // Replace with the provided user ID
 		formData.append("activity_name", name);
 		formData.append("duration", duration);
 		formData.append("activity_type", type);
@@ -33,7 +34,7 @@ const CrudCreate = () => {
 		formData.append("description", text);
 
 		try {
-			const response = await axios.post('activities/add/', formData);
+			const response = await axios.post("activities/add/", formData);
 			console.log(response);
 
 			// Handle the response as per your application requirements

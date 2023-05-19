@@ -11,7 +11,6 @@ dotenv.config();
 
 // Cloudinary configuration
 
-
 const getFileExtensionName = (fileName) => {
 	const parts = fileName.split(".");
 	if (parts.length === 1) {
@@ -32,6 +31,7 @@ const addActivity = async (req, res) => {
 			calendar,
 			duration,
 			description,
+			weight,
 		} = req.body;
 
 		// console.log(req.body);
@@ -40,8 +40,13 @@ const addActivity = async (req, res) => {
 		let imageCloudUrl = null;
 		let cloudinaryPublicId = null;
 
-		if (req.file) {
+		await User.findOneAndUpdate(
+			{ _id: user_id },
+			{ weight: weight },
+			{ new: true }
+		);
 
+		if (req.file) {
 			await cloudinary.config({
 				cloud_name: process.env.IMAGE_CLOUD_NAME,
 				api_key: process.env.IMAGE_API_KEY,
