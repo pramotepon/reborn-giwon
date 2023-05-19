@@ -29,9 +29,9 @@ function RegisterScreen() {
 
   let extImage;
 
-  if (user) {
-    return <Navigate to={"/dashboard"} />;
-  }
+	if (user) {
+		return <Navigate to={'/dashboard'} />
+	}
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -79,57 +79,31 @@ function RegisterScreen() {
     };
   };
 
-  const handleSave = async (event) => {
-    event.preventDefault();
-
-    // Validate email
-    const isEmailValid = /\S+@\S+\.\S+/.test(email);
-    setShowEmailError(!isEmailValid);
-
-    if (!isEmailValid) {
-      console.log("Form validation failed");
-      return;
-    }
-
-    // Validate password
-    const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
-      password
-    );
-    setShowPasswordError(!isPasswordValid);
-
-    if (!isPasswordValid) {
-      console.log("Form validation failed");
-      return;
-    }
-
-    setIsLoading(true);
+	const handleSave = async (event) => {
+		event.preventDefault();
+		setIsLoading(true);
     if (imageType) {
 			extImage = imageType.split('.').pop();
 		  } else {
 			extImage = imageType;
 		  }
-    const formData = {
-      email,
-      password,
-      displayName,
-      height,
-      weight,
-      gender,
-      image,
+		const formData = {
+			email,
+			password,
+			displayName,
+			height,
+			weight,
+			gender,
+			image,
       extImage
-    };
-
-    try {
-      const response = await axios.post("/users/register", formData);
-      console.log("Registration successful:", response.data);
-      // Additional logic after successful registration
-    } catch (error) {
-      console.log("Registration failed:", error);
-      // Additional error handling logic
-    } finally {
-      setIsLoading(false);
-    }
-  };
+		};
+		// http://127.0.0.1:8080/users/register
+		const userData = await axios.post(
+			"/users/register",
+			formData
+		);
+		setIsLoading(false);
+	};
 
   const handleCancel = () => {
     setEmail("");
