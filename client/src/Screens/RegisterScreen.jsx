@@ -12,7 +12,7 @@ function RegisterScreen() {
   const [displayName, setDisplayname] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("male");
   const [image, setImage] = useState("");
   const [imageType, setImageType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +45,7 @@ function RegisterScreen() {
 
   const handleChangeDisplayname = (event) => {
     setDisplayname(event.target.value);
-    setDisplayNameValid(event.target.value.length < 11);
+    setDisplayNameValid(event.target.value.length != 0);
   };
 
   const handleChangeHeight = (event) => {
@@ -99,6 +99,42 @@ function RegisterScreen() {
       console.log("Form validation failed");
       return;
     }
+
+	// Validate displayName
+	const isDisplayNameValid = displayName.length <= 11;
+	setDisplayNameValid(isDisplayNameValid);
+  
+	if (!isDisplayNameValid) {
+	  console.log("Form validation failed");
+	  return;
+	}
+  
+	// Validate height
+	const isHeightValid = /^\d{1,4}$/.test(height);
+	setHeightValid(isHeightValid);
+  
+	if (!isHeightValid) {
+	  console.log("Form validation failed");
+	  return;
+	}
+  
+	// Validate weight
+	const isWeightValid = /^\d{1,4}$/.test(weight);
+	setWeightValid(isWeightValid);
+  
+	if (!isWeightValid) {
+	  console.log("Form validation failed");
+	  return;
+	}
+  
+	// Validate gender
+	const isGenderValid = gender !== "";
+	setGenderValid(isGenderValid);
+  
+	if (!isGenderValid) {
+	  console.log("Form validation failed");
+	  return;
+	}
 
     setIsLoading(true);
     const formData = {
@@ -167,7 +203,7 @@ function RegisterScreen() {
           />
 		  {!isEmailValid && (
             <div className="col-md-5 position-absolute alert alert-danger translate-middle badge border border-light p-2" 
-			style={{ left: "-40%", transform: "translate(-50%, -50%)" }}>Email must be valid</div>
+			style={{ left: "-21.5%",top:"32%", transform: "translate(-50%, -50%)" }}>Email must be valid</div>
           )}
         </div>
 
@@ -185,7 +221,7 @@ function RegisterScreen() {
           />
 		  {!isPasswordValid && (
             <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
-			style={{ left: "-40%", transform: "translate(-50%, -50%)" }}>{messagepass1}<br />{messagepass2}<br />{messagepass3}</div>
+			style={{ left: "-40%",top:"43%", transform: "translate(-50%, -50%)" }}>{messagepass1}<br />{messagepass2}<br />{messagepass3}</div>
           )}
         </div>
 
@@ -198,12 +234,17 @@ function RegisterScreen() {
             name="DisplayName"
             placeholder=""
             className="input-regis"
+			maxlength="11"
             style={{
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               fontWeight: "bold",
             }}
             onChange={handleChangeDisplayname}
           />
+		  {!isDisplayNameValid && (
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+			style={{ left: "-45%",top:"55%", transform: "translate(-50%, -50%)" }}>Display name must be a maximum of 11 characters</div>
+          )}
         </div>
 
         <div
@@ -228,6 +269,10 @@ function RegisterScreen() {
               }}
               onChange={handleChangeHeight}
             />
+			{!isHeightValid && (
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+			style={{ left: "-57%",top:"63%", transform: "translate(-50%, -50%)" }}>Height must be a numeric value with a maximum of 4 characters</div>
+          )}
           </div>
 
           <div
@@ -248,6 +293,10 @@ function RegisterScreen() {
               }}
               onChange={handleChangeWeight}
             />
+			{!isWeightValid && (
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+			style={{ left: "-57.5%",top:"68%", transform: "translate(-50%, -50%)" }}>Weight must be a numeric value with a maximum of 4 characters</div>
+          )}
           </div>
         </div>
         <div
@@ -326,33 +375,7 @@ function RegisterScreen() {
             </Link>
           </div>
         </div>
-
-		{/* <div style={{marginTop:35, backgroundColor:"#415B63"}}>
-
-		  <div>
-		{!isEmailValid && (
-            <span style={{ color: "red" }}>Email must be valid</span>
-          )}
-		  </div>
-
-		  <div>
-		{!isPasswordValid && (
-            <span style={{ color: "red" }}>{messagepass}</span>
-          )}
-		  </div>
-
-		</div> */}
-
       </form>
-	  {/* <div className="error-message-container">
-          {!isEmailValid && (
-            <div className="error-msg alert alert-danger d-flex align-items-center">Email must be valid</div>
-          )}
-
-          {!isPasswordValid && (
-            <div className="error-msg">Password must be at least 8 characters long and contain at least 1 uppercase letter, 1 lowercase letter, and 1 number.</div>
-          )}
-        </div> */}
 		</div>
     </LoginLayout>
   );

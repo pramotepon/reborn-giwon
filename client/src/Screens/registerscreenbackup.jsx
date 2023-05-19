@@ -201,7 +201,7 @@ function RegisterScreen() {
 						type="radio"
 						name="gender"
 						style={{ marginLeft: "5px" }}
-						value="male"
+						value="male" 
 						checked={gender === "male"}
 						onChange={handleChangeGender}
 					/>
