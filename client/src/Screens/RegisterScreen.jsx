@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import IsLoadingComponent from "../components/IsLoadingComponent";
+import Swal from "sweetalert2";
 import { UserContext } from "../contexts/UserContext";
 
 function RegisterScreen() {
@@ -24,6 +25,8 @@ function RegisterScreen() {
 	const [isWeightValid, setWeightValid] = useState(true);
 	const [isGenderValid, setGenderValid] = useState(true);
 	const [showEmailError, setShowEmailError] = useState(true);
+
+	const navigate = useNavigate();
 
 	const { user } = useContext(UserContext);
 	let extImage;
@@ -93,7 +96,7 @@ function RegisterScreen() {
 		const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
 			password
 		);
-		setShowPasswordError(!isPasswordValid);
+		setPasswordValid(!isPasswordValid);
 
 		if (!isPasswordValid) {
 			console.log("Form validation failed");
@@ -127,15 +130,6 @@ function RegisterScreen() {
 			return;
 		}
 
-		// // Validate gender
-		// const isGenderValid = gender !== "";
-		// setGenderValid(isGenderValid);
-
-		// if (!isGenderValid) {
-		//   console.log("Form validation failed");
-		//   return;
-		// }
-
 		setIsLoading(true);
 		if (imageType) {
 			extImage = imageType.split('.').pop();
@@ -153,16 +147,29 @@ function RegisterScreen() {
 			extImage,
 		};
 
-		try {
-			const response = await axios.post("/users/register", formData);
-			console.log("Registration successful:", response.data);
-			// Additional logic after successful registration
-		} catch (error) {
-			console.log("Registration failed:", error);
-			// Additional error handling logic
-		} finally {
+		axios.post("/users/register", formData).then((response) => {
+			Swal.fire({
+				title: 'Successfully.',
+				text: response.data,
+				icon: 'success',
+				confirmButtonText: 'Ok!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					navigate('/login')
+				}
+			});
+		}).catch((error) => {
+			Swal.fire({
+				title: 'Failed!',
+				text: error.response.data,
+				icon: 'error',
+				confirmButtonText: 'Try'
+			})
+		}).finally(() => {
 			setIsLoading(false);
-		}
+		})
+		// console.log("Registration successful:", response.data);
+
 	};
 
 	const handleCancel = () => {
@@ -239,7 +246,7 @@ function RegisterScreen() {
 							name="DisplayName"
 							placeholder=""
 							className="input-regis"
-							maxlength="11"
+							maxLength="11"
 							style={{
 								boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 								fontWeight: "bold",
