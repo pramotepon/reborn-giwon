@@ -127,14 +127,14 @@ function RegisterScreen() {
 	  return;
 	}
   
-	// Validate gender
-	const isGenderValid = gender !== "";
-	setGenderValid(isGenderValid);
+	// // Validate gender
+	// const isGenderValid = gender !== "";
+	// setGenderValid(isGenderValid);
   
-	if (!isGenderValid) {
-	  console.log("Form validation failed");
-	  return;
-	}
+	// if (!isGenderValid) {
+	//   console.log("Form validation failed");
+	//   return;
+	// }
 
     setIsLoading(true);
     const formData = {
