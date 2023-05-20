@@ -9,7 +9,7 @@ const ActivityCard = (props) => {
     >
       <div className="row">
         <div className="col-sm-4">
-          <img className="img-fluid" src={props.activity.img} />
+          <img className="img-fluid" src={props.activity.image} />
         </div>
         <div className="col-sm-8">
           <h2>
@@ -39,8 +39,10 @@ const ActivityCard = (props) => {
               </svg>
             </button>
           </div>
+          <p>{props.activity.activity_name}</p>
           <p>{props.activity.description}</p>
-          <p>{props.activity.createdDate}</p>
+          <p>{props.activity.duration.hour}</p>
+          <p>{props.activity.duration.minute}</p>
         </div>
       </div>
     </div>
