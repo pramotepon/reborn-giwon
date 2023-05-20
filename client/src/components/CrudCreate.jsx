@@ -102,6 +102,7 @@ const CrudCreate = () => {
 							minLength="3"
 							maxLength="30"
 							onChange={(e) => setName(e.target.value)}
+							required
 						/>
 
 						{name.length !== 0 && (name.length < 3 || name.length > 30) ? (
@@ -112,7 +113,7 @@ const CrudCreate = () => {
 					</div>
 
 					<div className="duration">
-						<label htmlFor="duration">Activity Duration</label>
+						<label htmlFor="duration">Activity Duration (Min)</label>
 						<input
 							type="number"
 							className="fill"
@@ -145,6 +146,7 @@ const CrudCreate = () => {
 							type="date"
 							className="fill"
 							onChange={(e) => setDate(e.target.value)}
+							required
 						/>
 					</div>
 					<div className="weight">
