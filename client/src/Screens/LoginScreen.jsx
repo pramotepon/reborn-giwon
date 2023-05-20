@@ -104,7 +104,7 @@ function LoginScreen() {
 
         <div>
           <p>
-            Don't hava an account? <Link to="/register" style={{ color: '#212F33', fontWeight: 'bold', textDecoration: 'none' }}>Sign up</Link>
+            Don't have an account? <Link to="/register" style={{ color: '#212F33', fontWeight: 'bold', textDecoration: 'none' }}>Sign up</Link>
           </p>
         </div>
 
