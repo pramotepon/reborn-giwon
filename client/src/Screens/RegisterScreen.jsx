@@ -19,6 +19,8 @@ function RegisterScreen() {
 
 	const { user } = useContext(UserContext);
 
+	let extImage;
+	
 	if (user) {
 		return <Navigate to={'/dashboard'} />
 	}
