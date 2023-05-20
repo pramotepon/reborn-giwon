@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../assets/css/components/CRUD.css";
 import { UserContext } from "../contexts/UserContext";
+import IsLoadingComponent from "./IsLoadingComponent";
 
 const CrudCreate = () => {
 	const { user } = useContext(UserContext);
@@ -25,13 +26,30 @@ const CrudCreate = () => {
 		minute: minutes,
 	};
 
+	const [image, setImage] = useState("");
+	const [imageType, setImageType] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
+
+	let extImage;
+
+	const setFileToBase = (file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setImage(reader.result);
+		};
+	};
+
 	const handleFileChange = (e) => {
 		if (!e.target.files || e.target.files.length === 0) {
 			setSelectedFile(null);
 			return;
 		}
 		// I've kept this example simple by using the first image instead of multiple
-		setSelectedFile(e.target.files[0]);
+		const file = e.target.files[0];
+		setImageType(file.name);
+		setFileToBase(file);
+		setSelectedFile(file);
 	};
 
 	const [preview, setPreview] = useState();
@@ -53,6 +71,13 @@ const CrudCreate = () => {
 	const saveActivity = async (event) => {
 		event.preventDefault();
 
+		setIsLoading(true);
+		if (imageType) {
+			extImage = imageType.split(".").pop();
+		} else {
+			extImage = imageType;
+		}
+
 		if (
 			!name ||
 			!duration ||
@@ -72,7 +97,7 @@ const CrudCreate = () => {
 		}
 
 		const formData = new FormData();
-		formData.append("image", selectedFile);
+		formData.append("image", image);
 		formData.append("user_id", user._id); // Replace with the provided user ID
 		formData.append("activity_name", name);
 		formData.append("duration", JSON.stringify(duration)); // Convert duration object to string
@@ -80,6 +105,7 @@ const CrudCreate = () => {
 		formData.append("calendar", date);
 		formData.append("weight", weight);
 		formData.append("description", text);
+		formData.append("extImage", extImage);
 
 		try {
 			const response = await axios.post("activities/add/", formData);
@@ -95,6 +121,14 @@ const CrudCreate = () => {
 			// Handle the response as per your application requirements
 		} catch (error) {
 			console.log(error);
+			Swal.fire({
+				title: "Failed!",
+				text: error.response.data,
+				icon: "error",
+				confirmButtonText: "Try",
+			});
+		} finally {
+			setIsLoading(false);
 		}
 	};
 

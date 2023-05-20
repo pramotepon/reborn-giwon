@@ -24,7 +24,7 @@ import { UserContextProvider } from "./contexts/UserContext.jsx";
 
 import axios from "axios";
 
-axios.defaults.baseURL = "http://127.0.0.1:3000"
+axios.defaults.baseURL = "https://giddy-pear-jay.cyclic.app/";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
