@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/components/buttonNewActivity.css"
+import { Link } from "react-router-dom";
 
 const ButtonNewActivity = (props) => {
   const [activity, setActivity] = useState(props.activity);
@@ -29,9 +30,9 @@ const ButtonNewActivity = (props) => {
     newActivity = newActivityCard;
   } else {
     newActivity = (
-      <button type="button" className="btn btn-success">
+      <Link to={'/createcrud'} type="button" className="btn btn-success">
         New Activity
-      </button>
+      </Link>
     );
   }
 

@@ -11,15 +11,19 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 // Function register
 const register = async (req, res) => {
 	try {
-		const { email, password, displayName, height, weight, gender, image, imageType } =
+		const { email, password, displayName, height, weight, gender, image, extImage } =
 			req.body;
+		const chkEmail = await User.findOne({ email }).count();
+		if (chkEmail) {
+			return res.status(403).send("Email is valid");
+		}
 		// Array of allowed files
 		const array_of_allowed_files = ["png", "jpeg", "jpg", "gif"];
 
 		let url_image = image;
 		let public_id_image = null;
 
-		if (imageType) {
+		if (extImage) {
 			// Configuration
 			await cloudinary.config({
 				cloud_name: process.env.IMAGE_CLOUD_NAME,
@@ -27,9 +31,8 @@ const register = async (req, res) => {
 				api_secret: process.env.IMAGE_API_SECRET
 			});
 			// Get the extension of the uploaded file
-			let file_extension = imageType.split(".").pop();
 			// Check if the uploaded file is allowed
-			if (!array_of_allowed_files.includes(file_extension)) {
+			if (!array_of_allowed_files.includes(extImage)) {
 				throw new Error('Invalid file');
 			}
 			const result = await cloudinary.uploader.upload(image, {
@@ -44,7 +47,7 @@ const register = async (req, res) => {
 			public_id_image = result.public_id;
 		}
 
-		const user = await User.create({
+		await User.create({
 			email,
 			displayName,
 			height,
@@ -55,10 +58,9 @@ const register = async (req, res) => {
 			password: bcrypt.hashSync(password, bcryptSalt),
 		});
 
-		// console.log(user._id);
-
 		res.json("Registration completed.");
 	} catch (e) {
+		console.log(e);
 		res.json(e);
 	}
 };

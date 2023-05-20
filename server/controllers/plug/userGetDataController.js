@@ -8,16 +8,21 @@ dotenv.config();
 const jwtSecret = process.env.JWT_KEY;
 
 const userData = async (req, res) => {
-    const { token } = req.params;
-    if (token) {
+    try {
+        const token = req.header('Authorization').replace('Bearer ', '');
+        if (!token) {
+            return res.status(403).json('Access denine token.');
+        }
         // กำหนด Exp times
         jwt.verify(token, jwtSecret, {}, async (err, user) => {
-            if (err) throw err;
-            const { displayName, weight, goal, image, _id } = await User.findOne({ _id: user._id });
-            res.json({ displayName, weight, goal, image, _id });
+            if (err) {
+                return res.status(403).json("Access denine token.")
+            };
+            const { displayName, weight, height, goal, image, gender, _id } = await User.findOne({ _id: user._id });
+            res.json({ displayName, weight, height, goal, image, gender, _id });
         });
-    } else {
-        res.json(null);
+    } catch (e) {
+        res.json(e.message);
     }
 }
 

@@ -31,16 +31,23 @@ const addActivity = async (req, res) => {
 			calendar,
 			duration,
 			description,
+			weight,
 		} = req.body;
 
 		// console.log(req.body);
 		// console.log(req.file);
+		// console.log(JSON.parse(duration));
 
 		let imageCloudUrl = null;
 		let cloudinaryPublicId = null;
 
-		if (req.file) {
+		await User.findOneAndUpdate(
+			{ _id: user_id },
+			{ weight: weight },
+			{ new: true }
+		);
 
+		if (req.file) {
 			await cloudinary.config({
 				cloud_name: process.env.IMAGE_CLOUD_NAME,
 				api_key: process.env.IMAGE_API_KEY,
@@ -65,7 +72,7 @@ const addActivity = async (req, res) => {
 			activity_name,
 			activity_type,
 			calendar,
-			duration,
+			duration: JSON.parse(duration), // Assign the hour and minute values to the duration field
 			description,
 			image: imageCloudUrl,
 			cloudinary_public_id: cloudinaryPublicId,

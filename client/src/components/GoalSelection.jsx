@@ -6,7 +6,7 @@ import BamBamPic from "../image/Idol/bambam.png";
 import JaehyunPic from "../image/Idol/jaehyun.png";
 import JenniePic from "../image/Idol/jennie.png";
 
-const GoalSelection = () => {
+const GoalSelection = ({ handleToggle }) => {
 	const [ownGoal, setOwnGoal] = useState(0);
 
 	return (
@@ -26,7 +26,7 @@ const GoalSelection = () => {
 				</Col>
 			</Row>
 
-			<Row className="justify-content-center">
+			<Row className="justify-content-center" onClick={handleToggle}>
 				<Col className="col-4 m-3">
 					<Card
 						className={`goalCard ${ownGoal === 4 ? "goalCardSelected" : ""}`}
