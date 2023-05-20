@@ -14,6 +14,7 @@ const schema = mongoose.Schema(
 			hour: Number,
 			minute: Number,
 		},
+		current_weight: Number,
 		description: String,
 		image: String,
 		cloudinary_public_id: String,
