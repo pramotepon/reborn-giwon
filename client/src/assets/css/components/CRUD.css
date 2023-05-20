@@ -32,18 +32,30 @@
     
 }
 
+.card-container textarea {
+    background-color: #84B9C9;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
+    height: 5em;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
+    
+}
+
+
 .card-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: #31444A;
     border: #02fefe solid 2px;
     border-radius: 20px;
     min-height: 820px;
     width: 920px;
     padding: 0;
-    margin: 16px 40px 50px 70px;
+    margin: auto;
   }
-    
+      
 .card-top {
     display: flex;
     flex-direction: row;
@@ -74,7 +86,18 @@
     font-size: 24px;
     margin: 10px 0;
 }
+.duration input {
+    display: flex;    
+    flex-direction: row-reverse;
+    width: 320px;
+    align-items: flex-end;
 
+} 
+
+  .duration-input label {
+    margin-right: 5px;
+  }
+  
 #act-type {
     background-color: #84B9C9;
     border: none;

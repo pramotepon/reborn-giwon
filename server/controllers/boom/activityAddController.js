@@ -36,6 +36,7 @@ const addActivity = async (req, res) => {
 
 		// console.log(req.body);
 		// console.log(req.file);
+		// console.log(JSON.parse(duration));
 
 		let imageCloudUrl = null;
 		let cloudinaryPublicId = null;
@@ -71,7 +72,7 @@ const addActivity = async (req, res) => {
 			activity_name,
 			activity_type,
 			calendar,
-			duration,
+			duration: JSON.parse(duration), // Assign the hour and minute values to the duration field
 			description,
 			image: imageCloudUrl,
 			cloudinary_public_id: cloudinaryPublicId,
