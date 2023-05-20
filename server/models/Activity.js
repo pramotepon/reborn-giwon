@@ -13,7 +13,6 @@ const schema = mongoose.Schema(
 		duration: {
 			hour: Number,
 			minute: Number,
-			second: Number,
 		},
 		description: String,
 		image: String,
