@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../assets/css/login.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { UserContext } from "../contexts/UserContext";
+import IsLoadingComponent from "../components/IsLoadingComponent";
+import Swal from "sweetalert2";
+import verifyToken from "../utils/verifyToken";
 
-function EditProfileScreen(props) {
-  console.log(props.location);
+function EditProfileScreen() {
+  const { user, setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   function goBack(e) {
@@ -14,11 +20,14 @@ function EditProfileScreen(props) {
     navigate(-1);
   }
 
-  const [displayname, setDisplayname] = useState();
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
-  const [gender, setGender] = useState();
+  const [displayName, setDisplayname] = useState(user.displayName);
+  const [height, setHeight] = useState(user.height);
+  const [weight, setWeight] = useState(user.weight);
+  const [gender, setGender] = useState(user.gender);
   const [image, setImage] = useState();
+  const [imageType, setImageType] = useState();
+  let extImage;
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeDisplayname = (event) => {
     setDisplayname(event.target.value);
@@ -33,34 +42,81 @@ function EditProfileScreen(props) {
     setGender(event.target.value);
   };
   const handleChangeImage = (event) => {
-    setImage(event.target.value);
+    const file = event.target.files[0];
+    setImageType(file.name);
+    setFileToBase(file);
   };
 
-  // const handleSave = (event) => {
-  //   event.preventDefault();
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+  };
 
-  //   const formData = {
-  //     displayname,
-  //     height,
-  //     weight,
-  //     gender,
-  //     image,
-  //   };
+  const updateUser = () => {
+    const { token } = JSON.parse(localStorage.getItem('user'))
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    if (imageType) {
+      extImage = imageType.split('.').pop();
+    } else {
+      extImage = imageType;
+    }
+    const bodyParams = {
+      displayName,
+      height,
+      weight,
+      gender,
+      image,
+      extImage
+    }
+    axios.put(`/users/edit-profile/${user._id}`, bodyParams).then(({ data }) => {
+      Swal.fire({
+        title: 'Success.',
+        text: data,
+        icon: 'success',
+        confirmButtonText: 'Ok!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const data = verifyToken(token);
+          setUser(data);
+          navigate(-1)
+        }
+      });
+    }).catch((error) => {
+      console.log(error);
+      Swal.fire({
+        title: 'Failed!',
+        text: error,
+        icon: 'error',
+        confirmButtonText: 'Try'
+      })
+    }).finally(() => {
+      setIsLoading(false);
+    });
+  }
 
-  //   console.log(formData);
-
-  // };
-
-  // const handleCancel = () => {
-  //   setDisplayname("");
-  //   setHeight("");
-  //   setWeight("");
-  //   setGender("");
-  //   setImage("");
-  // };
+  const handleSave = async (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        setIsLoading(true);
+        updateUser();
+      }
+    })
+  };
 
   return (
     <LoginLayout>
+      {isLoading && <IsLoadingComponent />}
       <form action="" className="form-login form-regis">
         <div className="regis-text-top" style={{ marginBottom: "10px" }}>
           <h2 style={{ fontWeight: "bold" }}>Edit Profile</h2>
@@ -79,6 +135,7 @@ function EditProfileScreen(props) {
             placeholder=""
             className="input-regis"
             style={{ fontWeight: "bold" }}
+            value={displayName} maxLength={11}
             onChange={handleChangeDisplayname}
           />
         </div>
@@ -99,6 +156,7 @@ function EditProfileScreen(props) {
               name="Height"
               placeholder=""
               className="input-regis"
+              value={height}
               style={{ fontWeight: "bold" }}
               onChange={handleChangeHeight}
             />
@@ -116,6 +174,7 @@ function EditProfileScreen(props) {
               name="Weight"
               placeholder=""
               className="input-regis weight-regis"
+              value={weight}
               style={{ fontWeight: "bold" }}
               onChange={handleChangeWeight}
             />
@@ -124,11 +183,11 @@ function EditProfileScreen(props) {
 
         <div className="regis-text" style={{ fontSize: "18px" }}>
           <label htmlFor="gender">Gender</label>
-          <input type="radio" name="gender" onChange={handleChangeGender} />
+          <input type="radio" name="gender" onChange={handleChangeGender} value={'male'} checked={gender === "male"} />
           Male
-          <input type="radio" name="gender" onChange={handleChangeGender} />
+          <input type="radio" name="gender" onChange={handleChangeGender} value={'female'} checked={gender === "female"} />
           Female
-          <input type="radio" name="gender" onChange={handleChangeGender} />
+          <input type="radio" name="gender" onChange={handleChangeGender} value={'prefer not to say'} checked={gender === "prefer not to say"} />
           Prefer not to say
         </div>
 
@@ -151,7 +210,7 @@ function EditProfileScreen(props) {
             <button
               className="btn-save-regis"
               style={{ marginRight: "26px", fontWeight: "bold" }}
-              onClick={(e) => goBack(e)}
+              onClick={(e) => handleSave(e)}
             >
               Save
             </button>

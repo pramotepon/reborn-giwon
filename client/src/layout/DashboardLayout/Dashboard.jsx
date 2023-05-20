@@ -9,9 +9,8 @@ import { UserContext } from "../../contexts/UserContext";
 import SpecificGoal from "../../components/SpecificGoal";
 
 const Dashboard = ({ children }) => {
-	const { user } = useContext(UserContext);
+	const { user, setUser } = useContext(UserContext);
 	const [chooseIdol, setChooseIdol] = useState(true);
-
 	const handleToggle = () => {
 		setChooseIdol((current) => !current);
 	}
@@ -30,6 +29,10 @@ const Dashboard = ({ children }) => {
 	} else {
 		displayShow = children;
 	}
+
+	useEffect(() => {
+
+	}, [user]);
 
 	return (
 		<div className="dashboard">
