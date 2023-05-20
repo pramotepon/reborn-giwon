@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { Alert } from "bootstrap";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../assets/css/components/CRUD.css";
 import { UserContext } from "../contexts/UserContext";
 
@@ -17,8 +17,29 @@ const CrudCreate = () => {
 	const [selectedFile, setSelectedFile] = useState(null);
 
 	const handleFileChange = (e) => {
+		if (!e.target.files || e.target.files.length === 0) {
+			setSelectedFile(null);
+			return;
+		}
+		// I've kept this example simple by using the first image instead of multiple
 		setSelectedFile(e.target.files[0]);
 	};
+
+	const [preview, setPreview] = useState();
+
+	// create a preview as a side effect, whenever selected file is changed
+	useEffect(() => {
+		if (!selectedFile) {
+			setPreview(null);
+			return;
+		}
+
+		const objectUrl = URL.createObjectURL(selectedFile);
+		setPreview(objectUrl);
+
+		// free memory when ever this component is unmounted
+		return () => URL.revokeObjectURL(objectUrl);
+	}, [selectedFile]);
 
 	const saveActivity = async (event) => {
 		event.preventDefault();
@@ -48,40 +69,49 @@ const CrudCreate = () => {
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlFor="file-regis">
-							<div className="hoverable-div">
-								<FontAwesomeIcon
-									className="imageIcon"
-									icon="fa-regular fa-image"
-									style={{ color: "#b4bcca" }}
-								/>
-								<FontAwesomeIcon
-									className="plusIcon"
-									icon="fa-solid fa-circle-plus"
-									style={{ color: "#b4bcca" }}
-								/>
+						<label htmlhtmlFor="file-regis">
+							<span>Upload Image File</span>
+							<div>
+								{!selectedFile ? (
+									<>
+										<FontAwesomeIcon
+											className="imageIcon"
+											icon="fa-regular fa-image"
+											style={{ color: "#b4bcca" }}
+										/>
+									</>
+								) : (
+									selectedFile && <img src={preview} alt="Preview" />
+								)}
 								<div>
 									<input
 										type="file"
-										accept="image/*"
+										accept=".png, .jpeg, .jpg, .gif"
 										onChange={handleFileChange}
 									/>
-									<span>Upload Image File</span>
 								</div>
 							</div>
 						</label>
 					</div>
 
 					<div className="name">
-						<label htmlFor="name" className="Test">
-							Activity Name
-						</label>
+						<label htmlFor="name">Activity Name</label>
 						<input
 							type="text"
 							className="fill"
+							minLength="3"
+							maxLength="30"
 							onChange={(e) => setName(e.target.value)}
+							required
 						/>
+
+						{name.length !== 0 && (name.length < 3 || name.length > 30) ? (
+							<p className="warning-box">
+								Please enter a valid activity name (3-30 characters).
+							</p>
+						) : null}
 					</div>
+
 					<div className="duration">
 						<label htmlFor="duration">Activity Duration</label>
 						<input
@@ -116,6 +146,7 @@ const CrudCreate = () => {
 							type="date"
 							className="fill"
 							onChange={(e) => setDate(e.target.value)}
+							required
 						/>
 					</div>
 					<div className="weight">
