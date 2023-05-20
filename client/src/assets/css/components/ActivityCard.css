@@ -20,9 +20,17 @@
     object-fit: contain;
   }
 
-  .boxcard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
+.bigboxcard {
+  display: flex;
+}
+
+.toeyja {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toeykung {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
