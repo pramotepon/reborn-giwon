@@ -137,7 +137,7 @@ const CrudCreate = () => {
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlhtmlFor="file-regis">
+						<label htmlFor="file-regis">
 							<span>Upload Image File</span>
 							<div>
 								{!selectedFile ? (
@@ -281,7 +281,7 @@ const CrudCreate = () => {
 					<button className="cancel">Cancel</button>
 				</Link>
 				<button className="add" onClick={saveActivity}>
-					Add
+					Save
 				</button>
 				{showValidationMessage && (
 					<div>
