@@ -113,7 +113,7 @@ const CrudCreate = () => {
 					</div>
 
 					<div className="duration">
-						<label htmlFor="duration">Activity Duration</label>
+						<label htmlFor="duration">Activity Duration (Min)</label>
 						<input
 							type="number"
 							className="fill"
