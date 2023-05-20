@@ -13,6 +13,10 @@ const register = async (req, res) => {
 	try {
 		const { email, password, displayName, height, weight, gender, image, extImage } =
 			req.body;
+		const chkEmail = await User.findOne({ email }).count();
+		if (chkEmail) {
+			return res.status(403).send("Email is valid");
+		}
 		// Array of allowed files
 		const array_of_allowed_files = ["png", "jpeg", "jpg", "gif"];
 
@@ -43,7 +47,7 @@ const register = async (req, res) => {
 			public_id_image = result.public_id;
 		}
 
-		const user = await User.create({
+		await User.create({
 			email,
 			displayName,
 			height,
@@ -54,10 +58,9 @@ const register = async (req, res) => {
 			password: bcrypt.hashSync(password, bcryptSalt),
 		});
 
-		// console.log(user._id);
-
 		res.json("Registration completed.");
 	} catch (e) {
+		console.log(e);
 		res.json(e);
 	}
 };
