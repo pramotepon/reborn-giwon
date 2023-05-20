@@ -20,26 +20,34 @@ function EditProfileScreen() {
     navigate(-1);
   }
 
-  const [displayName, setDisplayname] = useState(user.displayName);
-  const [height, setHeight] = useState(user.height);
-  const [weight, setWeight] = useState(user.weight);
-  const [gender, setGender] = useState(user.gender);
+  const [displayName, setDisplayname] = useState(user?.displayName || "");
+  const [height, setHeight] = useState(user?.height || "");
+  const [weight, setWeight] = useState(user?.weight || "");
+  const [gender, setGender] = useState(user?.gender || "male");
   const [image, setImage] = useState();
   const [imageType, setImageType] = useState();
+  const [isDisplayNameValid, setDisplayNameValid] = useState(true);
+	const [isHeightValid, setHeightValid] = useState(true);
+	const [isWeightValid, setWeightValid] = useState(true);
   let extImage;
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeDisplayname = (event) => {
     setDisplayname(event.target.value);
+    setDisplayNameValid(event.target.value.length != 0);
   };
   const handleChangeHeight = (event) => {
     setHeight(event.target.value);
+    setHeightValid(/^\d{1,4}$/.test(event.target.value));
   };
   const handleChangeWeight = (event) => {
     setWeight(event.target.value);
-  };
+    setWeightValid(/^\d{1,4}$/.test(event.target.value));
+	};
+  
   const handleChangeGender = (event) => {
     setGender(event.target.value);
+    setGenderValid(event.target.value !== "");
   };
   const handleChangeImage = (event) => {
     const file = event.target.files[0];
@@ -112,6 +120,33 @@ function EditProfileScreen() {
         updateUser();
       }
     })
+
+    // Validate displayName
+		const isDisplayNameValid = displayName.length <= 11;
+		setDisplayNameValid(isDisplayNameValid);
+
+		if (!isDisplayNameValid) {
+			console.log("Form validation failed");
+			return;
+		}
+
+		// Validate height
+		const isHeightValid = /^\d{1,4}$/.test(height);
+		setHeightValid(isHeightValid);
+
+		if (!isHeightValid) {
+			console.log("Form validation failed");
+			return;
+		}
+
+		// Validate weight
+		const isWeightValid = /^\d{1,4}$/.test(weight);
+		setWeightValid(isWeightValid);
+
+		if (!isWeightValid) {
+			console.log("Form validation failed");
+			return;
+		}
   };
 
   return (
@@ -138,6 +173,10 @@ function EditProfileScreen() {
             value={displayName} maxLength={11}
             onChange={handleChangeDisplayname}
           />
+          {!isDisplayNameValid && (
+							<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+								style={{ left: "-45%", top: "36%", transform: "translate(-50%, -50%)" }}>Display name must be a maximum of 11 characters</div>
+						)}
         </div>
 
         <div
@@ -160,6 +199,10 @@ function EditProfileScreen() {
               style={{ fontWeight: "bold" }}
               onChange={handleChangeHeight}
             />
+            {!isHeightValid && (
+								<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+									style={{ left: "-57%", top: "45%", transform: "translate(-50%, -50%)" }}>Height must be a numeric value with a maximum of 4 characters</div>
+							)}
           </div>
 
           <div
@@ -178,16 +221,20 @@ function EditProfileScreen() {
               style={{ fontWeight: "bold" }}
               onChange={handleChangeWeight}
             />
+            {!isWeightValid && (
+								<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+									style={{ left: "-57.5%", top: "50%", transform: "translate(-50%, -50%)" }}>Weight must be a numeric value with a maximum of 4 characters</div>
+							)}
           </div>
         </div>
 
         <div className="regis-text" style={{ fontSize: "18px" }}>
           <label htmlFor="gender">Gender</label>
-          <input type="radio" name="gender" onChange={handleChangeGender} value={'male'} checked={gender === "male"} />
+          <input type="radio" name="gender" style={{ marginLeft: "5px" }} onChange={handleChangeGender} value={'male'} checked={gender === "male"} />
           Male
-          <input type="radio" name="gender" onChange={handleChangeGender} value={'female'} checked={gender === "female"} />
+          <input type="radio" name="gender" style={{ marginLeft: "5px" }} onChange={handleChangeGender} value={'female'} checked={gender === "female"} />
           Female
-          <input type="radio" name="gender" onChange={handleChangeGender} value={'prefer not to say'} checked={gender === "prefer not to say"} />
+          <input type="radio" name="gender" style={{ marginLeft: "5px" }} onChange={handleChangeGender} value={'prefer not to say'} checked={gender === "prefer not to say"} />
           Prefer not to say
         </div>
 
