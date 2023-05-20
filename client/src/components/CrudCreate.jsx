@@ -10,7 +10,7 @@ const CrudCreate = () => {
 
 	const [name, setName] = useState("");
 	const [duration, setDuration] = useState(0);
-	const [type, setType] = useState("");
+	const [type, setType] = useState("run");
 	const [date, setDate] = useState("");
 	const [weight, setWeight] = useState(0);
 	const [text, setText] = useState("");
@@ -73,7 +73,7 @@ const CrudCreate = () => {
 					</div>
 
 					<div className="name">
-						<label for="name" className="Test">
+						<label htmlFor="name" className="Test">
 							Activity Name
 						</label>
 						<input
@@ -83,7 +83,7 @@ const CrudCreate = () => {
 						/>
 					</div>
 					<div className="duration">
-						<label for="duration">Activity Duration</label>
+						<label htmlFor="duration">Activity Duration</label>
 						<input
 							type="number"
 							className="fill"
@@ -95,7 +95,7 @@ const CrudCreate = () => {
 
 				<div className="card-right">
 					<div className="type">
-						<label for="type">Activity Type</label>
+						<label htmlFor="type">Activity Type</label>
 						<select
 							name="act-type"
 							id="act-type"
@@ -111,7 +111,7 @@ const CrudCreate = () => {
 					</div>
 
 					<div className="date">
-						<label for="date">Date</label>
+						<label htmlFor="date">Date</label>
 						<input
 							type="date"
 							className="fill"
@@ -119,7 +119,7 @@ const CrudCreate = () => {
 						/>
 					</div>
 					<div className="weight">
-						<label for="weight">Current Weight (kg)</label>
+						<label htmlFor="weight">Current Weight (kg)</label>
 						<input
 							type="number"
 							className="fill"
@@ -131,7 +131,7 @@ const CrudCreate = () => {
 			</div>
 
 			<div className="card-description">
-				<label for="weight">Describe your journal</label>
+				<label htmlFor="weight">Describe your journal</label>
 				<input
 					type="text"
 					className="fill"
