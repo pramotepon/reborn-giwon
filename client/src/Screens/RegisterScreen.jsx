@@ -64,6 +64,11 @@ function RegisterScreen() {
 	const handleSave = async (event) => {
 		event.preventDefault();
 		setIsLoading(true);
+		if (imageType) {
+			extImage = imageType.split('.').pop();
+		  } else {
+			extImage = imageType;
+		  }
 		const formData = {
 			email,
 			password,
@@ -72,7 +77,7 @@ function RegisterScreen() {
 			weight,
 			gender,
 			image,
-			imageType,
+			extImage,
 		};
 		// http://127.0.0.1:8080/users/register
 		const userData = await axios.post(
