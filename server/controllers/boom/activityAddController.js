@@ -100,6 +100,7 @@ const addActivity = async (req, res) => {
 			// image: imageCloudUrl,
 			// cloudinary_public_id: cloudinaryPublicId,
 			image: url_image,
+			current_weight: weight,
 			cloudinary_public_id: public_id_image,
 		});
 
