@@ -69,8 +69,8 @@ const router = createBrowserRouter([
 	// 	element: <ActivityCardScreen />,
 	// },
 	{
-		path: "/activitydetail",
-		element: <ActivityDetailScreen />,
+		path: "/activitydetail/:id",
+		element: <ActivityDetailScreen />, 
 	},
 	{
 		path: "/success",
