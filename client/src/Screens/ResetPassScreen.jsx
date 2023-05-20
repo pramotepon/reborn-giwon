@@ -8,17 +8,24 @@ function ResetPassScreen() {
   const [email, setEmail] = useState();
   const [height, setHeight] = useState();
   const [currentweight, setcurrentWeight] = useState();
-  const [gender, setGender] = useState();
+  const [gender, setGender] = useState("male");
+
+  const [isEmailValid, setEmailValid] = useState(true);
+  const [isHeightValid, setHeightValid] = useState(true);
+  const [isWeightValid, setWeightValid] = useState(true);
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
     console.log(event.target.value);
+    setEmailValid(/\S+@\S+\.\S+/.test(event.target.value));
   };
   const handleChangeHeight = (event) => {
     setHeight(event.target.value);
+    setHeightValid(/^\d{1,4}$/.test(event.target.value));
   };
   const handleChangeCurrentWeight = (event) => {
     setcurrentWeight(event.target.value);
+    setWeightValid(/^\d{1,4}$/.test(event.target.value));
   };
   const handleChangeGender = (event) => {
     setGender(event.target.value);
@@ -26,6 +33,33 @@ function ResetPassScreen() {
 
   const handleSave = (event) => {
     event.preventDefault();
+
+    // Validate email
+    const isEmailValid = /\S+@\S+\.\S+/.test(email);
+    setShowEmailError(!isEmailValid);
+
+    if (!isEmailValid) {
+      console.log("Form validation failed");
+      return;
+    }
+
+    // Validate height
+    const isHeightValid = /^\d{1,4}$/.test(height);
+    setHeightValid(isHeightValid);
+
+    if (!isHeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
+
+    // Validate weight
+    const isWeightValid = /^\d{1,4}$/.test(weight);
+    setWeightValid(isWeightValid);
+
+    if (!isWeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
     const formData = {
       email,
@@ -61,6 +95,10 @@ function ResetPassScreen() {
             style={{ fontWeight: "bold" }}
             onChange={handleChangeEmail}
           />
+          {!isEmailValid && (
+            <div className="position-absolute alert alert-danger translate-middle badge border border-light p-2" 
+			style={{ left: "-22%",top:"36%", transform: "translate(-50%, -50%)" }}>Email must be valid</div>
+          )}
         </div>
 
         <div
@@ -81,6 +119,10 @@ function ResetPassScreen() {
               style={{ fontWeight: "bold" }}
               onChange={handleChangeHeight}
             />
+            	{!isHeightValid && (
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+			style={{ left: "-67.5%",top:"50%", transform: "translate(-50%, -50%)" }}>Height must be a numeric value with a maximum of 4 characters</div>
+          )}
           </div>
 
           <div className="reset-text" style={{ flexBasis: "45%" }}>
@@ -93,6 +135,10 @@ function ResetPassScreen() {
               style={{ fontWeight: "bold" }}
               onChange={handleChangeCurrentWeight}
             />
+            {!isWeightValid && (
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+			style={{ left: "-67.5%",top:"55%", transform: "translate(-50%, -50%)" }}>Weight must be a numeric value with a maximum of 4 characters</div>
+          )}
           </div>
         </div>
 
