@@ -1,13 +1,51 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
+import React, { useEffect , useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../assets/css/components/UserProfile.css";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UserProfile = ({ userId, userDisplayName, userWeight, userImage }) => {
 	const [weight, setWeight] = useState(userWeight);
 
+	// Vee's CODE is here
+	
+	const [hasAchievedGoal, setHasAchievedGoal] = useState(false);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+	  const fetchGoalAchievementStatus = async () => {
+		try {
+
+	   // axios or fetch
+	  //  const response = await fetch(`/users/goal-success/${userId}`
+
+		  const response = await axios.get(`/users/goal-success/${userId}`);
+
+		//   const data = await response.json();
+		//   console.log(userId);
+		//   setHasAchievedGoal(data);
+
+		  const data = response.data;
+      	  setHasAchievedGoal(data);
+	
+		} catch (error) {
+		  console.error(error);
+		}
+	  };
+  
+	  fetchGoalAchievementStatus();
+	}, [userId]);
+  
+	useEffect(() => {
+	  if (hasAchievedGoal) {
+		navigate("/success");
+	  }
+	}, [hasAchievedGoal, navigate]);
+
 	return (
 		<div className="userProfile">
+
 			<img src={userImage ? userImage : "http://placekitten.com/200/200"} className="img-fluid" alt="" />
 			<div className="displayName">
 				<p className="displayNameText">{userDisplayName}</p>

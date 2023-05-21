@@ -5,6 +5,7 @@ import "../assets/css/components/GoalSelection.css";
 import BamBamPic from "../image/Idol/bambam.png";
 import JaehyunPic from "../image/Idol/jaehyun.png";
 import JenniePic from "../image/Idol/jennie.png";
+import Swal from "sweetalert2";
 
 const GoalSelection = ({ handleToggle }) => {
 	const [ownGoal, setOwnGoal] = useState(0);
@@ -13,7 +14,15 @@ const GoalSelection = ({ handleToggle }) => {
 
 	const handleConfirm = () => {
 		if (ownGoal === 0) {
-			alert("Please select goal!");
+			// alert("Please select goal!");
+			// Alert แบบดูดีกว่าเดิม ด้วย Swal.sweetalert
+
+			Swal.fire({
+				title: 'Please Select Your Goal',
+				text: 'select goal to continue',
+				icon: 'info',
+				confirmButtonText: 'Back'
+			  })
 		} else {
 			// Conditions to path
 			if (ownGoal === 4) {
@@ -133,7 +142,7 @@ const GoalSelection = ({ handleToggle }) => {
 			<div className="d-grid gap-2">
 				<Button
 					variant="success"
-					// href={ownGoal === 4 ? "/specificgoal" : "/dashboard"}
+					// href={ownGoal === 4 ? "/specificgoal" : "/dashboard"} // K'Boom's CODE
 					onClick={handleConfirm}
 					className="btn btn-lg"
 					type="button"
