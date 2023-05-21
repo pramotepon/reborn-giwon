@@ -69,7 +69,7 @@ const ActivityDetail = (props) => {
 
 				<div className="duration">
 					<label htmlFor="weight">Describe your journal</label>
-					<p>{activity.description}</p>
+					<p style={{ fontSize: "22px" , whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>{activity.description}</p>
 				</div>
 			</div>
       <div className="row p-5 ">
