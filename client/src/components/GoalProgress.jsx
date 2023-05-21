@@ -26,7 +26,7 @@ const GoalProgess = ({ userId, userGoal, userWeight }) => {
 		<div className="goalProgress">
 			<p className="goalProgressInfo">
 				Goal : <strong>{!goal ? "?" : goal}</strong> kg{" "}
-				<Button variant="" href="/specificgoal">
+				<Button variant="" href="/goalselection">
 					<FontAwesomeIcon
 						className="editIcon"
 						icon="fa-regular fa-pen-to-square"

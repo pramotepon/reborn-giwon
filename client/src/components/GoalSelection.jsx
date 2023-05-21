@@ -1,40 +1,60 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 import "../assets/css/components/GoalSelection.css";
+import { UserContext } from "../contexts/UserContext";
 import BamBamPic from "../image/Idol/bambam.png";
 import JaehyunPic from "../image/Idol/jaehyun.png";
 import JenniePic from "../image/Idol/jennie.png";
-import Swal from "sweetalert2";
-
 const GoalSelection = ({ handleToggle }) => {
+	const { user } = useContext(UserContext);
 	const [ownGoal, setOwnGoal] = useState(0);
-
-	//THIS IS VEE'S CODE
+	const [goal, setGoal] = useState(0);
 
 	const handleConfirm = () => {
 		if (ownGoal === 0) {
-			// alert("Please select goal!");
-			// Alert แบบดูดีกว่าเดิม ด้วย Swal.sweetalert
-
 			Swal.fire({
-				title: 'Please Select Your Goal',
-				text: 'select goal to continue',
-				icon: 'info',
-				confirmButtonText: 'Back'
-			  })
+				title: "Please Select Your Goal",
+				text: "Select a goal to continue",
+				icon: "info",
+				confirmButtonText: "Back",
+			});
+		} else if (ownGoal === -1) {
+			window.location.href = "/specificgoal";
 		} else {
-			// Conditions to path
-			if (ownGoal === 4) {
-				// Redirect to /specificgoal
-				window.location.href = "/specificgoal"
-			} else {
-				// Redirect to /dashboard
-				window.location.href = "/dashboard"
-			}
+			axios
+				.put(`/users/goal-weight-update/${user._id}`, { goal: goal })
+				.then((response) => {
+					if (response.status === 200) {
+						Swal.fire({
+							title: "Goal Updated",
+							text: "Your goal weight has been updated successfully",
+							icon: "success",
+							confirmButtonText: "OK",
+						}).then(() => {
+							window.location.href = "/dashboard";
+						});
+					} else {
+						Swal.fire({
+							title: "Error",
+							text: "An error occurred while updating the goal weight",
+							icon: "error",
+							confirmButtonText: "OK",
+						});
+					}
+				})
+				.catch((error) => {
+					Swal.fire({
+						title: "Error",
+						text: "An error occurred while updating the goal weight",
+						icon: "error",
+						confirmButtonText: "OK",
+					});
+				});
 		}
 	};
-	// END OF VEE'S CODE
 
 	return (
 		<div className="goalSelection">
@@ -56,8 +76,10 @@ const GoalSelection = ({ handleToggle }) => {
 			<Row className="justify-content-center" onClick={handleToggle}>
 				<Col className="col-4 m-3">
 					<Card
-						className={`goalCard ${ownGoal === 4 ? "goalCardSelected" : ""}`}
-						onClick={() => setOwnGoal(4)}
+						className={`goalCard ${ownGoal === -1 ? "goalCardSelected" : ""}`}
+						onClick={() => {
+							setOwnGoal(-1);
+						}}
 					>
 						<div className="d-flex justify-content-center">
 							<Card.Body>
@@ -79,7 +101,10 @@ const GoalSelection = ({ handleToggle }) => {
 				<Col>
 					<Card
 						className={`goalCard ${ownGoal === 1 ? "goalCardSelected" : ""}`}
-						onClick={() => setOwnGoal(1)}
+						onClick={() => {
+							setOwnGoal(1);
+							setGoal(52);
+						}}
 					>
 						<Card.Img variant="top" src={BamBamPic} className="mx-auto" />
 						<Card.Body>
@@ -100,7 +125,10 @@ const GoalSelection = ({ handleToggle }) => {
 				<Col>
 					<Card
 						className={`goalCard ${ownGoal === 2 ? "goalCardSelected" : ""}`}
-						onClick={() => setOwnGoal(2)}
+						onClick={() => {
+							setOwnGoal(2);
+							setGoal(63);
+						}}
 					>
 						<Card.Img variant="top" src={JaehyunPic} className="mx-auto" />
 						<Card.Body>
@@ -120,7 +148,10 @@ const GoalSelection = ({ handleToggle }) => {
 				<Col>
 					<Card
 						className={`goalCard ${ownGoal === 3 ? "goalCardSelected" : ""}`}
-						onClick={() => setOwnGoal(3)}
+						onClick={() => {
+							setOwnGoal(3);
+							setGoal(50);
+						}}
 					>
 						<Card.Img variant="top" src={JenniePic} className="mx-auto" />
 						<Card.Body>
