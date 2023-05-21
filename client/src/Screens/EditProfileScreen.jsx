@@ -64,10 +64,6 @@ function EditProfileScreen() {
   };
 
   const updateUser = () => {
-    const { token } = JSON.parse(localStorage.getItem('user'))
-    const config = {
-      headers: { Authorization: `Bearer ${token}` }
-    }
     if (imageType) {
       extImage = imageType.split('.').pop();
     } else {
