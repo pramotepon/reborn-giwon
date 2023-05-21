@@ -6,12 +6,19 @@ dotenv.config();
 const jwtSecret = process.env.JWT_KEY;
 
 const userGetId = (token) => {
-    jwt.verify(token, jwtSecret, {}, async (err, data) => {
-        if (err) {
-            return res.status(403).json("Token is not match.");
-        }
-        return data._id;
-    });
+    try {
+        let userId;
+        jwt.verify(token, jwtSecret, {}, (err, user) => {
+            if (err) {
+                return res.status(403).json("Access denine token.");
+            };
+            console.log(user._id);
+            userId = user._id;
+        });
+        return userId;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export default userGetId;

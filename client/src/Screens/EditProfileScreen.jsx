@@ -88,9 +88,9 @@ function EditProfileScreen() {
         icon: 'success',
         confirmButtonText: 'Ok!'
       }).then((result) => {
+        const data = verifyToken(token);
+        setUser(data);
         if (result.isConfirmed) {
-          const data = verifyToken(token);
-          setUser(data);
           navigate(-1)
         }
       });

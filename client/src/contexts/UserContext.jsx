@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
 import verifyToken from '../utils/verifyToken';
+import IsLoadingComponent from '../components/IsLoadingComponent';
 
 export const UserContext = createContext({});
 
@@ -34,7 +35,7 @@ export const UserContextProvider = ({ children }) => {
 
   if (loading) {
     // Render a loading indicator until the data is fetched
-    return <div>Loading...</div>;
+    return <IsLoadingComponent />;
   }
 
   return (
