@@ -13,6 +13,7 @@ const IP_ADDRESS = "127.0.0.1";
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
+	origin: 'http://localhost:5173',
 	credentials: false,
 };
 
