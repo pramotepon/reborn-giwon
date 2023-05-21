@@ -70,7 +70,7 @@ const router = createBrowserRouter([
 	// },
 	{
 		path: "/activitydetail/:id",
-		element: <ActivityDetailScreen />,
+		element: <ActivityDetailScreen />, 
 	},
 	{
 		path: "/success",
