@@ -47,8 +47,8 @@ function EditProfileScreen() {
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
-    setGenderValid(event.target.value !== "");
   };
+
   const handleChangeImage = (event) => {
     const file = event.target.files[0];
     setImageType(file.name);
@@ -64,6 +64,10 @@ function EditProfileScreen() {
   };
 
   const updateUser = () => {
+    const { token } = JSON.parse(localStorage.getItem('user'))
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
     if (imageType) {
       extImage = imageType.split('.').pop();
     } else {
@@ -77,7 +81,7 @@ function EditProfileScreen() {
       image,
       extImage
     }
-    axios.put(`/users/edit-profile/${user._id}`, bodyParams).then(({ data }) => {
+    axios.put(`/users/edit-profile`, bodyParams, config).then(({ data }) => {
       Swal.fire({
         title: 'Success.',
         text: data.message,
@@ -85,8 +89,8 @@ function EditProfileScreen() {
         confirmButtonText: 'Ok!'
       }).then((result) => {
         if (result.isConfirmed) {
-          const userData = verifyToken(data.token);
-          setUser(userData);
+          const data = verifyToken(token);
+          setUser(data);
           navigate(-1)
         }
       });
