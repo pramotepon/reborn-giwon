@@ -1,8 +1,8 @@
-import express from "express";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import * as dotenv from "dotenv";
+import express from "express";
 import mongoose from "mongoose";
-import cookieParser from "cookie-parser";
 import activityRouter from "./routes/activities.js";
 import userRouter from "./routes/users.js";
 
@@ -13,7 +13,7 @@ const IP_ADDRESS = "127.0.0.1";
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-	origin: "http://localhost:5173",
+	origin: 'http://localhost:5173',
 	credentials: true,
 };
 

@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
 import IsLoadingComponent from "../components/IsLoadingComponent";
+import Swal from "sweetalert2";
 import { UserContext } from "../contexts/UserContext";
 
 function RegisterScreen() {
@@ -24,6 +25,8 @@ function RegisterScreen() {
 	const [isWeightValid, setWeightValid] = useState(true);
 	const [isGenderValid, setGenderValid] = useState(true);
 	const [showEmailError, setShowEmailError] = useState(true);
+
+	const navigate = useNavigate();
 
 	const { user } = useContext(UserContext);
 	let extImage;
@@ -78,92 +81,109 @@ function RegisterScreen() {
 	};
 
 	const handleSave = async (event) => {
-		event.preventDefault();
+    event.preventDefault();
 
-		// Validate email
-		const isEmailValid = /\S+@\S+\.\S+/.test(email);
-		setShowEmailError(!isEmailValid);
+    // Validate email
+    const isEmailValid = /\S+@\S+\.\S+/.test(email);
+    setShowEmailError(!isEmailValid);
 
-		if (!isEmailValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    if (!isEmailValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		// Validate password
-		const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
-			password
-		);
-		setShowPasswordError(!isPasswordValid);
+    // Validate password
+    const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
+      password
+    );
+    setPasswordValid(isPasswordValid);
 
-		if (!isPasswordValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    if (!isPasswordValid) {
+      console.log("Password validation failed");
+      return;
+    }
 
-		// Validate displayName
-		const isDisplayNameValid = displayName.length <= 11;
-		setDisplayNameValid(isDisplayNameValid);
+    // // Perform password validation only if the input field value has changed
+    // if (
+    //   password !== "" &&
+    //   !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password)
+    // ) {
+    //   setPasswordValid(false);
+    //   console.log("Form validation failed");
+    //   return;
+    // }
 
-		if (!isDisplayNameValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    // Validate displayName
+    const isDisplayNameValid = displayName.length <= 11;
+    setDisplayNameValid(isDisplayNameValid);
 
-		// Validate height
-		const isHeightValid = /^\d{1,4}$/.test(height);
-		setHeightValid(isHeightValid);
+    if (!isDisplayNameValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		if (!isHeightValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    // Validate height
+    const isHeightValid = /^\d{1,4}$/.test(height);
+    setHeightValid(isHeightValid);
 
-		// Validate weight
-		const isWeightValid = /^\d{1,4}$/.test(weight);
-		setWeightValid(isWeightValid);
+    if (!isHeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		if (!isWeightValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    // Validate weight
+    const isWeightValid = /^\d{1,4}$/.test(weight);
+    setWeightValid(isWeightValid);
 
-		// // Validate gender
-		// const isGenderValid = gender !== "";
-		// setGenderValid(isGenderValid);
+    if (!isWeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		// if (!isGenderValid) {
-		//   console.log("Form validation failed");
-		//   return;
-		// }
+    setIsLoading(true);
+    if (imageType) {
+      extImage = imageType.split(".").pop();
+    } else {
+      extImage = imageType;
+    }
+    const formData = {
+      email,
+      password,
+      displayName,
+      height,
+      weight,
+      gender,
+      image,
+      extImage,
+    };
 
-		setIsLoading(true);
-		if (imageType) {
-			extImage = imageType.split('.').pop();
-		} else {
-			extImage = imageType;
-		}
-		const formData = {
-			email,
-			password,
-			displayName,
-			height,
-			weight,
-			gender,
-			image,
-			extImage,
-		};
-
-		try {
-			const response = await axios.post("/users/register", formData);
-			console.log("Registration successful:", response.data);
-			// Additional logic after successful registration
-		} catch (error) {
-			console.log("Registration failed:", error);
-			// Additional error handling logic
-		} finally {
-			setIsLoading(false);
-		}
-	};
+    axios
+      .post("/users/register", formData)
+      .then((response) => {
+        Swal.fire({
+          title: "Successfully.",
+          text: response.data,
+          icon: "success",
+          confirmButtonText: "Ok!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/login");
+          }
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Failed!",
+          text: error.response.data,
+          icon: "error",
+          confirmButtonText: "Try",
+        });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+    // console.log("Registration successful:", response.data);
+  };
 
 	const handleCancel = () => {
 		setEmail("");
@@ -226,7 +246,7 @@ function RegisterScreen() {
 						/>
 						{!isPasswordValid && (
 							<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
-								style={{ left: "-40%", top: "43%", transform: "translate(-50%, -50%)" }}>{messagepass1}<br />{messagepass2}<br />{messagepass3}</div>
+								style={{ left: "-40%", top: "43%", transform: "translate(-50%, -50%)" }}>Password must be at least 8 characters long<br />and contain at least 1 uppercase letter, <br />1 lowercase letter, and 1 number.</div>
 						)}
 					</div>
 
@@ -239,7 +259,7 @@ function RegisterScreen() {
 							name="DisplayName"
 							placeholder=""
 							className="input-regis"
-							maxlength="11"
+							maxLength="11"
 							style={{
 								boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 								fontWeight: "bold",

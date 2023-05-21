@@ -2,4 +2,35 @@
     position: absolute;
     right: 12px;
     top: 8px;
+    
   }
+
+  .fixed-size-image-container {
+    width: 250px; /* Set your desired width */
+    height: 250px; /* Set your desired height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .fixed-size-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+.bigboxcard {
+  display: flex;
+}
+
+.toeyja {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toeykung {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

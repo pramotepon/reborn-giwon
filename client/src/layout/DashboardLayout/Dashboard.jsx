@@ -4,16 +4,16 @@ import "../../assets/css/DashboardScreen.css";
 import GoalProgress from "../../components/GoalProgress";
 import GoalSelection from "../../components/GoalSelection";
 import Navbar from "../../components/Navbar";
+import SpecificGoal from "../../components/SpecificGoal";
 import UserProfile from "../../components/UserProfile";
 import { UserContext } from "../../contexts/UserContext";
-import SpecificGoal from "../../components/SpecificGoal";
 
 const Dashboard = ({ children }) => {
 	const { user, setUser } = useContext(UserContext);
 	const [chooseIdol, setChooseIdol] = useState(true);
 	const handleToggle = () => {
 		setChooseIdol((current) => !current);
-	}
+	};
 	let displayShow;
 	if (!user) {
 		return <Navigate to={"/login"} />;
@@ -25,14 +25,11 @@ const Dashboard = ({ children }) => {
 		} else {
 			displayShow = <SpecificGoal handleToggle={handleToggle} />;
 		}
-
 	} else {
 		displayShow = children;
 	}
 
-	useEffect(() => {
-
-	}, [user]);
+	useEffect(() => {}, [user]);
 
 	return (
 		<div className="dashboard">
