@@ -277,9 +277,14 @@ const CrudCreate = () => {
 			</div>
 
 			<div className="card-buttons">
-				<Link to="/dashboard">
-					<button className="cancel">Cancel</button>
-				</Link>
+				<button
+					className="cancel"
+					onClick={() => {
+						window.location.replace("/dashboard");
+					}}
+				>
+					Cancel
+				</button>
 				<button className="add" onClick={saveActivity}>
 					Save
 				</button>

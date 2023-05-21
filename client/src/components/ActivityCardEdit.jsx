@@ -142,7 +142,7 @@ const CrudCreate = (props) => {
 			console.log(response);
 			if (response.status === 200) {
 				Swal.fire({
-					title: "Activity added!",
+					title: "Activity Edited Successfully",
 					icon: "success",
 					confirmButtonText: "OK",
 				});
@@ -315,9 +315,14 @@ const CrudCreate = (props) => {
 			</div>
 
 			<div className="card-buttons">
-				<Link to="/dashboard">
-					<button className="cancel">Cancel</button>
-				</Link>
+				<button
+					className="cancel"
+					onClick={() => {
+						window.location.replace("/dashboard");
+					}}
+				>
+					Cancel
+				</button>
 				<button className="add" onClick={saveActivity}>
 					Save
 				</button>
