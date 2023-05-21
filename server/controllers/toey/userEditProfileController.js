@@ -1,6 +1,7 @@
 import User from '../../models/User.js';
 import { v2 as cloudinary } from "cloudinary";
 import * as dotenv from "dotenv";
+import createToken from '../../utils/generateToken.js';
 
 dotenv.config();
 
@@ -49,8 +50,8 @@ const userUpdate = async (req, res) => {
                 crop: "fill",
             });
             if (!result) {
-				throw new Error("Cloud image server have a poblem.");
-			}
+                throw new Error("Cloud image server have a poblem.");
+            }
             image = result.secure_url;
             cloudinary_public_id = result.public_id;
         }
@@ -61,10 +62,14 @@ const userUpdate = async (req, res) => {
             { displayName, height, weight, gender, image, cloudinary_public_id },
             { new: true }
         );
-        res.json("Update user successfully.");
+        if (!user) {
+            return res.status(400).json("Error");
+        }
+        const token = await createToken(user._id);
+        return res.json({ token: token, message: "Update user successfully." });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Server error' });
+        return res.status(500).json({ message: 'Server error' });
     }
 }
 
