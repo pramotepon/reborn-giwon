@@ -7,6 +7,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./layout/DashboardLayout/Dashboard.jsx";
+import ActivityCardEditScreen from "./Screens/ActivityCardEditScreen.jsx";
 import ActivityCardScreen from "./Screens/ActivityCardScreen.jsx";
 import ActivityDetailScreen from "./Screens/ActivityDetailScreen.jsx";
 import CRUDScreen from "./Screens/CRUDScreen.jsx";
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
 	// },
 	{
 		path: "/activitydetail/:id",
-		element: <ActivityDetailScreen />, 
+		element: <ActivityDetailScreen />,
 	},
 	{
 		path: "/success",
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
 	{
 		path: "/createcrud",
 		element: <CRUDScreen />,
+	},
+	{
+		path: "/editcard/:id",
+		element: <ActivityCardEditScreen />,
 	},
 ]);
 

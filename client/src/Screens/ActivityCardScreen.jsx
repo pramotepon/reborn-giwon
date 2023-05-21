@@ -19,7 +19,6 @@ const ActivityCardScreen = () => {
 		try {
 			const response = await axios.get(`/activities/user/${user._id}`);
 			const data = response.data;
-			console.log(data);
 			setActivities(data);
 			setWeightData(data.current_weight); // Assuming the weight data is returned as an array
 			setGoalWeight(user.goal); // Assuming the goal weight is returned as a number
@@ -34,13 +33,18 @@ const ActivityCardScreen = () => {
 
 	// Reverse the order of activities
 	const reversedActivities = [...activities].reverse();
+	const activitiesWithLatest = reversedActivities.map((activity, index) => {
+		const isLatest = index === 0 ? "yes" : "no";
+		return { ...activity, latest: isLatest };
+	});
+	console.log(activitiesWithLatest);
 
 	return (
 		<Dashboard>
 			<div className="mb-3">
 				<ButtonNewActivity activity={activities} />
 			</div>
-			{reversedActivities.map((activity, index) => (
+			{activitiesWithLatest.map((activity, index) => (
 				<ActivityCard activity={activity} key={index} />
 			))}
 		</Dashboard>

@@ -11,14 +11,14 @@ dotenv.config();
 
 // Cloudinary configuration
 
-const getFileExtensionName = (fileName) => {
-	const parts = fileName.split(".");
-	if (parts.length === 1) {
-		return ""; // Return empty string if no dot is found in the file name
-	}
-	const extension = parts[parts.length - 1];
-	return "." + extension;
-};
+// const getFileExtensionName = (fileName) => {
+// 	const parts = fileName.split(".");
+// 	if (parts.length === 1) {
+// 		return ""; // Return empty string if no dot is found in the file name
+// 	}
+// 	const extension = parts[parts.length - 1];
+// 	return "." + extension;
+// };
 
 const addActivity = async (req, res) => {
 	try {
@@ -33,6 +33,7 @@ const addActivity = async (req, res) => {
 			image,
 			extImage,
 		} = req.body;
+		console.log(req.body);
 
 		// let imageCloudUrl = null;
 		// let cloudinaryPublicId = null;

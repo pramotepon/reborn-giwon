@@ -4,14 +4,15 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 // Cloudinary configuration
-cloudinary.config({
-	cloud_name: process.env.IMAGE_CLOUD_NAME,
-	api_key: process.env.IMAGE_API_KEY,
-	api_secret: process.env.IMAGE_API_SECRET,
-});
 
 const deleteFile = async (publicId) => {
 	try {
+		await cloudinary.config({
+			cloud_name: process.env.IMAGE_CLOUD_NAME,
+			api_key: process.env.IMAGE_API_KEY,
+			api_secret: process.env.IMAGE_API_SECRET,
+		});
+
 		const result = await cloudinary.uploader.destroy(publicId);
 		if (result.result === "ok") {
 			console.log(`File with public ID ${publicId} has been deleted.`);
