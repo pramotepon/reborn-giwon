@@ -1,9 +1,11 @@
 import User from '../../models/User.js';
 import { v2 as cloudinary } from "cloudinary";
+import jwt from 'jsonwebtoken';
 import * as dotenv from "dotenv";
-import createToken from '../../utils/generateToken.js';
 
 dotenv.config();
+
+const jwtSecret = process.env.JWT_KEY;
 
 const deleteFile = async (publicId) => {
     try {
@@ -21,7 +23,17 @@ const deleteFile = async (publicId) => {
 const userUpdate = async (req, res) => {
     try {
         let { displayName, height, weight, gender, image, extImage } = req.body;
-        const userId = req.params.id;
+        let userId;
+        const token = req.header('Authorization').replace('Bearer ', '');
+        if (!token) {
+            return res.status(403).json('Access denine token.');
+        }
+        jwt.verify(token, jwtSecret, {}, (err, user) => {
+            if (err) {
+                return res.status(403).json("Access denine token.");
+            };
+            userId = user._id;
+        });
         let cloudinary_public_id;
         // Array of allowed files
         const array_of_allowed_files = ["png", "jpeg", "jpg", "gif", "jfif"];
@@ -65,7 +77,7 @@ const userUpdate = async (req, res) => {
         if (!user) {
             return res.status(400).json("Error");
         }
-        const token = await createToken(user._id);
+        // const token = await createToken(user._id);
         return res.json({ token: token, message: "Update user successfully." });
     } catch (error) {
         console.error(error);
