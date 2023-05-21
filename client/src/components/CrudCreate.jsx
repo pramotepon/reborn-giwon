@@ -288,7 +288,7 @@ const CrudCreate = () => {
 						{(() => {
 							Swal.fire({
 								title:
-									"Please fill in all fields marked with (*) before clicking Add.",
+									"Please fill in all fields marked with (*) before clicking Save.",
 								icon: "error",
 								confirmButtonText: "OK",
 							});

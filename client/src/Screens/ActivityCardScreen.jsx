@@ -32,14 +32,17 @@ const ActivityCardScreen = () => {
 		fetchData();
 	}, []);
 
+	// Reverse the order of activities
+	const reversedActivities = [...activities].reverse();
+
 	return (
 		<Dashboard>
 			<div className="mb-3">
 				<ButtonNewActivity activity={activities} />
 			</div>
-			{activities.map((activity, index) => {
-				return <ActivityCard activity={activity} key={index} />;
-			})}
+			{reversedActivities.map((activity, index) => (
+				<ActivityCard activity={activity} key={index} />
+			))}
 		</Dashboard>
 	);
 };
