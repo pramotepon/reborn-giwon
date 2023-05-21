@@ -115,18 +115,22 @@ const ActivityCard = (props) => {
 						{/* Trash Button */}
 					</div>
 
-					<div className="toeyja">
+					<div className="editData">
 						<div>
+							
+							
 							<Link to={`/activitydetail/${props.activity._id}`}  style={{ fontSize: "52px" , color: "black", textDecoration: 'none',   }}> <p >{props.activity.activity_name}</p></Link>
-							<p style={{ fontSize: "22px" }}>
-								Description :{props.activity.description}
-							</p>
+							
+							<div className="fix-text-overflow"><p style={{ fontSize: "22px" , whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>
+								Description : {props.activity.description}
+							</p></div>
+								
 							<p style={{ fontSize: "28px" }}>
 								Duration {props.activity.duration.hour} hour :{" "}
 								{props.activity.duration.minute} minute
 							</p>
 						</div>
-						<div className="toeykung">
+						<div className="editcardbutton">
 							<p style={{ fontSize: "160px", margin: "0" }}>
 								{props.activity.current_weight}
 							</p>

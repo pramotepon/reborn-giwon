@@ -24,13 +24,20 @@
   display: flex;
 }
 
-.toeyja {
+.editData {
   display: flex;
   justify-content: space-between;
 }
 
-.toeykung {
+.editcardbutton {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.fix-text-overflow {
+  white-space: nowrap; 
+  width: 600px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
