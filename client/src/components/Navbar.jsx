@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark my-bg-blue-soft fixed-top">
             <div className="container-fluid">
-                <Link to={'/'} className="navbar-brand"><img src='../src/image/logo.png' width={147} height={50} /></Link>
+                <Link to={'/dashboard'} className="navbar-brand"><img src='../src/image/logo.png' width={147} height={50} /></Link>
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
                         <button className='btn my-btn-danger' onClick={logoutHandler}>
