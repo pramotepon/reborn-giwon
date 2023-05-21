@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "../assets/css/components/ActivityCard.css";
 import IsLoadingComponent from "./IsLoadingComponent";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ActivityCard = (props) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -115,7 +117,7 @@ const ActivityCard = (props) => {
 
 					<div className="toeyja">
 						<div>
-							<p style={{ fontSize: "52px" }}>{props.activity.activity_name}</p>
+							<Link to={`/activitydetail/${props.activity._id}`}  style={{ fontSize: "52px" , color: "black", textDecoration: 'none',   }}> <p >{props.activity.activity_name}</p></Link>
 							<p style={{ fontSize: "22px" }}>
 								Description :{props.activity.description}
 							</p>
