@@ -8,7 +8,7 @@ const ButtonNewActivity = (props) => {
   let newActivity;
 
   const newActivityCard = (
-    <button className="first-card">
+    <Link to={'/createcrud'} className="first-card">
       <div>
         <h2>Start Your Frist Activity</h2>
         <svg
@@ -23,10 +23,10 @@ const ButtonNewActivity = (props) => {
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
       </div>
-    </button>
+    </Link>
   );
 
-  if (!activity) {
+  if (activity.length === 0) {
     newActivity = newActivityCard;
   } else {
     newActivity = (

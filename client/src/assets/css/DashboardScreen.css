@@ -1,3 +1,16 @@
-.container-user-profile{
-    width: inherit;
+.container-user-profile {
+  width: inherit;
+  transition: 0.7s;
+}
+
+@media only screen and (max-width: 767px) {
+  .container-user-profile {
+    left: -100%;
+    height: 100%;
+    top: 77px;
+  }
+  .container-user-profile.show {
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+  }
 }

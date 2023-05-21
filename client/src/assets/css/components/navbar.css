@@ -2,3 +2,16 @@
   background-color: #ff3366;
   color: white;
 }
+.btn-profile{
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-profile{
+    display: block;
+  }
+  .navbar-brand{
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
