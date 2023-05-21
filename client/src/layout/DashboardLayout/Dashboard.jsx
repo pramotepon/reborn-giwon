@@ -11,14 +11,25 @@ import { UserContext } from "../../contexts/UserContext";
 const Dashboard = ({ children }) => {
 	const { user, setUser } = useContext(UserContext);
 	const [chooseIdol, setChooseIdol] = useState(true);
-	const handleToggle = () => {
-		setChooseIdol((current) => !current);
-	};
-	let displayShow;
+	const [profileToggle, setProfileToggle] = useState(false);
 	if (!user) {
 		return <Navigate to={"/login"} />;
 	}
+	const handleToggle = () => {
+		setChooseIdol((current) => !current);
+	};
 
+	const profileHandleToggle = () => {
+		setProfileToggle((current) => !current);
+	};
+	let profileShow;
+	if (!profileToggle) {
+		profileShow = '';
+	} else {
+		profileShow = 'show';
+	}
+
+	let displayShow;
 	if (!user.goal) {
 		if (chooseIdol) {
 			displayShow = <GoalSelection handleToggle={handleToggle} />;
@@ -29,15 +40,15 @@ const Dashboard = ({ children }) => {
 		displayShow = children;
 	}
 
-	useEffect(() => {}, [user]);
+	useEffect(() => { }, [user]);
 
 	return (
 		<div className="dashboard">
-			<Navbar />
+			<Navbar profileHandleToggle={profileHandleToggle} />
 
 			<div className="row mt-5 pt-5">
-				<div className="userAndGoal col-3">
-					<div className="position-fixed container-user-profile">
+				<div className="userAndGoal col-md-3">
+					<div className={`position-fixed container-user-profile ${profileShow}`}>
 						<UserProfile
 							userId={user._id}
 							userDisplayName={user.displayName}
@@ -52,7 +63,7 @@ const Dashboard = ({ children }) => {
 					</div>
 				</div>
 
-				<div className="rightContainer col-9">{displayShow}</div>
+				<div className="rightContainer col-md-9">{displayShow}</div>
 			</div>
 			<br></br>
 		</div>
