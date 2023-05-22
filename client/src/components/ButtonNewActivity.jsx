@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../assets/css/components/buttonNewActivity.css"
+import "../assets/css/components/buttonNewActivity.css";
 import { Link } from "react-router-dom";
 
 const ButtonNewActivity = (props) => {
@@ -8,7 +8,7 @@ const ButtonNewActivity = (props) => {
   let newActivity;
 
   const newActivityCard = (
-    <Link to={'/createcrud'} className="first-card">
+    <Link to={"/createcrud"} className="first-card">
       <div>
         <h2>Start Your Frist Activity</h2>
         <svg
@@ -25,23 +25,21 @@ const ButtonNewActivity = (props) => {
       </div>
     </Link>
   );
-
- if (activity) {
-    
+    console.log(activity);
+  if (activity.length === 0) {
+    newActivity = newActivityCard;
+  } else {
     newActivity = (
-      <Link to={'/createcrud'} type="button" className="btn btn-success">
+      <Link to={"/createcrud"} type="button" className="btn btn-success">
         New Activity
       </Link>
     );
-  } else {
-    newActivity = newActivityCard;
   }
-  
-  useEffect(()=>{ 
-    
-   },[activity])
-  return (
 
+  useEffect(() => {
+    setActivity(props.activity);
+  }, [activity]);
+  return (
     <div className="section-right">
       <div className="text-end">{newActivity}</div>
     </div>
