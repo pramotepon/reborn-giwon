@@ -230,14 +230,7 @@ const LandingPage = () => {
                                 <h2>What we do?</h2>
                                 {/* paragraph text-header-3 pading-top 5 */}
                                 <p className="h3 pt-5">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                                    reprehenderit obcaecati facere porro voluptatum nostrum, labore
-                                    quae ea itaque natus tempore fugiat, eum optio, doloremque
-                                    deserunt autem perspiciatis amet consectetur! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. In suscipit maxime, maiores
-                                    sequi dolorem illum ducimus repellendus veritatis repudiandae
-                                    minus fuga laudantium delectus iure totam voluptatum animi
-                                    accusantium minima nostrum?
+                                At G-Trainee, we empower individuals to achieve their weight loss goals through personalized and motivating workouts. Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, inspiring your weight loss journey with added passion. Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together!
                                 </p>
                             </div>
                         </div>
