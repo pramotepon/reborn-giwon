@@ -160,7 +160,7 @@ const LandingPage = () => {
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
+                                    <p className="font-weight-400">
                                         Some quick example text to build on the card title and make up
                                         the bulk of the card's content.
                                     </p>
@@ -180,7 +180,7 @@ const LandingPage = () => {
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
+                                    <p className="font-weight-400">
                                         Some quick example text to build on the card title and make up
                                         the bulk of the card's content.
                                     </p>
@@ -200,7 +200,7 @@ const LandingPage = () => {
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
+                                    <p className="font-weight-400">
                                         Some quick example text to build on the card title and make up
                                         the bulk of the card's content.
                                     </p>
@@ -228,7 +228,13 @@ const LandingPage = () => {
                                 <h2>What we do?</h2>
                                 {/* paragraph text-header-3 pading-top 5 */}
                                 <p className="h3 pt-5">
-                                At G-Trainee, we empower individuals to achieve their weight loss goals through personalized and motivating workouts. Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, inspiring your weight loss journey with added passion. Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together!
+                                At G-Trainee, we empower individuals to achieve their 
+                                weight loss goals through personalized and motivating workouts. 
+                                Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, 
+                                inspiring your weight loss journey with added passion. 
+                                Track your progress and see your weight loss journal come to life. 
+                                Join our community, and let's create a healthier and happier you together!
+
                                 </p>
                             </div>
                         </div>
