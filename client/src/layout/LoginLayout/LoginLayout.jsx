@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import "./LoginLayout.css";
+import imagecard from "../../image/imagecard.jpg"
+import logo from "../../image/logo.png"
 
 function LoginLayout({ children }) {
 	const img = {
@@ -12,7 +14,7 @@ function LoginLayout({ children }) {
 			<div className="login-container">
 				<div className="login-card">
 					<div className="login-card-pic">
-						<img className="logo" src={img.imagecard} />
+						<img className="logo" src={imagecard} />
 					</div>
 					<section className="login-right position-relative">
 						<div className="login-card-text">
@@ -20,7 +22,7 @@ function LoginLayout({ children }) {
 								className="logo-top"
 								style={{ display: "flex", flexDirection: "column" }}
 							>
-								<img className="logo" src={img.logo} />
+								<img className="logo" src={logo} />
 								{children}
 							</div>
 						</div>
