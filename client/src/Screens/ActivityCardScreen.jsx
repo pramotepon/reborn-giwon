@@ -37,7 +37,6 @@ const ActivityCardScreen = () => {
 		const isLatest = index === 0 ? "yes" : "no";
 		return { ...activity, latest: isLatest };
 	});
-	console.log(activitiesWithLatest);
 
 	return (
 		<Dashboard>

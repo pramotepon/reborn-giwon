@@ -25,15 +25,14 @@ const ButtonNewActivity = (props) => {
       </div>
     </Link>
   );
-
-  if (activity.length === 0) {
-    newActivity = newActivityCard;
-  } else {
+  if (activity.length > 0) {
     newActivity = (
       <Link to={'/createcrud'} type="button" className="btn btn-success">
         New Activity
       </Link>
     );
+  } else {
+    newActivity = newActivityCard;
   }
 
   return (
