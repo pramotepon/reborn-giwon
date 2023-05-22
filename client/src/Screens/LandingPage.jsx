@@ -154,15 +154,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://m.media-amazon.com/images/I/91RJPV9NADL.png" className="rounded-circle card-img-top mt-3 mx-auto"/>
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    Meowwww meow meow good good meow.
                                     </p>
                                 </div>
                             </div>
@@ -174,15 +173,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg" className="rounded-circle card-img-top mt-3 mx-auto"/>
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    ไม่เคยใช้แอพไหน แล้วดีเท่านี้เลยค่ะ สานฝันอยากเป็นเจนนี่.
                                     </p>
                                 </div>
                             </div>
@@ -194,15 +192,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://50814aoy.files.wordpress.com/2017/02/1948703.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    체중 데이터 저장에 아주 좋습니다.very good!
                                     </p>
                                 </div>
                             </div>
