@@ -106,7 +106,7 @@ const addActivity = async (req, res) => {
 		});
 
 		await newActivity.save();
-		res.json("Activity added!");
+		res.status(200).json("Activity added!");
 	} catch (error) {
 		res.status(400).json({ error: "Error: " + error });
 	}

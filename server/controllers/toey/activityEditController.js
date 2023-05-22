@@ -43,7 +43,7 @@ const activityUpdate = async (req, res) => {
 			// Get the extension of the uploaded file
 			// Check if the uploaded file is allowed
 			if (!array_of_allowed_files.includes(extImage)) {
-				throw new Error("Invalid file");
+				return res.status(415).json("Invalid file");
 			}
 			const result = await cloudinary.uploader.upload(image, {
 				height: 150,
@@ -51,7 +51,7 @@ const activityUpdate = async (req, res) => {
 				crop: "fill",
 			});
 			if (!result) {
-				throw new Error("Cloud image server have a poblem.");
+				return res.status(500).json("Cloud image server have a poblem.");
 			}
 			activity.image = result.url;
 			activity.cloudinary_public_id = result.public_id;
