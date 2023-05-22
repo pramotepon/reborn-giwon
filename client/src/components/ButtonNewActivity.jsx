@@ -3,8 +3,8 @@ import "../assets/css/components/buttonNewActivity.css";
 import { Link } from "react-router-dom";
 
 const ButtonNewActivity = (props) => {
-  const [activity, setActivity] = useState(props.activity);
-
+  // const [activity, setActivity] = useState(props.activity);
+  const activity = props.activity;
   let newActivity;
 
   const newActivityCard = (
@@ -25,7 +25,6 @@ const ButtonNewActivity = (props) => {
       </div>
     </Link>
   );
-    console.log(activity);
   if (activity.length === 0) {
     newActivity = newActivityCard;
   } else {
@@ -36,9 +35,6 @@ const ButtonNewActivity = (props) => {
     );
   }
 
-  useEffect(() => {
-    setActivity(props.activity);
-  }, [activity]);
   return (
     <div className="section-right">
       <div className="text-end">{newActivity}</div>
