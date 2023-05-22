@@ -154,10 +154,11 @@ const ActivityCard = (props) => {
 										: description}
 									{isLongDescription && (
 										<span
-											style={{ color: "blue", cursor: "pointer" }}
+											className="read-more"
+											style={{ cursor: "pointer" }}
 											onClick={toggleDescription}
 										>
-											{showFullDescription ? "Read less" : "Read more"}
+											{showFullDescription ? " Read less" : "Read more"}
 										</span>
 									)}
 								</p>
@@ -195,3 +196,4 @@ const ActivityCard = (props) => {
 };
 
 export default ActivityCard;
+4

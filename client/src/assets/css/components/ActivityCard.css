@@ -44,3 +44,12 @@
   overflow: hidden;
   text-overflow: ellipsis; 
 }
+
+.read-more {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  color: #0056b3;
+}
