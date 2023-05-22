@@ -179,29 +179,13 @@ const ActivityCard = (props) => {
 								</p>
 							</div>
 						</div>
-						<div className="editcardbutton d-flex align-items-center">
-							<p
-								className="display-1 mb-0 d-inline-block fw-bold text-truncate"
-								style={{
-									fontSize: "10rem",
-									whiteSpace: "nowrap",
-									overflow: "hidden",
-									textOverflow: "ellipsis",
-								}}
-							>
-								<span className="text-break text-wrap d-inline-block ">
+						<div className="editcardbutton ">
+							<p style={{ fontSize: "6rem", margin: "0" }}>
+								<span className="text-break text-wrap d-flex">
 									{props.activity.current_weight}
 								</span>
 							</p>
-							<p
-								className="fs-4 d-inline-block"
-								style={{
-									fontSize: "5rem",
-									marginLeft: "0.5rem",
-								}}
-							>
-								Kg.
-							</p>
+							<p style={{ fontSize: "2rem" }}>Kg.</p>
 						</div>
 					</div>
 				</div>
