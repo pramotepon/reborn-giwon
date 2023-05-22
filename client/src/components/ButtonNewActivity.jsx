@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/components/buttonNewActivity.css"
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,9 @@ const ButtonNewActivity = (props) => {
       </div>
     </Link>
   );
-  if (activity.length > 0) {
+
+ if (activity) {
+    
     newActivity = (
       <Link to={'/createcrud'} type="button" className="btn btn-success">
         New Activity
@@ -34,8 +36,12 @@ const ButtonNewActivity = (props) => {
   } else {
     newActivity = newActivityCard;
   }
-
+  
+  useEffect(()=>{ 
+    
+   },[activity])
   return (
+
     <div className="section-right">
       <div className="text-end">{newActivity}</div>
     </div>

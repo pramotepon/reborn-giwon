@@ -1,6 +1,7 @@
 .container-user-profile {
   width: inherit;
   transition: 0.7s;
+  z-index: 100;
 }
 
 @media only screen and (max-width: 767px) {

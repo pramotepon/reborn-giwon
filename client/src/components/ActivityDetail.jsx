@@ -73,8 +73,8 @@ const ActivityDetail = (props) => {
 				</div>
 			</div>
       <div className="row p-5 ">
-        <div class="col-md-12 text-end">
-          <button onClick={() => navigate(-1)} class="btn btn-danger">Back</button>	
+        <div className ="col-md-12 text-end">
+          <button onClick={() => navigate(-1)} className="btn btn-danger">Back</button>	
         </div>
       </div>
 		</div>
