@@ -9,6 +9,7 @@ import DevPang from "../image/DevTeam/Dev_pang.jpg"
 import DevPlug from "../image/DevTeam/Dev_plug.jpg"
 import DevVee from "../image/DevTeam/Dev_vee.jpg"
 import Logo from "../../src/image/landing_page/logo-lg.png"
+import group14 from "../image/landing_page/group1472.png"
 
 const LandingPage = () => {
 
@@ -35,8 +36,8 @@ const LandingPage = () => {
     if (!user) {
         navUser = (
             <>
-                <a href='/register' className="btn my-nav-btn me-3 my-btn-register">Register</a>
-                <a href='/login' className="btn my-nav-btn my-btn-login">Login</a>
+                <a href='/register' className="btn my-nav-btn me-3 my-btn-register" style={{fontWeight:"600"}}>Register</a>
+                <a href='/login' className="btn my-nav-btn my-btn-login" style={{fontWeight:"600"}}>Login</a>
             </>
         )
     } else {
@@ -97,7 +98,7 @@ const LandingPage = () => {
                         {/* Block for grid col-3 */}
                         <div className="col-lg-3 me-0" />
                         {/* Block for grid col-6 Menu list */}
-                        <ul className="navbar-nav col-lg-6 justify-content-lg-center">
+                        <ul className="navbar-nav col-lg-6 justify-content-lg-center" style={{fontSize:"1.25rem"}}>
                             <li className="nav-item">
                                 <a className="nav-link" aria-current="page" href="#section-heroes">Home</a>
                             </li>
@@ -111,7 +112,7 @@ const LandingPage = () => {
                                 <a className="nav-link" href="#section-step-by-step">How to use?</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#section-dev-team">Dev team</a>
+                                <a className="nav-link" href="#section-dev-team">Team</a>
                             </li>
                         </ul>
                         {/* Block for grid col-3 End Button */}
@@ -146,7 +147,7 @@ const LandingPage = () => {
                 {/* Reviews Section */}
                 <article className="section-review container text-light pt-5 pb-5" id="section-review">
                     {/* Reviews Section Title */}
-                    <h2 className="text-center pb-5">Review</h2>
+                    <h2 className="text-center pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"1px 2px 4px rgba(0, 0, 0, 0.7)"}}>Review</h2>
                     {/* Reviews Section content row */}
                     <div className="row">
                         {/* Reviews Section content col 4 */}
@@ -158,9 +159,9 @@ const LandingPage = () => {
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>Vladimoew Putin</h5>
                                     {/* Card paragraph */}
-                                    <p className="font-weight-400">
+                                    <p className="font-weight-400" style={{fontSize:"1.25rem"}}>
                                         Meowwww meow meow good good meow.
                                     </p>
                                 </div>
@@ -177,9 +178,9 @@ const LandingPage = () => {
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>เจ๊หน่อย</h5>
                                     {/* Card paragraph */}
-                                    <p className="font-weight-400">
+                                    <p className="font-weight-400" style={{fontSize:"1.25rem"}}>
                                         ไม่เคยใช้แอพไหน แล้วดีเท่านี้เลยค่ะ สานฝันอยากเป็นเจนนี่.
                                     </p>
                                 </div>
@@ -196,9 +197,9 @@ const LandingPage = () => {
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>Kim Jong Un</h5>
                                     {/* Card paragraph */}
-                                    <p className="font-weight-400">
+                                    <p className="font-weight-100" style={{fontSize:"1.25rem"}}>
                                         체중 데이터 저장에 아주 좋습니다.very good!
                                     </p>
                                 </div>
@@ -215,7 +216,7 @@ const LandingPage = () => {
                     <div className="row text-white">
                         {/* col-7 */}
                         <div className="col-xl-7 d-none d-xl-block">
-                            <img src="./src/image/landing_page/Group_14.png" alt="prototype-feature" width="100%" />
+                            <img src={group14} alt="prototype-feature" width="80%" style={{marginLeft:"190px",marginBottom:"10px"}} />
                         </div>
                         {/* end col-7 */}
                         {/* col-5 */}
@@ -243,7 +244,7 @@ const LandingPage = () => {
                 {/* End What We do Section */}
                 {/* Step by step section */}
                 <article className="section-step-by-step pt-5 pb-5 container z-100" id="section-step-by-step">
-                    <h1 className="text-center text-light mb-5 pb-5">Step by step</h1>
+                    <h1 className="text-center text-light mb-5 pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"3px 3px 1px rgba(0, 0, 0, 0.7)"}}>Step by step</h1>
                     <hr className="mt-5" />
                     <div className="step-line-block container mt-5">
                         {/* circle block */}
@@ -254,7 +255,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-user-plus fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Sign-up</p>
+                            <p className="text-center" style={{fontSize:"1.25rem"}}>Sign-up</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -264,7 +265,7 @@ const LandingPage = () => {
                                 <span><i className="fa-sharp fa-solid fa-right-to-bracket fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Sign-in</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Sign-in</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -274,7 +275,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-plus fa-xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Create Activity</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Create Activity</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -284,7 +285,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-check fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Done</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Done</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -294,7 +295,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-chart-line fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Analysis</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>History</p>
                         </div>
                     </div>
                 </article>
@@ -303,7 +304,7 @@ const LandingPage = () => {
                 <article className="section-dev-team container text-light pt-5 pb-5 mb-5" id="section-dev-team">
                     <div className="container">
                         {/*add card jennie1*/}
-                        <h2 className="text-center pb-5">Dev Team</h2>
+                        <h2 className="text-center pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"1px 2px 4px rgba(0, 0, 0, 0.7)"}}>Developer Team</h2>
                         <div className="row">
                             {/* Reviews Section content col 4 */}
                             <div className="col-lg-6 col-xl-4 mt-4">
@@ -312,10 +313,14 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevLif} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Arlif Tagaree</b></h5>
-
+                                        <div>
+                                        <a href="https://github.com/ArlifTagaree" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/arlif-tagaree/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -328,10 +333,15 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevToey} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Cheewathun Lerttanapit</b></h5>
+                                        <div>
 
+                                        <a href="https://github.com/doctoey" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/cheewathun/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://cheewathun.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -344,10 +354,15 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevVee} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Pongpeera Ratana-arporn</b></h5>
+                                        <div>
 
+                                        <a href="https://github.com/ppongpeera" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pongpeera/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -359,10 +374,15 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevPlug} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Pramote Phan-on</b></h5>
+                                        <div>
 
+                                        <a href="https://github.com/pramotepon" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pramotephanon/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://pramote-dev.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -374,10 +394,15 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevPang} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Sasiwan Janma</b></h5>
+                                        <div>
 
+                                        <a href="https://github.com/SasiwanJ" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/sasiwan-janma/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -389,10 +414,15 @@ const LandingPage = () => {
                                     {/* image tumnail */}
                                     <img src={DevBoom} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Thatpong Paleekan</b></h5>
+                                        <div>
 
+                                        <a href="https://github.com/BoomNooB" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/thatpong/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://thatpong.com/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
