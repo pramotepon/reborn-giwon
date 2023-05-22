@@ -1,6 +1,5 @@
 import User from '../../models/User.js';
 import { v2 as cloudinary } from "cloudinary";
-import jwt from 'jsonwebtoken';
 import * as dotenv from "dotenv";
 import userGetId from '../../utils/userGetId.js';
 
