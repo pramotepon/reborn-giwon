@@ -194,4 +194,20 @@
     font-size: 16px;
     margin-top: 5px;
   }
-  
+
+input#file-regiss {
+    display:none;
+    color:#939393
+}
+
+input#file-regiss + label {
+    border: 1px solid #d9d9d9;
+    background-color: #d9d9d9;
+    color:#fff;
+    border-radius: 5px;
+}
+
+input#file-regiss + label:hover {
+    border: 1px solid black;
+    color:#31444A
+}

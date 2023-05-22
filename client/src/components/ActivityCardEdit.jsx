@@ -35,6 +35,7 @@ const CrudCreate = (props) => {
 	const [oldImage, setOldImage] = useState(""); // New state variable to store the old image URL
 	const [imageType, setImageType] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
+	const maxFileSize = 5; // 5MB
 
 	let extImage;
 
@@ -51,8 +52,18 @@ const CrudCreate = (props) => {
 			setSelectedFile(null);
 			return;
 		}
-		// I've kept this example simple by using the first image instead of multiple
 		const file = e.target.files[0];
+		const fileSizeInMB = file.size / (1024 * 1024); // Convert file size to MB
+		if (fileSizeInMB > 1) {
+			Swal.fire({
+				title: "File size limit exceeded",
+				text: "Please upload an image file up to 1MB in size.",
+				icon: "error",
+				confirmButtonText: "OK",
+			});
+			setSelectedFile(null);
+			return;
+		}
 		setImageType(file.name);
 		setFileToBase(file);
 		setSelectedFile(file);
@@ -164,6 +175,8 @@ const CrudCreate = (props) => {
 
 	return (
 		<div className="card-container">
+			{isLoading && <IsLoadingComponent />}
+
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">

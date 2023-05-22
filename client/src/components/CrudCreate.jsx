@@ -45,10 +45,22 @@ const CrudCreate = () => {
 			setSelectedFile(null);
 			return;
 		}
-		// I've kept this example simple by using the first image instead of multiple
+
 		const file = e.target.files[0];
-		setImageType(file.name);
+
+		if (file.size > 1024 * 1024) {
+			Swal.fire({
+				title: "Failed!",
+				text: "File size exceeds the limit of 1MB",
+				icon: "error",
+				confirmButtonText: "OK",
+			});
+			setSelectedFile(null);
+			return;
+		}
+
 		setFileToBase(file);
+		setImageType(file.name);
 		setSelectedFile(file);
 	};
 
@@ -134,10 +146,12 @@ const CrudCreate = () => {
 
 	return (
 		<div className="card-container">
+			{isLoading && <IsLoadingComponent />}
+
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlFor="file-regis">
+						<label htmlFor="file-regis" style={{ marginRight:"13px"}} >
 							<span>Upload Image File</span>
 							<div>
 								{!selectedFile ? (
@@ -155,8 +169,10 @@ const CrudCreate = () => {
 									<input
 										type="file"
 										accept=".png, .jpeg, .jpg, .gif"
+										id="file-regiss"
 										onChange={handleFileChange}
 									/>
+									<label htmlFor="file-regiss" id="file-regiss"> Upload Image</label>
 								</div>
 							</div>
 						</label>

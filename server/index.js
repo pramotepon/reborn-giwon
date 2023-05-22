@@ -20,7 +20,7 @@ const corsOptions = {
 const app = express();
 app.use(
 	express.json({
-		limit: "200kb",
+		limit: "2mb",
 	})
 );
 app.use(cookieParser());
