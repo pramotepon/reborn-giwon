@@ -180,6 +180,7 @@ html{
 .section-review .card {
   border: 1px solid #84b9c9;
   box-shadow: 4px 3px 13px 1px #a5e8fc;
+  height: 100%;
 }
 .card .card-img-top {
   height: 140px;
