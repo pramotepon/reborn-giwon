@@ -8,6 +8,14 @@ import IsLoadingComponent from "./IsLoadingComponent";
 
 const ActivityCard = (props) => {
 	const [isLoading, setIsLoading] = useState(false);
+	const [showFullDescription, setShowFullDescription] = useState(false);
+	const { description } = props.activity;
+
+	const toggleDescription = () => {
+		setShowFullDescription(!showFullDescription);
+	};
+	const truncatedDescription = description.slice(0, 30);
+	const isLongDescription = description.length > 30;
 
 	const deleteActivityCard = async (id) => {
 		Swal.fire({
@@ -141,20 +149,59 @@ const ActivityCard = (props) => {
 										overflowWrap: "break-word",
 									}}
 								>
-									Description : {props.activity.description}
+									{!showFullDescription && isLongDescription
+										? truncatedDescription + "..."
+										: description}
+									{isLongDescription && (
+										<span
+											style={{ color: "blue", cursor: "pointer" }}
+											onClick={toggleDescription}
+										>
+											{showFullDescription ? "Read less" : "Read more"}
+										</span>
+									)}
 								</p>
 							</div>
 
-							<p style={{ fontSize: "28px" }}>
-								Duration {props.activity.duration.hour} hour :{" "}
-								{props.activity.duration.minute} minute
-							</p>
+							<div
+								className="fix-text-overflow"
+								style={{ paddingBottom: "5px", paddingTop: "30px" }}
+							>
+								<p
+									style={{
+										fontSize: "28px",
+										position: "absolute",
+										bottom: "5px",
+									}}
+								>
+									{props.activity.duration.hour.toString().padStart(2, "0")}H:{" "}
+									{props.activity.duration.minute.toString().padStart(2, "0")}M
+								</p>
+							</div>
 						</div>
-						<div className="editcardbutton">
-							<p style={{ fontSize: "160px", margin: "0" }}>
-								{props.activity.current_weight}
+						<div className="editcardbutton d-flex align-items-center">
+							<p
+								className="display-1 mb-0 d-inline-block fw-bold text-truncate"
+								style={{
+									fontSize: "10rem",
+									whiteSpace: "nowrap",
+									overflow: "hidden",
+									textOverflow: "ellipsis",
+								}}
+							>
+								<span className="text-break text-wrap d-inline-block ">
+									{props.activity.current_weight}
+								</span>
 							</p>
-							<p style={{ fontSize: "32px" }}>Kg.</p>
+							<p
+								className="fs-4 d-inline-block"
+								style={{
+									fontSize: "5rem",
+									marginLeft: "0.5rem",
+								}}
+							>
+								Kg.
+							</p>
 						</div>
 					</div>
 				</div>
