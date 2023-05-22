@@ -318,9 +318,9 @@ const LandingPage = () => {
                                         {/* Card title */}
                                         <h5 className="card-title text-center"><b>Arlif Tagaree</b></h5>
                                         <div>
-                                        <a href="https://github.com/ArlifTagaree" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/arlif-tagaree/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/ArlifTagaree" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/arlif-tagaree/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -339,9 +339,9 @@ const LandingPage = () => {
                                         <h5 className="card-title text-center"><b>Cheewathun Lerttanapit</b></h5>
                                         <div>
 
-                                        <a href="https://github.com/doctoey" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/cheewathun/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="https://cheewathun.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/doctoey" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/cheewathun/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://cheewathun.vercel.app/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -360,9 +360,9 @@ const LandingPage = () => {
                                         <h5 className="card-title text-center"><b>Pongpeera Ratana-arporn</b></h5>
                                         <div>
 
-                                        <a href="https://github.com/ppongpeera" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/pongpeera/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/ppongpeera" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pongpeera/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -380,9 +380,9 @@ const LandingPage = () => {
                                         <h5 className="card-title text-center"><b>Pramote Phan-on</b></h5>
                                         <div>
 
-                                        <a href="https://github.com/pramotepon" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/pramotephanon/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="https://pramote-dev.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/pramotepon" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pramotephanon/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://pramote-dev.vercel.app/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -400,9 +400,9 @@ const LandingPage = () => {
                                         <h5 className="card-title text-center"><b>Sasiwan Janma</b></h5>
                                         <div>
 
-                                        <a href="https://github.com/SasiwanJ" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/sasiwan-janma/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/SasiwanJ" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/sasiwan-janma/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -420,9 +420,9 @@ const LandingPage = () => {
                                         <h5 className="card-title text-center"><b>Thatpong Paleekan</b></h5>
                                         <div>
 
-                                        <a href="https://github.com/BoomNooB" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
-                                        <a href="https://www.linkedin.com/in/thatpong/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-                                        <a href="https://thatpong.com/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        <a href="https://github.com/BoomNooB" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/thatpong/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://thatpong.com/" target='_blank' style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
                                         </div>
                                     </div>
                                 </div>
