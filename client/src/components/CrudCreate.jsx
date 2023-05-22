@@ -146,6 +146,8 @@ const CrudCreate = () => {
 
 	return (
 		<div className="card-container">
+			{isLoading && <IsLoadingComponent />}
+
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">
