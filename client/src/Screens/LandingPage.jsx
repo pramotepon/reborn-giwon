@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexts/UserContext'
 import '../assets/css/LandingPage.css'
 import { useNavigate } from 'react-router-dom';
-import DevLif from "../image/DevTeam/Dev_lif.jpg" 
-import DevToey from "../image/DevTeam/Dev_toey.jpg" 
-import DevBoom from "../image/DevTeam/Dev_boom.jpg" 
-import DevPang from "../image/DevTeam/Dev_pang.jpg" 
-import DevPlug from "../image/DevTeam/Dev_plug.jpg" 
-import DevVee from "../image/DevTeam/Dev_vee.jpg" 
+import DevLif from "../image/DevTeam/Dev_lif.jpg"
+import DevToey from "../image/DevTeam/Dev_toey.jpg"
+import DevBoom from "../image/DevTeam/Dev_boom.jpg"
+import DevPang from "../image/DevTeam/Dev_pang.jpg"
+import DevPlug from "../image/DevTeam/Dev_plug.jpg"
+import DevVee from "../image/DevTeam/Dev_vee.jpg"
 import Logo from "../../src/image/landing_page/logo-lg.png"
 
 const LandingPage = () => {
@@ -154,14 +154,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://m.media-amazon.com/images/I/91RJPV9NADL.png" className="rounded-circle card-img-top mt-3 mx-auto"/>
+                                <img src="https://m.media-amazon.com/images/I/91RJPV9NADL.png" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                    Meowwww meow meow good good meow.
+                                        Meowwww meow meow good good meow.
                                     </p>
                                 </div>
                             </div>
@@ -173,14 +173,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg" className="rounded-circle card-img-top mt-3 mx-auto"/>
+                                <img src="https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                    ไม่เคยใช้แอพไหน แล้วดีเท่านี้เลยค่ะ สานฝันอยากเป็นเจนนี่.
+                                        ไม่เคยใช้แอพไหน แล้วดีเท่านี้เลยค่ะ สานฝันอยากเป็นเจนนี่.
                                     </p>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ const LandingPage = () => {
                                     <h5 className="card-title text-center">Card title</h5>
                                     {/* Card paragraph */}
                                     <p className="font-weight-400">
-                                    체중 데이터 저장에 아주 좋습니다.very good!
+                                        체중 데이터 저장에 아주 좋습니다.very good!
                                     </p>
                                 </div>
                             </div>
@@ -225,12 +225,12 @@ const LandingPage = () => {
                                 <h2>What we do?</h2>
                                 {/* paragraph text-header-3 pading-top 5 */}
                                 <p className="h3 pt-5">
-                                At G-Trainee, we empower individuals to achieve their 
-                                weight loss goals through personalized and motivating workouts. 
-                                Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, 
-                                inspiring your weight loss journey with added passion. 
-                                Track your progress and see your weight loss journal come to life. 
-                                Join our community, and let's create a healthier and happier you together!
+                                    At G-Trainee, we empower individuals to achieve their
+                                    weight loss goals through personalized and motivating workouts.
+                                    Our platform offers the choice to follow your favorite idols' weight goals or set custom targets,
+                                    inspiring your weight loss journey with added passion.
+                                    Track your progress and see your weight loss journal come to life.
+                                    Join our community, and let's create a healthier and happier you together!
 
                                 </p>
                             </div>
@@ -314,7 +314,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Arlif Tagaree</h5>
+                                        <h5 className="card-title text-center"><b>Arlif Tagaree</b></h5>
 
                                     </div>
                                 </div>
@@ -330,7 +330,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
+                                        <h5 className="card-title text-center"><b>Cheewathun Lerttanapit</b></h5>
 
                                     </div>
                                 </div>
@@ -346,7 +346,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
+                                        <h5 className="card-title text-center"><b>Pongpeera Ratana-arporn</b></h5>
 
                                     </div>
                                 </div>
@@ -361,7 +361,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Pramote Phan-on</h5>
+                                        <h5 className="card-title text-center"><b>Pramote Phan-on</b></h5>
 
                                     </div>
                                 </div>
@@ -376,7 +376,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Sasiwan Janma</h5>
+                                        <h5 className="card-title text-center"><b>Sasiwan Janma</b></h5>
 
                                     </div>
                                 </div>
@@ -391,7 +391,7 @@ const LandingPage = () => {
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
+                                        <h5 className="card-title text-center"><b>Thatpong Paleekan</b></h5>
 
                                     </div>
                                 </div>
