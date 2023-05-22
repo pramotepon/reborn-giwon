@@ -24,8 +24,9 @@ const activityDelete = async (req, res) => {
 		const deletedActivity = await existingActivity.deleteOne();
 
 		// Delete the image from cloudinary
-		await deleteCloudinaryImage(existingActivity.cloudinary_public_id);
-
+		if (existingActivity.cloudinary_public_id) {
+			await deleteCloudinaryImage(existingActivity.cloudinary_public_id);
+		}
 		console.log("deletedActivity");
 
 		res.json("Activity is deleted");

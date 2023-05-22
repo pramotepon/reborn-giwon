@@ -2,41 +2,26 @@ import { v2 as cloudinary } from "cloudinary";
 import * as dotenv from "dotenv";
 import Activity from "../../models/Activity.js";
 import User from "../../models/User.js";
+import deleteFileCloudinaryImage from "../deleteCloudinaryImage.js";
+
+const array_of_allowed_files = ["png", "jpeg", "jpg", "gif"];
 
 dotenv.config();
-
-// Cloudinary configuration
-cloudinary.config({
-	cloud_name: process.env.IMAGE_CLOUD_NAME,
-	api_key: process.env.IMAGE_API_KEY,
-	api_secret: process.env.IMAGE_API_SECRET,
-});
-
-const deleteFile = async (publicId) => {
-	try {
-		const result = await cloudinary.uploader.destroy(publicId);
-		if (result.result === "ok") {
-			console.log(`File with public ID ${publicId} has been deleted.`);
-		} else {
-			throw new Error("Failed to delete file from Cloudinary.");
-		}
-	} catch (error) {
-		throw new Error("Error deleting file from Cloudinary: " + error);
-	}
-};
 
 const activityUpdate = async (req, res) => {
 	let {
 		activity_name,
 		activity_type,
 		calendar,
-		duration,
 		description,
-		image,
+		hours,
+		minutes,
 		weight,
+		image,
+		extImage,
+		latest,
 	} = req.body;
 	const activityId = req.params.id;
-
 	try {
 		let activity = await Activity.findById(activityId);
 
@@ -44,29 +29,56 @@ const activityUpdate = async (req, res) => {
 			return res.status(404).json({ message: "Activity not found" });
 		}
 
-		// Delete previous image from Cloudinary
-		if (activity.cloudinary_public_id) {
-			await deleteFile(activity.cloudinary_public_id);
+		if (image) {
+			// Delete old image from Cloudinary
+			if (activity.cloudinary_public_id) {
+				await deleteFileCloudinaryImage(activity.cloudinary_public_id);
+			}
+			// Upload new image to Cloudinary
+			await cloudinary.config({
+				cloud_name: process.env.IMAGE_CLOUD_NAME,
+				api_key: process.env.IMAGE_API_KEY,
+				api_secret: process.env.IMAGE_API_SECRET,
+			});
+			// Get the extension of the uploaded file
+			// Check if the uploaded file is allowed
+			if (!array_of_allowed_files.includes(extImage)) {
+				throw new Error("Invalid file");
+			}
+			const result = await cloudinary.uploader.upload(image, {
+				height: 150,
+				width: 150,
+				crop: "fill",
+			});
+			if (!result) {
+				throw new Error("Cloud image server have a poblem.");
+			}
+			activity.image = result.url;
+			activity.cloudinary_public_id = result.public_id;
 		}
-
-		// Upload new image to Cloudinary
-		const uploadResult = await cloudinary.uploader.upload(image);
 
 		// Update activity fields
 		activity.activity_name = activity_name;
 		activity.activity_type = activity_type;
 		activity.calendar = calendar;
-		activity.duration = duration;
+		activity.duration = {
+			hour: hours, // Assuming duration.hour and duration.minute are provided in the req.body
+			minute: minutes,
+		};
 		activity.description = description;
-		activity.image = uploadResult.secure_url;
-		activity.cloudinary_public_id = uploadResult.public_id;
+		activity.current_weight = weight;
+		activity.image;
+		activity.cloudinary_public_id;
 
 		// Update user weight
-		await User.findOneAndUpdate(
-			{ _id: user_id },
-			{ weight: weight },
-			{ new: true }
-		);
+
+		if (latest === "yes") {
+			await User.findOneAndUpdate(
+				{ _id: activity.user_id },
+				{ weight: weight },
+				{ new: true }
+			);
+		}
 
 		// Save updated activity to database
 		activity = await activity.save();
@@ -83,23 +95,3 @@ const activityEditController = {
 };
 
 export default activityEditController;
-// const activityUpdate = async (req, res) => {
-//     // res.json('Hello from register');
-//     const { activity_name, activity_type, calendar, duration, description, image } = req.body;
-//     const activityId = req.params.id;
-
-//     try {
-//         const activity = await Activity.findOneAndUpdate(
-//           { _id: activityId },
-//           { activity_name, activity_type, calendar, duration, description, image },
-//           { new: true }
-//         );
-//         if (!activity) {
-//           return res.status(404).json({ message: 'Activity not found' });
-//         }
-//         res.json(activity);
-//       } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: 'Server error' });
-//       }
-// };

@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/UserContext";
 import '../assets/css/components/navbar.css'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ profileHandleToggle }) => {
     const { setUser } = useContext(UserContext);
     const nav = useNavigate();
 
@@ -16,7 +16,8 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark my-bg-blue-soft fixed-top">
             <div className="container-fluid">
-                <Link to={'/'} className="navbar-brand"><img src='../src/image/logo.png' width={147} height={50} /></Link>
+                <button className='btn btn-outline-dark btn-profile' onClick={profileHandleToggle}><i className="fa-solid fa-user fa-2xl"></i></button>
+                <Link to={'/dashboard'} className="navbar-brand"><img src='../src/image/logo.png' width={147} height={50} /></Link>
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
                         <button className='btn my-btn-danger' onClick={logoutHandler}>

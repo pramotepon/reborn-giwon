@@ -1,8 +1,11 @@
 .first-card {
-    background-color: var(--blue);
-    display: flex;
-    height: 240px;
-    width: 100%;
-    align-items: center;
+  background-color: var(--blue);
+  display: flex;
+  height: 240px;
+  width: 100%;
+  align-items: center;
   justify-content: center;
-  }
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}

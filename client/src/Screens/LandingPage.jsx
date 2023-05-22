@@ -1,7 +1,45 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../contexts/UserContext'
 import '../assets/css/LandingPage.css'
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
+
+    const { user, setUser } = useContext(UserContext);
+    const [toggleNavbar, setToggleNavbar] = useState(false);
+    const nav = useNavigate();
+    let navUser;
+    let showMenu;
+    const logoutHandler = async () => {
+        localStorage.removeItem('user');
+        setUser(null);
+        nav('/');
+    }
+
+    const onNavbarToggle = () => {
+        setToggleNavbar((current) => !current);
+    }
+
+    if (toggleNavbar) {
+        showMenu = 'show';
+    } else {
+        showMenu = '';
+    }
+    if (!user) {
+        navUser = (
+            <>
+                <a href='/register' className="btn my-nav-btn me-3 my-btn-register">Register</a>
+                <a href='/login' className="btn my-nav-btn my-btn-login">Login</a>
+            </>
+        )
+    } else {
+        navUser = (
+            <>
+                <a href='/dashboard' className="btn me-3 btn-dark">{user.displayName}</a>
+                <button onClick={logoutHandler} className="btn btn-danger">Logout</button>
+            </>
+        )
+    }
 
     const scrollChangNavbar = () => {
         //! Put the class name that you want to use
@@ -35,6 +73,7 @@ const LandingPage = () => {
         scrollChangNavbar();
         titlePage();
     }, []);
+
     return (
         <div>
             {/* Navbar */}
@@ -42,12 +81,12 @@ const LandingPage = () => {
                 {/* Container fluid */}
                 <div className="container-fluid">
                     {/* Btn Burger Menu */}
-                    <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler ms-auto" type="button" onClick={onNavbarToggle}>
                         {/* Burger Menu icon */}
                         <span className="navbar-toggler-icon" />
                     </button>
                     {/* Block Navbar menu */}
-                    <div className="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                    <div className={`collapse navbar-collapse d-lg-flex ${showMenu}`} id="menuItems">
                         {/* Block for grid col-3 */}
                         <div className="col-lg-3 me-0" />
                         {/* Block for grid col-6 Menu list */}
@@ -70,8 +109,7 @@ const LandingPage = () => {
                         </ul>
                         {/* Block for grid col-3 End Button */}
                         <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <a href='/register' className="btn my-nav-btn me-3 my-btn-register">Register</a>
-                            <a href='/login' className="btn my-nav-btn my-btn-login">Login</a>
+                            {navUser}
                         </div>
                         {/* End Block for grid col-3 End Button */}
                     </div>

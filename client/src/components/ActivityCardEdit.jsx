@@ -8,9 +8,14 @@ import "../assets/css/components/CRUD.css";
 import { UserContext } from "../contexts/UserContext";
 import IsLoadingComponent from "./IsLoadingComponent";
 
-const CrudCreate = () => {
-	const { user } = useContext(UserContext);
+const CrudCreate = (props) => {
+	const splitIDFrom = (id) => {
+		const splitID = id.split("&");
+		return splitID;
+	};
 
+	const id = splitIDFrom(props.acitivityId)[0];
+	const latest = splitIDFrom(props.acitivityId)[1];
 	const [name, setName] = useState("");
 	const [type, setType] = useState("run");
 	const [date, setDate] = useState("");
@@ -27,6 +32,7 @@ const CrudCreate = () => {
 	};
 
 	const [image, setImage] = useState("");
+	const [oldImage, setOldImage] = useState(""); // New state variable to store the old image URL
 	const [imageType, setImageType] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -56,6 +62,7 @@ const CrudCreate = () => {
 
 	// create a preview as a side effect, whenever selected file is changed
 	useEffect(() => {
+		fetchActivityData();
 		if (!selectedFile) {
 			setPreview(null);
 			return;
@@ -67,6 +74,27 @@ const CrudCreate = () => {
 		// free memory whenever this component is unmounted
 		return () => URL.revokeObjectURL(objectUrl);
 	}, [selectedFile]);
+
+	const fetchActivityData = async () => {
+		try {
+			const response = await axios.get(`/activities/${id}`);
+			console.log(response);
+			if (response.status === 200) {
+				setName(response.data.activity_name);
+				setType(response.data.activity_type);
+				setDate(new Date(response.data.calendar).toISOString().split("T")[0]);
+				setWeight(response.data.current_weight);
+				setText(response.data.description);
+				setOldImage(response.data.image);
+				setHours(JSON.parse(response.data.duration.hour));
+				setMinutes(JSON.parse(response.data.duration.minute));
+			}
+
+			console.log("data " + response.data.duration.hour);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const saveActivity = async (event) => {
 		event.preventDefault();
@@ -96,23 +124,25 @@ const CrudCreate = () => {
 			return;
 		}
 
-		const formData = new FormData();
-		formData.append("image", image);
-		formData.append("user_id", user._id); // Replace with the provided user ID
-		formData.append("activity_name", name);
-		formData.append("duration", JSON.stringify(duration)); // Convert duration object to string
-		formData.append("activity_type", type);
-		formData.append("calendar", date);
-		formData.append("weight", weight);
-		formData.append("description", text);
-		formData.append("extImage", extImage);
+		const formData = {
+			activity_name: name,
+			activity_type: type,
+			calendar: date,
+			hours: hours,
+			minutes: minutes,
+			description: text,
+			weight: weight,
+			image: image,
+			extImage: extImage,
+			latest: latest,
+		};
 
 		try {
-			const response = await axios.post("activities/add/", formData);
+			const response = await axios.put(`activities/${id}`, formData);
 			console.log(response);
 			if (response.status === 200) {
 				Swal.fire({
-					title: "Activity added!",
+					title: "Activity Edited Successfully",
 					icon: "success",
 					confirmButtonText: "OK",
 				});
@@ -140,17 +170,18 @@ const CrudCreate = () => {
 						<label htmlFor="file-regis">
 							<span>Upload Image File</span>
 							<div>
-								{!selectedFile ? (
-									<>
-										<FontAwesomeIcon
-											className="imageIcon"
-											icon="fa-regular fa-image"
-											style={{ color: "#b4bcca" }}
-										/>
-									</>
+								{!selectedFile && !oldImage ? (
+									<FontAwesomeIcon
+										className="imageIcon"
+										icon="fa-regular fa-image"
+										style={{ color: "#b4bcca" }}
+									/>
+								) : selectedFile ? (
+									<img src={image} alt="Preview" />
 								) : (
-									selectedFile && <img src={preview} alt="Preview" />
+									<img src={oldImage} alt="Preview" />
 								)}
+
 								<div>
 									<input
 										type="file"
@@ -171,6 +202,7 @@ const CrudCreate = () => {
 							className="fill"
 							minLength="3"
 							maxLength="30"
+							value={name}
 							onChange={(e) => setName(e.target.value)}
 							required
 						/>
@@ -193,6 +225,7 @@ const CrudCreate = () => {
 								id="hours"
 								className="hours"
 								min="0"
+								value={hours}
 								onChange={(e) => setHours(e.target.value)}
 								required
 							/>
@@ -204,6 +237,7 @@ const CrudCreate = () => {
 								className="minutes"
 								min="0"
 								max="59"
+								value={minutes}
 								onChange={(e) => {
 									const minutes = Math.min(e.target.value, 59); // Ensure minutes do not exceed 59
 									setMinutes(minutes);
@@ -221,6 +255,7 @@ const CrudCreate = () => {
 						<select
 							name="act-type"
 							id="act-type"
+							value={type}
 							onChange={(e) => setType(e.target.value)}
 						>
 							<option value="run">Running</option>
@@ -239,6 +274,7 @@ const CrudCreate = () => {
 						<input
 							type="date"
 							className="fill"
+							value={date}
 							onChange={(e) => setDate(e.target.value)}
 							required
 						/>
@@ -252,6 +288,7 @@ const CrudCreate = () => {
 							className="fill"
 							min="0"
 							max="442"
+							value={weight}
 							onChange={(e) => setWeight(e.target.value)}
 							required
 						/>
@@ -269,6 +306,7 @@ const CrudCreate = () => {
 				<textarea
 					type="text"
 					className="fill"
+					value={text}
 					onChange={(e) => setText(e.target.value)}
 					minLength="0"
 					maxLength="280"

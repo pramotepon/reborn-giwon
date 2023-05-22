@@ -34,7 +34,7 @@ router.post('/login', userLoginController.login);
 // User reset password
 router.put('/password-reset/', userResetPassword.resetPassword);
 // Edit user profile
-router.put('/edit-profile/:id', userEditProfileController.userUpdate);
+router.put('/edit-profile', userEditProfileController.userUpdate);
 // User update goal weight
 router.put('/goal-weight-update/:id', userUpdateGoalWeightController.userUpdateGoalWeight);
 

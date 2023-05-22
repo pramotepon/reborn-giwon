@@ -27,8 +27,8 @@ function EditProfileScreen() {
   const [image, setImage] = useState();
   const [imageType, setImageType] = useState();
   const [isDisplayNameValid, setDisplayNameValid] = useState(true);
-	const [isHeightValid, setHeightValid] = useState(true);
-	const [isWeightValid, setWeightValid] = useState(true);
+  const [isHeightValid, setHeightValid] = useState(true);
+  const [isWeightValid, setWeightValid] = useState(true);
   let extImage;
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,12 +43,12 @@ function EditProfileScreen() {
   const handleChangeWeight = (event) => {
     setWeight(event.target.value);
     setWeightValid(/^\d{1,4}$/.test(event.target.value));
-	};
-  
+  };
+
   const handleChangeGender = (event) => {
     setGender(event.target.value);
-    setGenderValid(event.target.value !== "");
   };
+
   const handleChangeImage = (event) => {
     const file = event.target.files[0];
     setImageType(file.name);
@@ -64,6 +64,10 @@ function EditProfileScreen() {
   };
 
   const updateUser = () => {
+    const { token } = JSON.parse(localStorage.getItem('user'))
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
     if (imageType) {
       extImage = imageType.split('.').pop();
     } else {
@@ -77,16 +81,16 @@ function EditProfileScreen() {
       image,
       extImage
     }
-    axios.put(`/users/edit-profile/${user._id}`, bodyParams).then(({ data }) => {
+    axios.put(`/users/edit-profile`, bodyParams, config).then(({ data }) => {
       Swal.fire({
         title: 'Success.',
-        text: data,
+        text: data.message,
         icon: 'success',
         confirmButtonText: 'Ok!'
       }).then((result) => {
+        const data = verifyToken(token);
+        setUser(data);
         if (result.isConfirmed) {
-          const data = verifyToken(token);
-          setUser(data);
           navigate(-1)
         }
       });
@@ -118,31 +122,31 @@ function EditProfileScreen() {
     })
 
     // Validate displayName
-		const isDisplayNameValid = displayName.length <= 11;
-		setDisplayNameValid(isDisplayNameValid);
+    const isDisplayNameValid = displayName.length <= 11;
+    setDisplayNameValid(isDisplayNameValid);
 
-		if (!isDisplayNameValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    if (!isDisplayNameValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		// Validate height
-		const isHeightValid = /^\d{1,4}$/.test(height);
-		setHeightValid(isHeightValid);
+    // Validate height
+    const isHeightValid = /^\d{1,4}$/.test(height);
+    setHeightValid(isHeightValid);
 
-		if (!isHeightValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    if (!isHeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
 
-		// Validate weight
-		const isWeightValid = /^\d{1,4}$/.test(weight);
-		setWeightValid(isWeightValid);
+    // Validate weight
+    const isWeightValid = /^\d{1,4}$/.test(weight);
+    setWeightValid(isWeightValid);
 
-		if (!isWeightValid) {
-			console.log("Form validation failed");
-			return;
-		}
+    if (!isWeightValid) {
+      console.log("Form validation failed");
+      return;
+    }
   };
 
   return (
@@ -170,9 +174,9 @@ function EditProfileScreen() {
             onChange={handleChangeDisplayname}
           />
           {!isDisplayNameValid && (
-							<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
-								style={{ left: "-45%", top: "36%", transform: "translate(-50%, -50%)" }}>Display name must be a maximum of 11 characters</div>
-						)}
+            <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+              style={{ left: "-45%", top: "36%", transform: "translate(-50%, -50%)" }}>Display name must be a maximum of 11 characters</div>
+          )}
         </div>
 
         <div
@@ -196,9 +200,9 @@ function EditProfileScreen() {
               onChange={handleChangeHeight}
             />
             {!isHeightValid && (
-								<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
-									style={{ left: "-57%", top: "45%", transform: "translate(-50%, -50%)" }}>Height must be a numeric value with a maximum of 4 characters</div>
-							)}
+              <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+                style={{ left: "-57%", top: "45%", transform: "translate(-50%, -50%)" }}>Height must be a numeric value with a maximum of 4 characters</div>
+            )}
           </div>
 
           <div
@@ -218,9 +222,9 @@ function EditProfileScreen() {
               onChange={handleChangeWeight}
             />
             {!isWeightValid && (
-								<div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
-									style={{ left: "-57.5%", top: "50%", transform: "translate(-50%, -50%)" }}>Weight must be a numeric value with a maximum of 4 characters</div>
-							)}
+              <div className=" position-absolute alert alert-danger translate-middle badge border border-light p-2"
+                style={{ left: "-57.5%", top: "50%", transform: "translate(-50%, -50%)" }}>Weight must be a numeric value with a maximum of 4 characters</div>
+            )}
           </div>
         </div>
 
