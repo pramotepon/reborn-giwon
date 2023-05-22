@@ -156,6 +156,8 @@ const CrudCreate = (props) => {
 					title: "Activity Edited Successfully",
 					icon: "success",
 					confirmButtonText: "OK",
+				}).then(() => {
+					window.location.replace("/dashboard"); // Navigate to /dashboard route
 				});
 			}
 
@@ -178,6 +180,18 @@ const CrudCreate = (props) => {
 			{isLoading && <IsLoadingComponent />}
 
 			<div className="card-top">
+				<div className="back-button-container pt-3">
+					<Link to="/dashboard">
+						<FontAwesomeIcon
+							className="backIcon"
+							icon="fa-solid fa-arrow-left"
+							style={{
+								color: "#b4bcca",
+								fontSize: "2rem",
+							}}
+						/>
+					</Link>
+				</div>
 				<div className="card-left">
 					<div className="add-image">
 						<label htmlFor="file-regis">

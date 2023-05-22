@@ -211,3 +211,9 @@ input#file-regiss + label:hover {
     border: 1px solid black;
     color:#31444A
 }
+
+.back-button-container{
+    position:absolute;
+    padding-left: 1rem;
+    padding-right: 0px;
+}

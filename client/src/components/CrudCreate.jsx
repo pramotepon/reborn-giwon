@@ -149,9 +149,22 @@ const CrudCreate = () => {
 			{isLoading && <IsLoadingComponent />}
 
 			<div className="card-top">
+				<div className="back-button-container pt-3">
+					<Link to="/dashboard">
+						<FontAwesomeIcon
+							className="backIcon"
+							icon="fa-solid fa-arrow-left"
+							style={{
+								color: "#b4bcca",
+								fontSize: "2rem",
+							}}
+						/>
+					</Link>
+				</div>
+
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlFor="file-regis" style={{ marginRight:"13px"}} >
+						<label htmlFor="file-regis" style={{ marginRight: "13px" }}>
 							<span>Upload Image File</span>
 							<div>
 								{!selectedFile ? (
@@ -172,7 +185,10 @@ const CrudCreate = () => {
 										id="file-regiss"
 										onChange={handleFileChange}
 									/>
-									<label htmlFor="file-regiss" id="file-regiss"> Upload Image</label>
+									<label htmlFor="file-regiss" id="file-regiss">
+										{" "}
+										Upload Image
+									</label>
 								</div>
 							</div>
 						</label>
