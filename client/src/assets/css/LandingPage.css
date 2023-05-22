@@ -146,6 +146,9 @@ html{
 .section-heroes .hero-text img {
   width: 320px;
 }
+.text-hero-section{
+  font-size: 1.5rem;
+}
 
 /* Review Section */
 .section-review .card {
@@ -225,7 +228,7 @@ html{
   color: #13B7CC;
 }
 .step-line-content-block p{
-  color: #13B7CC;
+  color: var(--blue-soft);
   max-width: 75px;
 }
 

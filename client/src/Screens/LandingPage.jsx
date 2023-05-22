@@ -134,12 +134,10 @@ const LandingPage = () => {
                         {/* Logo Image */}
                         <img src={Logo} alt="g-trainee-logo" />
                         {/* Heroes Text */}
-                        <p className="mt-5">
-                            It is a long established fact that a reader will be distracted by
-                            the readable content of a page when looking at its layout. The point
-                            of using Lorem Ipsum is that it has a more-or-less normal
-                            distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. test hahahaha
+                        <p className="mt-5 text-hero-section">
+                            Welcome to our extraordinary activity tracking website, where the captivating allure of K-pop idols intertwines with cutting-edge technology,
+                            empowering you to embark on an awe-inspiring weight loss journey filled with exhilarating challenges, personalized guidance, and unwavering support,
+                            ultimately unveiling a radiant, healthier, and more confident version of yourself that mirrors the captivating charisma of your favorite K-pop stars.
                         </p>
                     </section>
                     {/* End Heroes content */}
@@ -314,11 +312,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">Arlif Tagaree</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -334,11 +328,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -354,11 +344,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -373,11 +359,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">Pramote Phan-on</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -392,11 +374,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">Sasiwan Janma</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -411,11 +389,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         {/* Card title */}
                                         <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -424,6 +398,9 @@ const LandingPage = () => {
                     </div>
                 </article>
                 {/* End jenniecard by pang*/}
+                {/* Copy right */}
+                <p className='text-center text-light bg-black mb-0 py-3'>Copyright &copy; 2023 G-won Developer team.</p>
+                {/* End copy right */}
             </main>
             {/* End Block Main */}
             {/* Footer */}
