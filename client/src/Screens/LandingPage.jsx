@@ -2,6 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexts/UserContext'
 import '../assets/css/LandingPage.css'
 import { useNavigate } from 'react-router-dom';
+import DevLif from "../image/DevTeam/Dev_lif.jpg" 
+import DevToey from "../image/DevTeam/Dev_toey.jpg" 
+import DevBoom from "../image/DevTeam/Dev_boom.jpg" 
+import DevPang from "../image/DevTeam/Dev_pang.jpg" 
+import DevPlug from "../image/DevTeam/Dev_plug.jpg" 
+import DevVee from "../image/DevTeam/Dev_vee.jpg" 
+import Logo from "../../src/image/landing_page/logo-lg.png"
 
 const LandingPage = () => {
 
@@ -125,7 +132,7 @@ const LandingPage = () => {
                     {/* Heroes content */}
                     <section className="hero-text container">
                         {/* Logo Image */}
-                        <img src="./src/image/landing_page/logo-lg.png" alt="g-trainee-logo" />
+                        <img src={Logo} alt="g-trainee-logo" />
                         {/* Heroes Text */}
                         <p className="mt-5">
                             It is a long established fact that a reader will be distracted by
@@ -309,7 +316,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevLif} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
@@ -329,7 +336,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevToey} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
@@ -349,7 +356,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevVee} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
@@ -368,7 +375,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevPlug} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
@@ -387,7 +394,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevPang} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
@@ -406,7 +413,7 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevBoom} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
                                     <div className="card-body">
                                         {/* Card title */}
