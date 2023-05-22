@@ -16,40 +16,53 @@ npm install
 npm run dev
 ```
 
-## Dev Team
----
+## Developer Team
+
 ### Arlif Tagaree
-**NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ArlifTagaree) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arlif-tagaree/) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
 
 
 ---
-### Cheewathun Lerttanapit
-**NOTE**
+### Cheewathun Lerttanapit 
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/doctoey) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cheewathun/) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://cheewathun.vercel.app/)
+
 
 ---
 ### Pongpeera Ratana-arporn
-**NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ppongpeera) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pongpeera/) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
 
 ---
 ### Pramote Phan-on
-**NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pramotepon) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pramotephanon/) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://pramote-dev.vercel.app/)
 
 ---
 ### Sasiwan Janma
-**NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SasiwanJ) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sasiwan-janma/) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
 
 ---
 ### Thatpong Paleekan
-**NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
+
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BoomNooB) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thatpong) 
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://thatpong.com/)
