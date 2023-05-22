@@ -8,6 +8,7 @@ import DevBoom from "../image/DevTeam/Dev_boom.jpg"
 import DevPang from "../image/DevTeam/Dev_pang.jpg"
 import DevPlug from "../image/DevTeam/Dev_plug.jpg"
 import DevVee from "../image/DevTeam/Dev_vee.jpg"
+import WwwdImage from "../image/landing_page/what_we_do.png"
 import Logo from "../../src/image/landing_page/logo-lg.png"
 // import group14 from "../image/landing_page/group1472.png"
 
@@ -216,7 +217,7 @@ const LandingPage = () => {
                     <div className="row text-white">
                         {/* col-7 */}
                         <div className="col-xl-7 d-none d-xl-block">
-                            {/* <img src={group14} alt="prototype-feature" width="80%" style={{marginLeft:"190px",marginBottom:"10px"}} /> */}
+                            <img src={WwwdImage} alt="prototype-feature" width="80%" style={{marginLeft:"190px",marginBottom:"10px"}} />
                         </div>
                         {/* end col-7 */}
                         {/* col-5 */}
