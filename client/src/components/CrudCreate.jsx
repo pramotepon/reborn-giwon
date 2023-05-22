@@ -45,10 +45,22 @@ const CrudCreate = () => {
 			setSelectedFile(null);
 			return;
 		}
-		// I've kept this example simple by using the first image instead of multiple
+
 		const file = e.target.files[0];
-		setImageType(file.name);
+
+		if (file.size > 1024 * 1024) {
+			Swal.fire({
+				title: "Failed!",
+				text: "File size exceeds the limit of 1MB",
+				icon: "error",
+				confirmButtonText: "OK",
+			});
+			setSelectedFile(null);
+			return;
+		}
+
 		setFileToBase(file);
+		setImageType(file.name);
 		setSelectedFile(file);
 	};
 
