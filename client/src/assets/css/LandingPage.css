@@ -6,12 +6,10 @@
 --blue-soft: #A5E8FC;
 --white: #FFFFFF; */
 @import "./root.css";
+
 /* 
   Base Setup 
 */
-* {
-  font-family: 'Kanit', sans-serif;
-}
 html{
   scroll-behavior: smooth;
 }
