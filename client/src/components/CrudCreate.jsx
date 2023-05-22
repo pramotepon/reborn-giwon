@@ -151,7 +151,7 @@ const CrudCreate = () => {
 			<div className="card-top">
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlFor="file-regis">
+						<label htmlFor="file-regis" style={{ marginRight:"13px"}} >
 							<span>Upload Image File</span>
 							<div>
 								{!selectedFile ? (
@@ -169,8 +169,10 @@ const CrudCreate = () => {
 									<input
 										type="file"
 										accept=".png, .jpeg, .jpg, .gif"
+										id="file-regiss"
 										onChange={handleFileChange}
 									/>
+									<label htmlFor="file-regiss" id="file-regiss"> Upload Image</label>
 								</div>
 							</div>
 						</label>

@@ -118,7 +118,7 @@ function LoginScreen() {
 
 				<div>
 					<p>
-						Doesn't hava an account?{" "}
+						Doesn't have an account?{" "}
 						<Link
 							to="/register"
 							style={{
