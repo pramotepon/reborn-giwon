@@ -6,12 +6,10 @@
 --blue-soft: #A5E8FC;
 --white: #FFFFFF; */
 @import "./root.css";
+
 /* 
   Base Setup 
 */
-* {
-  font-family: 'Kanit', sans-serif;
-}
 html{
   scroll-behavior: smooth;
 }
@@ -71,6 +69,34 @@ html{
 */
 .card-title{
   font-size: 1.5rem;
+}
+/* Font weight */
+.font-weight-100{
+  font-weight: 100!important;
+}
+.font-weight-200{
+  font-weight: 200!important;
+}
+.font-weight-300{
+  font-weight: 300!important;
+}
+.font-weight-400{
+  font-weight: 400!important;
+}
+.font-weight-500{
+  font-weight: 500!important;
+}
+.font-weight-600{
+  font-weight: 600!important;
+}
+.font-weight-700{
+  font-weight: 700!important;
+}
+.font-weight-800{
+  font-weight: 800!important;
+}
+.font-weight-900{
+  font-weight: 900!important;
 }
 /* 
   CSS Site
@@ -146,11 +172,15 @@ html{
 .section-heroes .hero-text img {
   width: 320px;
 }
+.text-hero-section{
+  font-size: 1.5rem;
+}
 
 /* Review Section */
 .section-review .card {
   border: 1px solid #84b9c9;
   box-shadow: 4px 3px 13px 1px #a5e8fc;
+  height: 100%;
 }
 .card .card-img-top {
   height: 140px;
@@ -225,7 +255,7 @@ html{
   color: #13B7CC;
 }
 .step-line-content-block p{
-  color: #13B7CC;
+  color: var(--blue-soft);
   max-width: 75px;
 }
 

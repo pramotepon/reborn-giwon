@@ -2,6 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexts/UserContext'
 import '../assets/css/LandingPage.css'
 import { useNavigate } from 'react-router-dom';
+import DevLif from "../image/DevTeam/Dev_lif.jpg"
+import DevToey from "../image/DevTeam/Dev_toey.jpg"
+import DevBoom from "../image/DevTeam/Dev_boom.jpg"
+import DevPang from "../image/DevTeam/Dev_pang.jpg"
+import DevPlug from "../image/DevTeam/Dev_plug.jpg"
+import DevVee from "../image/DevTeam/Dev_vee.jpg"
+import Logo from "../../src/image/landing_page/logo-lg.png"
+import group14 from "../image/landing_page/group1472.png"
 
 const LandingPage = () => {
 
@@ -28,8 +36,8 @@ const LandingPage = () => {
     if (!user) {
         navUser = (
             <>
-                <a href='/register' className="btn my-nav-btn me-3 my-btn-register">Register</a>
-                <a href='/login' className="btn my-nav-btn my-btn-login">Login</a>
+                <a href='/register' className="btn my-nav-btn me-3 my-btn-register" style={{fontWeight:"600"}}>Register</a>
+                <a href='/login' className="btn my-nav-btn my-btn-login" style={{fontWeight:"600"}}>Login</a>
             </>
         )
     } else {
@@ -90,7 +98,7 @@ const LandingPage = () => {
                         {/* Block for grid col-3 */}
                         <div className="col-lg-3 me-0" />
                         {/* Block for grid col-6 Menu list */}
-                        <ul className="navbar-nav col-lg-6 justify-content-lg-center">
+                        <ul className="navbar-nav col-lg-6 justify-content-lg-center" style={{fontSize:"1.25rem"}}>
                             <li className="nav-item">
                                 <a className="nav-link" aria-current="page" href="#section-heroes">Home</a>
                             </li>
@@ -104,7 +112,7 @@ const LandingPage = () => {
                                 <a className="nav-link" href="#section-step-by-step">How to use?</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#section-dev-team">Dev team</a>
+                                <a className="nav-link" href="#section-dev-team">Team</a>
                             </li>
                         </ul>
                         {/* Block for grid col-3 End Button */}
@@ -125,14 +133,12 @@ const LandingPage = () => {
                     {/* Heroes content */}
                     <section className="hero-text container">
                         {/* Logo Image */}
-                        <img src="./src/image/landing_page/logo-lg.png" alt="g-trainee-logo" />
+                        <img src={Logo} alt="g-trainee-logo" />
                         {/* Heroes Text */}
-                        <p className="mt-5">
-                            It is a long established fact that a reader will be distracted by
-                            the readable content of a page when looking at its layout. The point
-                            of using Lorem Ipsum is that it has a more-or-less normal
-                            distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. test hahahaha
+                        <p className="mt-5 text-hero-section">
+                            Welcome to our extraordinary activity tracking website, where the captivating allure of K-pop idols intertwines with cutting-edge technology,
+                            empowering you to embark on an awe-inspiring weight loss journey filled with exhilarating challenges, personalized guidance, and unwavering support,
+                            ultimately unveiling a radiant, healthier, and more confident version of yourself that mirrors the captivating charisma of your favorite K-pop stars.
                         </p>
                     </section>
                     {/* End Heroes content */}
@@ -141,7 +147,7 @@ const LandingPage = () => {
                 {/* Reviews Section */}
                 <article className="section-review container text-light pt-5 pb-5" id="section-review">
                     {/* Reviews Section Title */}
-                    <h2 className="text-center pb-5">Review</h2>
+                    <h2 className="text-center pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"1px 2px 4px rgba(0, 0, 0, 0.7)"}}>Review</h2>
                     {/* Reviews Section content row */}
                     <div className="row">
                         {/* Reviews Section content col 4 */}
@@ -149,15 +155,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://m.media-amazon.com/images/I/91RJPV9NADL.png" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>Vladimoew Putin</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    <p className="font-weight-400" style={{fontSize:"1.25rem"}}>
+                                        Meowwww meow meow good good meow.
                                     </p>
                                 </div>
                             </div>
@@ -169,15 +174,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>เจ๊หน่อย</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    <p className="font-weight-400" style={{fontSize:"1.25rem"}}>
+                                        ไม่เคยใช้แอพไหน แล้วดีเท่านี้เลยค่ะ สานฝันอยากเป็นเจนนี่.
                                     </p>
                                 </div>
                             </div>
@@ -189,15 +193,14 @@ const LandingPage = () => {
                             {/* Card Content */}
                             <div className="card my-bg-secondary">
                                 {/* image tumnail */}
-                                <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                <img src="https://50814aoy.files.wordpress.com/2017/02/1948703.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
                                 {/* Card body */}
                                 <div className="card-body">
                                     {/* Card title */}
-                                    <h5 className="card-title text-center">Card title</h5>
+                                    <h5 className="card-title text-center" style={{fontWeight:"bold"}}>Kim Jong Un</h5>
                                     {/* Card paragraph */}
-                                    <p className="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
+                                    <p className="font-weight-100" style={{fontSize:"1.25rem"}}>
+                                        체중 데이터 저장에 아주 좋습니다.very good!
                                     </p>
                                 </div>
                             </div>
@@ -213,7 +216,7 @@ const LandingPage = () => {
                     <div className="row text-white">
                         {/* col-7 */}
                         <div className="col-xl-7 d-none d-xl-block">
-                            <img src="./src/image/landing_page/Group_14.png" alt="prototype-feature" width="100%" />
+                            <img src={group14} alt="prototype-feature" width="80%" style={{marginLeft:"190px",marginBottom:"10px"}} />
                         </div>
                         {/* end col-7 */}
                         {/* col-5 */}
@@ -223,14 +226,13 @@ const LandingPage = () => {
                                 <h2>What we do?</h2>
                                 {/* paragraph text-header-3 pading-top 5 */}
                                 <p className="h3 pt-5">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                                    reprehenderit obcaecati facere porro voluptatum nostrum, labore
-                                    quae ea itaque natus tempore fugiat, eum optio, doloremque
-                                    deserunt autem perspiciatis amet consectetur! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. In suscipit maxime, maiores
-                                    sequi dolorem illum ducimus repellendus veritatis repudiandae
-                                    minus fuga laudantium delectus iure totam voluptatum animi
-                                    accusantium minima nostrum?
+                                    At G-Trainee, we empower individuals to achieve their
+                                    weight loss goals through personalized and motivating workouts.
+                                    Our platform offers the choice to follow your favorite idols' weight goals or set custom targets,
+                                    inspiring your weight loss journey with added passion.
+                                    Track your progress and see your weight loss journal come to life.
+                                    Join our community, and let's create a healthier and happier you together!
+
                                 </p>
                             </div>
                         </div>
@@ -242,7 +244,7 @@ const LandingPage = () => {
                 {/* End What We do Section */}
                 {/* Step by step section */}
                 <article className="section-step-by-step pt-5 pb-5 container z-100" id="section-step-by-step">
-                    <h1 className="text-center text-light mb-5 pb-5">Step by step</h1>
+                    <h1 className="text-center text-light mb-5 pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"3px 3px 1px rgba(0, 0, 0, 0.7)"}}>Step by step</h1>
                     <hr className="mt-5" />
                     <div className="step-line-block container mt-5">
                         {/* circle block */}
@@ -253,7 +255,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-user-plus fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Sign-up</p>
+                            <p className="text-center" style={{fontSize:"1.25rem"}}>Sign-up</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -263,7 +265,7 @@ const LandingPage = () => {
                                 <span><i className="fa-sharp fa-solid fa-right-to-bracket fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Sign-in</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Sign-in</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -273,7 +275,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-plus fa-xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Create Activity</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Create Activity</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -283,7 +285,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-check fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Done</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>Done</p>
                         </div>
                         {/* circle block */}
                         <div className="step-line-content-block">
@@ -293,7 +295,7 @@ const LandingPage = () => {
                                 <span><i className="fa-solid fa-chart-line fa-2xl" /></span>
                             </div>
                             {/* text */}
-                            <p className="text-center">Analysis</p>
+                            <p className="text-center"  style={{fontSize:"1.25rem"}}>History</p>
                         </div>
                     </div>
                 </article>
@@ -302,23 +304,23 @@ const LandingPage = () => {
                 <article className="section-dev-team container text-light pt-5 pb-5 mb-5" id="section-dev-team">
                     <div className="container">
                         {/*add card jennie1*/}
-                        <h2 className="text-center pb-5">Dev Team</h2>
+                        <h2 className="text-center pb-5" style={{fontWeight:"bold",fontSize:"3rem",textShadow:"1px 2px 4px rgba(0, 0, 0, 0.7)"}}>Developer Team</h2>
                         <div className="row">
                             {/* Reviews Section content col 4 */}
                             <div className="col-lg-6 col-xl-4 mt-4">
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevLif} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Arlif Tagaree</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Arlif Tagaree</b></h5>
+                                        <div>
+                                        <a href="https://github.com/ArlifTagaree" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/arlif-tagaree/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -329,16 +331,17 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevToey} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Cheewathun Lerttanapit</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Cheewathun Lerttanapit</b></h5>
+                                        <div>
+
+                                        <a href="https://github.com/doctoey" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/cheewathun/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://cheewathun.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -349,16 +352,17 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevVee} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Pongpeera Ratana-arporn</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Pongpeera Ratana-arporn</b></h5>
+                                        <div>
+
+                                        <a href="https://github.com/ppongpeera" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pongpeera/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -368,16 +372,17 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevPlug} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Pramote Phan-on</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Pramote Phan-on</b></h5>
+                                        <div>
+
+                                        <a href="https://github.com/pramotepon" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/pramotephanon/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://pramote-dev.vercel.app/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -387,16 +392,17 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevPang} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">Sasiwan Janma</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Sasiwan Janma</b></h5>
+                                        <div>
+
+                                        <a href="https://github.com/SasiwanJ" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/sasiwan-janma/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -406,16 +412,17 @@ const LandingPage = () => {
                                 {/* Card Content */}
                                 <div className="card my-bg-secondary h-100">
                                     {/* image tumnail */}
-                                    <img src="https://www.fashiongonerogue.com/wp-content/uploads/2022/08/Jennie-Calvin-Klein-Fall-2022-Campaign01.jpg" className="rounded-circle card-img-top mt-3 mx-auto" />
+                                    <img src={DevBoom} className="rounded-circle card-img-top mt-3 mx-auto" />
                                     {/* Card body */}
-                                    <div className="card-body">
+                                    <div className="card-body" style={{display:"flex",flexDirection: 'column', alignItems: 'center'}}>
                                         {/* Card title */}
-                                        <h5 className="card-title text-center">THATPONG PALEEKAN</h5>
-                                        {/* Card paragraph */}
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
+                                        <h5 className="card-title text-center"><b>Thatpong Paleekan</b></h5>
+                                        <div>
+
+                                        <a href="https://github.com/BoomNooB" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
+                                        <a href="https://www.linkedin.com/in/thatpong/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+                                        <a href="https://thatpong.com/" style={{paddingRight:"15px"}}><img src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white" alt="website" /></a>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* End Card Content */}
@@ -424,6 +431,9 @@ const LandingPage = () => {
                     </div>
                 </article>
                 {/* End jenniecard by pang*/}
+                {/* Copy right */}
+                <p className='text-center text-light bg-black mb-0 py-3'>Copyright &copy; 2023 G-won Developer team.</p>
+                {/* End copy right */}
             </main>
             {/* End Block Main */}
             {/* Footer */}

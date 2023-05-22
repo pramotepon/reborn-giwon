@@ -17,10 +17,21 @@
     margin: 10px 30px;
 }
 .card-container label {
-    font-size: 32px;
-    color: white;
+    font-size: 2.5rem;
+    color: hsl(0, 0%, 100%);
     margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  
 }
+
+.add-image img {
+    max-width: 180px;
+    height: auto;
+    border: 2px solid #31444A;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+    
 
 .card-container input {
     background-color: #84B9C9;
