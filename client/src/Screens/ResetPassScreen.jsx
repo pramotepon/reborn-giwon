@@ -83,8 +83,7 @@ function ResetPassScreen() {
 
       axios.post('/users/verify-before-reset-password/', formData).then(async (resolve) => {
         // const data = await verifyToken(resolve.data);
-        localStorage.setItem("user-reset-password", JSON.stringify(resolve.data));
-        navigate('/resetpass');
+        console.log(resolve.data);
       }).catch((reject) => {
         const { message } = reject.response.data;
         Swal.fire({
