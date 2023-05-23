@@ -1,41 +1,33 @@
 import express from 'express';
-import userRegisterController from '../controllers/plug/userRegisterController.js';
-import userLoginController from '../controllers/plug/userLoginController.js';
-import userVerifyResetPasswordController from '../controllers/pang/userVerifyResetPasswordController.js';
-import userResetPassword from '../controllers/pang/userResetPassword.js';
-import userEditProfileController from '../controllers/toey/userEditProfileController.js';
-import userUpdateGoalWeightController from '../controllers/vee/userUpdateGoalWeightController.js';
-import userGoalSuccessController from '../controllers/vee/userGoalSuccessController.js';
-import userGetDataController from '../controllers/plug/userGetDataController.js';
-
+import UserController from '../controllers/UserController.js';
 const router = express.Router();
 
 /* 
     GET
 */
 // Get user data
-router.get('/profile', userGetDataController.userData);
+router.get('/profile', UserController.getData);
 // Goal success.
-router.get('/goal-success/:id', userGoalSuccessController.checkGoalSuccess);
+router.get('/goal-success/:id', UserController.goalCheck);
 
 /* 
 POST
 */
 // User Check access Password reset
-router.post('/verify-before-reset-password', userVerifyResetPasswordController.verifyResetPassword);
+router.post('/verify-before-reset-password', UserController.accessResetPassword);
 // User register
-router.post('/register', userRegisterController.register);
+router.post('/register', UserController.register);
 // User Login
 // http://127.0.0.1:8080/users/login
-router.post('/login', userLoginController.login);
+router.post('/login', UserController.login);
 /* 
     PUT
 */
 // User reset password
-router.put('/password-reset/', userResetPassword.resetPassword);
+router.put('/password-reset/', UserController.resetPassword);
 // Edit user profile
-router.put('/edit-profile', userEditProfileController.userUpdate);
+router.put('/edit-profile', UserController.update);
 // User update goal weight
-router.put('/goal-weight-update/:id', userUpdateGoalWeightController.userUpdateGoalWeight);
+router.put('/goal-weight-update/:id', UserController.updateGoal);
 
 export default router;

@@ -1,6 +1,5 @@
 import User from '../../models/User.js';
 import generateToken from '../../utils/generateToken.js'
-import { ObjectId } from 'mongoose';
 
 const verifyResetPassword = async (req, res) => {
     let body = req.body;
