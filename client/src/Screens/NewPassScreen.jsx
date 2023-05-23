@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginLayout from "../layout/LoginLayout/LoginLayout";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import '../assets/css/login.css'
 import axios from "axios";
 import Swal from "sweetalert2";
 import IsLoadingComponent from "../components/IsLoadingComponent";
+import verifyToken from "../utils/verifyToken";
 
-function NewPassScreen() {
+function NewPassScreen(props) {
 
   const [password, setPassword] = useState();
   const [confirmpassword, setConfirmPassword] = useState();
   const [isPasswordValid, setPasswordValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
+  const location = useLocation();
+
   const navigate = useNavigate();
 
-  if (!localStorage.getItem('user-reset-password')) {
-    return <Navigate to={'/resetpass'} />
-  }
+  const params = new URLSearchParams(location.search);
+  const resetId = params.get('reset_id');
 
   const handleChangePassword = (event) => {
     setPassword(event.target.value);
@@ -61,9 +63,8 @@ function NewPassScreen() {
     const formData = {
       password,
     };
-    const token = JSON.parse(localStorage.getItem('user-reset-password'));
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${resetId}` }
     }
     setIsLoading(true);
     axios.put('/users/password-reset/', formData, config).then((resolve) => {
@@ -103,6 +104,13 @@ function NewPassScreen() {
   const messagepass1 = `Password must be at least 8 characters long`
   const messagepass2 = ` and contain at least 1 uppercase letter, `
   const messagepass3 = ` 1 lowercase letter, and 1 number.`
+
+  useEffect(() => {
+      verifyToken(resetId).then((resolve) => {
+      }).catch((reject) => {
+        navigate('/resetpass');
+      });
+  }, []);
 
   return (
     <LoginLayout>
