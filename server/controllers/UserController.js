@@ -84,37 +84,41 @@ UserController.register = async (req, res) => {
 
 // Function user access reset password
 UserController.accessResetPassword = async (req, res) => {
-    const { email } = req.body;
-    const user = await User.findOne({ email: email });
-    if (!user) {
-        return res.status(401).json("No email")
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email: email });
+        if (!user) {
+            return res.status(401).json("No email")
+        }
+        const token = generateToken(user._id);
+
+        // SEND MAIL
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USERNAME,
+                pass: process.env.EMAIL_PASSWORD
+            }
+        });
+
+        const mailOptions = {
+            from: 'G-won ',
+            to: email,
+            subject: 'G-Trainee Fitness & Health',
+            html: `<p>Reset password Click!</p><a href='${process.env.CLIENT_URL}/newpass?reset_id=${token}'>Reset password</a>`
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+                return res.status(401).json(error);
+            } else {
+                return res.json("Check you mailbox.");
+            }
+        });
+    } catch (error) {
+        console.log(error);
     }
-    const token = generateToken(user._id);
-
-    // SEND MAIL
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USERNAME,
-            pass: process.env.EMAIL_PASSWORD
-        }
-    });
-
-    const mailOptions = {
-        from: 'G-won ',
-        to: email,
-        subject: 'G-Trainee Fitness & Health',
-        html: `<p>Reset password Click!</p><a href='${process.env.CLIENT_URL}/newpass?reset_id=${token}'>Reset password</a>`
-    };
-
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-            return res.status(401).json(error);
-        } else {
-            return res.json("Please check your email.");
-        }
-    });
     // END SEND MAIL
 }
 
