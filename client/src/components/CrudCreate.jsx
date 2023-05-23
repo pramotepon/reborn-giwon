@@ -9,6 +9,7 @@ import { UserContext } from "../contexts/UserContext";
 import IsLoadingComponent from "./IsLoadingComponent";
 
 const CrudCreate = () => {
+
 	const { user } = useContext(UserContext);
 
 	const [name, setName] = useState("");
@@ -31,6 +32,17 @@ const CrudCreate = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	let extImage;
+
+	const dateNew = new Date();
+
+	const yyyy = dateNew.getFullYear();
+	let mm = dateNew.getMonth() + 1; // Months start at 0!
+	let dd = dateNew.getDate();
+
+	if (dd < 10) dd = '0' + dd;
+	if (mm < 10) mm = '0' + mm;
+
+	const dateNow = yyyy + '-' + mm + '-' + dd;
 
 	const setFileToBase = (file) => {
 		const reader = new FileReader();
@@ -146,7 +158,7 @@ const CrudCreate = () => {
 
 	return (
 		<div className="card-container">
-			{isLoading && <IsLoadingComponent />}
+			{isLoading && <IsLoadingComponent position={'position-fixed'} />}
 
 			<div className="card-top">
 				<div className="back-button-container pt-3">
@@ -272,6 +284,8 @@ const CrudCreate = () => {
 							type="date"
 							className="fill"
 							onChange={(e) => setDate(e.target.value)}
+							// max="2023-05-23"
+							max={dateNow}
 							required
 						/>
 					</div>
