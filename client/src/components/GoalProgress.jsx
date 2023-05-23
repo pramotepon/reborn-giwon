@@ -42,7 +42,7 @@ const GoalProgess = ({ userId, userGoal, userWeight }) => {
 			const chartArea = chart.chartArea;
 
 			// const goal = chart.config.data.labels[0];
-			const goalText = goal + " kg";
+			const goalText = `${goal}`;
 
 			ctx.font = "bold 30px Kanit";
 			ctx.fillStyle = "#222";
@@ -76,7 +76,9 @@ const GoalProgess = ({ userId, userGoal, userWeight }) => {
 	return (
 		<div className="goalProgress position-relative">
 			<div className="position-absolute top-0 start-0 mt-2 me-2 ">
-				<p className="goalText">Goal</p>
+				<p className="goalText">
+					Target<br></br>(kg){" "}
+				</p>
 			</div>
 			<div className="position-absolute top-0 end-0 mt-2 me-2">
 				<Button variant="" href="/goalselection">
