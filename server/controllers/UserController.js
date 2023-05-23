@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import jwt from 'jsonwebtoken';
 import bcrypt from "bcryptjs";
+import nodemailer from "nodemailer"
 import generateToken from '../utils/generateToken.js'
 import createToken from '../utils/generateToken.js';
 import userGetId from '../utils/userGetId.js';
@@ -83,20 +84,38 @@ UserController.register = async (req, res) => {
 
 // Function user access reset password
 UserController.accessResetPassword = async (req, res) => {
-    let body = req.body;
-    let user = await User.findOne({ email: body.email });
-    if (user) {
-        if (body.height == user.height && body.currentweight == user.weight && body.gender === user.gender) {
-            const token = await generateToken(user._id)
-            return res.json(token)
-        }
-        else {
-            return res.status(401).json({ status: "error", message: "You can't reset password" })
-        }
+    const { email } = req.body;
+    const user = await User.findOne({ email: email });
+    if (!user) {
+        return res.status(401).json("No email")
     }
-    else {
-        return res.status(401).json({ status: "error", message: "User not found" })
-    }
+    const token = generateToken(user._id);
+
+    // SEND MAIL
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
+        }
+    });
+
+    const mailOptions = {
+        from: 'G-won ',
+        to: email,
+        subject: 'G-Trainee Fitness & Health',
+        html: `<p>Reset password Click!</p><a href='${process.env.CLIENT_URL}/newpass?reset_id=${token}'>Reset password</a>`
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+            return res.status(401).json(error);
+        } else {
+            return res.json("Please check your email.");
+        }
+    });
+    // END SEND MAIL
 }
 
 // Function user reset password
