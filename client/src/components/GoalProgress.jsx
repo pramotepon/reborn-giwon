@@ -79,7 +79,7 @@ const GoalProgess = ({ userId, userGoal, userWeight }) => {
 				<p className="goalText">Goal</p>
 			</div>
 			<div className="position-absolute top-0 end-0 mt-2 me-2">
-				<Button variant="" href="/editprofile">
+				<Button variant="" href="/goalselection">
 					<FontAwesomeIcon
 						className="editIcon"
 						icon="fa-regular fa-pen-to-square"
