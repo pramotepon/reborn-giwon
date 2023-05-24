@@ -27,11 +27,11 @@ const Success = () => {
 
       // Call API call to update the user's goal weight to null
 
-      await axios.put(`/users/goal-weight-update/${userId}`, { goal: null });
+      await axios.put(`/users/goal-weight-update/${userId}`, { goal: 0 });
 
       // Update the local state
 
-      setGoal(null);
+      setGoal(0);
 
       // Navigate to the goalselection page
       
