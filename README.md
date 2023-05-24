@@ -23,7 +23,7 @@ npm run dev
 
 [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ArlifTagaree) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arlif-tagaree/) 
-[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://arlifportfolio.vercel.app/)
 
 
 ---
@@ -41,7 +41,7 @@ npm run dev
 
 [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ppongpeera) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pongpeera/) 
-[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://portfolio-pongpeera.vercel.app/)
 
 ---
 ### Pramote Phan-on
@@ -57,7 +57,7 @@ npm run dev
 
 [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SasiwanJ) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sasiwan-janma/) 
-[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](#)
+[![Portfolio](https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange)](https://pangportfolio.vercel.app/)
 
 ---
 ### Thatpong Paleekan
