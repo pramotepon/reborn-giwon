@@ -503,12 +503,12 @@ const LandingPage = () => {
 												/>
 											</a>
 											<a
-												href=""
+												href="https://arlifportfolio.vercel.app/"
 												target="_blank"
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
@@ -567,7 +567,7 @@ const LandingPage = () => {
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
@@ -621,12 +621,12 @@ const LandingPage = () => {
 												/>
 											</a>
 											<a
-												href=""
+												href="https://portfolio-pongpeera.vercel.app/"
 												target="_blank"
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
@@ -684,7 +684,7 @@ const LandingPage = () => {
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
@@ -737,12 +737,12 @@ const LandingPage = () => {
 												/>
 											</a>
 											<a
-												href=""
+												href="https://pangportfolio.vercel.app/"
 												target="_blank"
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
@@ -800,7 +800,7 @@ const LandingPage = () => {
 												style={{ paddingRight: "15px" }}
 											>
 												<img
-													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=white"
+													src="https://img.shields.io/badge/website-d5d5d5?style=for-the-badge&logo=About.me&logoColor=orange"
 													alt="website"
 												/>
 											</a>
