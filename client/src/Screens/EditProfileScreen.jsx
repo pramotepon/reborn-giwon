@@ -103,8 +103,8 @@ function EditProfileScreen() {
 					text: data.message,
 					icon: "success",
 					confirmButtonText: "Ok!",
-				}).then((result) => {
-					const data = verifyToken(token);
+				}).then(async (result) => {
+					const data = await verifyToken(token);
 					setUser(data);
 					if (result.isConfirmed) {
 						navigate(-1);

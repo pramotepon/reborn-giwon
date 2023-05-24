@@ -215,6 +215,7 @@ const CrudCreate = () => {
 							className="fill"
 							minLength="3"
 							maxLength="30"
+							style={{fontWeight:"bold"}}
 							onChange={(e) => setName(e.target.value)}
 							required
 						/>
@@ -236,6 +237,7 @@ const CrudCreate = () => {
 								type="number"
 								id="hours"
 								className="hours"
+								style={{fontWeight:"bold"}}
 								min="0"
 								onChange={(e) => setHours(e.target.value)}
 								required
@@ -246,6 +248,7 @@ const CrudCreate = () => {
 								type="number"
 								id="minutes"
 								className="minutes"
+								style={{fontWeight:"bold"}}
 								min="0"
 								max="59"
 								onChange={(e) => {
@@ -258,7 +261,7 @@ const CrudCreate = () => {
 					</div>
 				</div>
 				<div className="card-right">
-					<div className="type">
+					<div className="type" style={{marginRight:"17px"}}>
 						<label htmlFor="type">
 							Activity Type<span style={{ color: "red" }}>*</span>
 						</label>
@@ -266,23 +269,25 @@ const CrudCreate = () => {
 							name="act-type"
 							id="act-type"
 							onChange={(e) => setType(e.target.value)}
+							style={{fontWeight:"bold"}}
 						>
-							<option value="run">Running</option>
-							<option value="bicycle">Bicycling</option>
-							<option value="ride">Riding</option>
-							<option value="swim">Swimming</option>
-							<option value="walk">Walking</option>
-							<option value="hike">Hiking</option>
+							<option value="run" style={{fontWeight:"bold"}}>Running</option>
+							<option value="bicycle" style={{fontWeight:"bold"}}>Bicycling</option>
+							<option value="ride" style={{fontWeight:"bold"}}>Riding</option>
+							<option value="swim" style={{fontWeight:"bold"}}>Swimming</option>
+							<option value="walk" style={{fontWeight:"bold"}}>Walking</option>
+							<option value="hike" style={{fontWeight:"bold"}}>Hiking</option>
 						</select>
 					</div>
 
-					<div className="date">
+					<div className="date" style={{marginRight:"17px"}}>
 						<label htmlFor="date">
 							Date<span style={{ color: "red" }}>*</span>
 						</label>
 						<input
 							type="date"
 							className="fill"
+							style={{fontWeight:"bold"}}
 							onChange={(e) => setDate(e.target.value)}
 							// max="2023-05-23"
 							max={dateNow}
@@ -298,6 +303,7 @@ const CrudCreate = () => {
 							className="fill"
 							min="0"
 							max="442"
+							style={{fontWeight:"bold"}}
 							onChange={(e) => setWeight(e.target.value)}
 							required
 						/>
@@ -318,7 +324,7 @@ const CrudCreate = () => {
 					onChange={(e) => setText(e.target.value)}
 					minLength="0"
 					maxLength="280"
-					style={{ overflowWrap: "break-word" }}
+					style={{ overflowWrap: "break-word",fontWeight:"bold" }}
 				/>
 			</div>
 
