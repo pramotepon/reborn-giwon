@@ -17,7 +17,7 @@ const schema = mongoose.Schema(
 		},
 		image: { type: String, default: null },
 		cloudinary_public_id: { type: String, default: null },
-		goal: { type: Number, default: null },
+		goal: { type: Number, default: 0 },
 	},
 	{
 		collection: "users",
