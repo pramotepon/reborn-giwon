@@ -194,7 +194,7 @@ const CrudCreate = (props) => {
 				</div>
 				<div className="card-left">
 					<div className="add-image">
-						<label htmlFor="file-regis">
+						<label htmlFor="file-regis" style={{ marginRight: "13px" }}>
 							<span>Upload Image File</span>
 							<div>
 								{!selectedFile && !oldImage ? (
@@ -213,8 +213,13 @@ const CrudCreate = (props) => {
 									<input
 										type="file"
 										accept=".png, .jpeg, .jpg, .gif"
+										id="file-regiss"
 										onChange={handleFileChange}
 									/>
+								<label htmlFor="file-regiss" id="file-regiss">
+										{" "}
+										Upload Image
+								</label>
 								</div>
 							</div>
 						</label>
@@ -229,6 +234,7 @@ const CrudCreate = (props) => {
 							className="fill"
 							minLength="3"
 							maxLength="30"
+							style={{fontWeight:"bold"}}
 							value={name}
 							onChange={(e) => setName(e.target.value)}
 							required
@@ -252,6 +258,7 @@ const CrudCreate = (props) => {
 								id="hours"
 								className="hours"
 								min="0"
+								style={{fontWeight:"bold"}}
 								value={hours}
 								onChange={(e) => setHours(e.target.value)}
 								required
@@ -264,6 +271,7 @@ const CrudCreate = (props) => {
 								className="minutes"
 								min="0"
 								max="59"
+								style={{fontWeight:"bold"}}
 								value={minutes}
 								onChange={(e) => {
 									const minutes = Math.min(e.target.value, 59); // Ensure minutes do not exceed 59
@@ -275,26 +283,27 @@ const CrudCreate = (props) => {
 					</div>
 				</div>
 				<div className="card-right">
-					<div className="type">
+					<div className="type" style={{marginRight:"17px"}}>
 						<label htmlFor="type">
-							Activity Type<span style={{ color: "red" }}>*</span>
+							Activity Type<span style={{ color: "red"}}>*</span>
 						</label>
 						<select
 							name="act-type"
 							id="act-type"
+							style={{fontWeight:"bold"}}
 							value={type}
 							onChange={(e) => setType(e.target.value)}
 						>
-							<option value="run">Running</option>
-							<option value="bicycle">Bicycling</option>
-							<option value="ride">Riding</option>
-							<option value="swim">Swimming</option>
-							<option value="walk">Walking</option>
-							<option value="hike">Hiking</option>
+							<option value="run" style={{fontWeight:"bold"}}>Running</option>
+							<option value="bicycle" style={{fontWeight:"bold"}}>Bicycling</option>
+							<option value="ride" style={{fontWeight:"bold"}}>Riding</option>
+							<option value="swim" style={{fontWeight:"bold"}}>Swimming</option>
+							<option value="walk" style={{fontWeight:"bold"}}>Walking</option>
+							<option value="hike" style={{fontWeight:"bold"}}>Hiking</option>
 						</select>
 					</div>
 
-					<div className="date">
+					<div className="date" style={{marginRight:"17px"}}>
 						<label htmlFor="date">
 							Date<span style={{ color: "red" }}>*</span>
 						</label>
@@ -302,6 +311,7 @@ const CrudCreate = (props) => {
 							type="date"
 							className="fill"
 							value={date}
+							style={{fontWeight:"bold"}}
 							onChange={(e) => setDate(e.target.value)}
 							required
 						/>
@@ -315,6 +325,7 @@ const CrudCreate = (props) => {
 							className="fill"
 							min="0"
 							max="442"
+							style={{fontWeight:"bold"}}
 							value={weight}
 							onChange={(e) => setWeight(e.target.value)}
 							required
@@ -334,10 +345,11 @@ const CrudCreate = (props) => {
 					type="text"
 					className="fill"
 					value={text}
+					
 					onChange={(e) => setText(e.target.value)}
 					minLength="0"
 					maxLength="280"
-					style={{ overflowWrap: "break-word" }}
+					style={{ overflowWrap: "break-word" , fontWeight:"bold"}}
 				/>
 			</div>
 
