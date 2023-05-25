@@ -503,7 +503,7 @@ const LandingPage = () => {
 												/>
 											</a>
 											<a
-												href="https://arlifportfolio.vercel.app/"
+												href="https://portfolio-arliftagaree.vercel.app/"
 												target="_blank"
 												style={{ paddingRight: "15px" }}
 											>
