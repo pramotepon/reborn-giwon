@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Helmet from "react-helmet";
 import "../assets/css/components/CRUD.css";
 
 const ActivityDetail = (props) => {
@@ -41,6 +42,20 @@ const ActivityDetail = (props) => {
 	}
 	return (
 		<div className="card-container text-white">
+			<Helmet>
+				<title>{activity.activity_name}</title>
+				<meta name="description" key="description" content={activity.description} />
+				<meta name="title" key="title" content={activity.activity_name} />
+				<meta property="og:title" key="og:title" content={activity.activity_name} />
+				<meta property="og:locale" key="og:locale" content="en_US" />
+				<meta charSet="utf-8" />
+				<meta property="og:type" key="og:type" content="website" />
+				<meta
+					property="og:description"
+					key="og:description"
+					content={activity.description}
+				/>
+			</Helmet>
 			<div className="row p-5">
 				{/* Left */}
 				<div className="col-6">
@@ -102,7 +117,7 @@ const ActivityDetail = (props) => {
 			</div>
 			<div className="row p-5 ">
 				<div className="col-md-12 text-end">
-					<button onClick={() => navigate(-1)} className="btn btn-danger">
+					<button onClick={() => navigate('/dashboard')} className="btn btn-danger">
 						Back
 					</button>
 				</div>
