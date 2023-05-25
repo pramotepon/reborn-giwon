@@ -30,6 +30,8 @@ function EditProfileScreen() {
 	let extImage;
 	const [isLoading, setIsLoading] = useState(false);
 
+	let data;
+
 	const handleChangeDisplayname = (event) => {
 		setDisplayname(event.target.value);
 		setDisplayNameValid(event.target.value.length != 0);
@@ -104,8 +106,7 @@ function EditProfileScreen() {
 					icon: "success",
 					confirmButtonText: "Ok!",
 				}).then(async (result) => {
-					const data = await verifyToken(token);
-					setUser(data);
+					data = await verifyToken(token);
 					if (result.isConfirmed) {
 						navigate(-1);
 					}
@@ -120,7 +121,8 @@ function EditProfileScreen() {
 					confirmButtonText: "Try",
 				});
 			})
-			.finally(() => {
+			.finally(async () => {
+				await setUser(data);
 				setIsLoading(false);
 			});
 	};
