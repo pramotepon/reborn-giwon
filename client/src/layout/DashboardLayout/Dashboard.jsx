@@ -9,7 +9,7 @@ import UserProfile from "../../components/UserProfile";
 import { UserContext } from "../../contexts/UserContext";
 
 const Dashboard = ({ children }) => {
-	const { user, setUser } = useContext(UserContext);
+	const { user, ready } = useContext(UserContext);
 	const [chooseIdol, setChooseIdol] = useState(true);
 	const [profileToggle, setProfileToggle] = useState(false);
 	if (!user) {
@@ -40,7 +40,8 @@ const Dashboard = ({ children }) => {
 		displayShow = children;
 	}
 
-	useEffect(() => { }, [user]);
+	useEffect(() => { 
+	 }, [user]);
 
 	return (
 		<div className="dashboard">
