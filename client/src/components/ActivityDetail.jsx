@@ -15,14 +15,12 @@ const ActivityDetail = (props) => {
 		description: "",
 		duration: "",
 	});
-
 	let id = props.acitivityId;
 	useEffect(() => {
 		axios.get(`/activities/${id}`).then((res) => {
 			setActivity(res.data);
 		});
 	}, [id]);
-
 	let image = (
 		<>
 			<FontAwesomeIcon
@@ -43,10 +41,10 @@ const ActivityDetail = (props) => {
 	return (
 		<div className="card-container text-white">
 			<Helmet>
-				<title>{activity.activity_name}</title>
+				{/* <title>{activity.activity_name}</title> */}
 				<meta name="description" key="description" content={activity.description} />
 				<meta name="title" key="title" content={activity.activity_name} />
-				<meta property="og:title" key="og:title" content={activity.activity_name} />
+				{/* <meta property="og:title" key="og:title" content={activity.activity_name} /> */}
 				<meta property="og:locale" key="og:locale" content="en_US" />
 				<meta charSet="utf-8" />
 				<meta property="og:type" key="og:type" content="website" />
