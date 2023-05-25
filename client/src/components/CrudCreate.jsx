@@ -317,7 +317,7 @@ const CrudCreate = () => {
 			</div>
 
 			<div className="card-description">
-				<label htmlFor="weight">Describe your journal</label>
+				<label htmlFor="weight">Describe your journey</label>
 				<textarea
 					type="text"
 					className="fill"
