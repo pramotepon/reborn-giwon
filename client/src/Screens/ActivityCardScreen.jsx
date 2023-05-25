@@ -24,7 +24,6 @@ const ActivityCardScreen = () => {
 			console.error(error);
 		}
 	};
-
 	useEffect(() => {
 		fetchData();
 	}, []);
