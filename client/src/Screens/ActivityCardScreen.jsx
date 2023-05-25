@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
-import { Link } from "react-router-dom";
 import ActivityCard from "../components/ActivityCard";
 import ButtonNewActivity from "../components/ButtonNewActivity";
 import { UserContext } from "../contexts/UserContext";

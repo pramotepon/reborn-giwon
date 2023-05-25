@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FacebookShareButton, FacebookIcon } from 'react-share';
 import Swal from "sweetalert2";
 import "../assets/css/components/ActivityCard.css";
 import IsLoadingComponent from "./IsLoadingComponent";
@@ -82,11 +82,14 @@ const ActivityCard = (props) => {
 						</a>
 					</h2>
 					<div className="my-top-right-button">
+						{/* Share Button */}
+						<FacebookShareButton url={`https://reborn-giwon.vercel.app/activitydetail/${props.activity._id}`} title="My test" quote={props.activity.activity_name} hashtag="#giwon"><FacebookIcon size={32} round={true} /></FacebookShareButton>
+						{/* End Share Button */}
 						{/* Edit Button */}
 						<Link
 							to={`/editcard/${props.activity._id}&${props.activity.latest}`}
 						>
-							<button className="btn p-0" style={{ marginRight: "10px" }}>
+							<button className="btn p-0 ms-3" style={{ marginRight: "10px" }}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="32"
