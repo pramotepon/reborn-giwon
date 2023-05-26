@@ -16,7 +16,6 @@ function ResetPassScreen() {
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
     setEmailValid(/\S+@\S+\.\S+/.test(event.target.value));
   };
 

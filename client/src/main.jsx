@@ -24,8 +24,6 @@ import SuccessScreen from "./Screens/SuccessScreen.jsx";
 import { UserContextProvider } from "./contexts/UserContext.jsx";
 
 import axios from "axios";
-import { Helmet } from "react-helmet";
-import ogImage from "./image/logo_share.png"
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000/";
 axios.defaults.withCredentials = true;
@@ -91,9 +89,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<UserContextProvider>
-		<Helmet>
-			<meta property="og:image" content={ogImage} />
-		</Helmet>
 		<RouterProvider router={router} />
 	</UserContextProvider>
 );

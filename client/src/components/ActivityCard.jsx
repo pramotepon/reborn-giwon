@@ -30,7 +30,6 @@ const ActivityCard = (props) => {
 				if (result.isConfirmed) {
 					try {
 						const response = await axios.delete(`/activities/${id}`);
-						console.log(response);
 						if (response.status === 200) {
 							setIsLoading(true);
 							Swal.fire({
