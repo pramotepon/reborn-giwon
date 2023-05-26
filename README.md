@@ -4,7 +4,7 @@
 At G-Trainee, we empower individuals to achieve their weight loss goals through personalized and motivating workouts. 
 Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, inspiring your weight loss journey with added passion. 
 Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together! 
-  &nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; &nbsp;
   <img style="width: 50%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/640px-MERN-logo.png" />
   
 </p>
