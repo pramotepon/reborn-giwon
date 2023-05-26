@@ -1,17 +1,49 @@
-# G-Trainee
+# G-Trainee 
+
+<div style="text-align:center">
+<p>
+At G-Trainee, we empower individuals to achieve their weight loss goals through personalized and motivating workouts. 
+Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, inspiring your weight loss journey with added passion. 
+Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together!
+</p>
+</div>
+
+<img style="margin-left: auto; margin-right: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/640px-MERN-logo.png" />
+
 ## Installation
 1. Clone or fork and clone project.
 ```bash
 git clone https://github.com/pramotepon/reborn-giwon.git
 ```
 2. Open project in vsCode or textEditer etc.
-3. Install package for project.
+
+### Backend
+1. Change path to server.
+```bash
+cd ./server/
+```
+2. Install package for project.
 ```bash
 npm install
 ```
-4. Create file .env in root path ( Can see prototype from .env.example ).
-5. Complete write .env file.
-6. Run project.
+3. Create file .env in root path ( Can see prototype from .env.example ).
+4. Complete write .env file.
+5. Run project.
+```bash
+npm run dev
+```
+### Frontend
+1. Change path to server.
+```bash
+cd ./client/
+```
+2. Install package for project.
+```bash
+npm install
+```
+3. Create file .env in root path ( Can see prototype from .env.example ).
+4. Complete write .env file.
+5. Run project.
 ```bash
 npm run dev
 ```
