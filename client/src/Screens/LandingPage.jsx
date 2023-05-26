@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../src/image/landing_page/logo-lg.png";
 import "../assets/css/LandingPage.css";
 import { UserContext } from "../contexts/UserContext";
@@ -183,11 +183,9 @@ const LandingPage = () => {
 							Welcome to our extraordinary activity tracking website, where the
 							captivating allure of K-pop idols intertwines with cutting-edge
 							technology, empowering you to embark on an awe-inspiring weight
-							loss journey filled with exhilarating challenges, personalized
-							guidance, and unwavering support, ultimately unveiling a radiant,
-							healthier, and more confident version of yourself that mirrors the
-							captivating charisma of your favorite K-pop stars.
+							loss journey.
 						</p>
+						<Link className="btn btn-success px-5 py-3" to={'/dashboard'}><h3><b>Get Started</b></h3></Link>
 					</section>
 					{/* End Heroes content */}
 				</article>
