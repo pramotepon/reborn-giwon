@@ -89,7 +89,6 @@ const CrudCreate = (props) => {
 	const fetchActivityData = async () => {
 		try {
 			const response = await axios.get(`/activities/${id}`);
-			console.log(response);
 			if (response.status === 200) {
 				setName(response.data.activity_name);
 				setType(response.data.activity_type);
@@ -100,8 +99,6 @@ const CrudCreate = (props) => {
 				setHours(JSON.parse(response.data.duration.hour));
 				setMinutes(JSON.parse(response.data.duration.minute));
 			}
-
-			console.log("data " + response.data.duration.hour);
 		} catch (error) {
 			console.log(error);
 		}
@@ -150,7 +147,6 @@ const CrudCreate = (props) => {
 
 		try {
 			const response = await axios.put(`activities/${id}`, formData);
-			console.log(response);
 			if (response.status === 200) {
 				Swal.fire({
 					title: "Activity Edited Successfully",

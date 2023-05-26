@@ -133,7 +133,6 @@ const CrudCreate = () => {
 
 		try {
 			const response = await axios.post("activities/add/", formData);
-			console.log(response);
 			if (response.status === 200) {
 				Swal.fire({
 					title: "Activity added!",
