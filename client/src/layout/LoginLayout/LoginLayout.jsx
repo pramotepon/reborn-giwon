@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./LoginLayout.css";
 import imagecard from "../../image/imagecard.jpg"
 import logo from "../../image/logo.png"
+import { Link } from "react-router-dom";
 
 function LoginLayout({ children }) {
 	const img = {
@@ -22,7 +23,7 @@ function LoginLayout({ children }) {
 								className="logo-top"
 								style={{ display: "flex", flexDirection: "column" }}
 							>
-								<img className="logo" src={logo} />
+								<Link to={'/'} className="text-center"><img className="logo" src={logo} /></Link>
 								{children}
 							</div>
 						</div>
