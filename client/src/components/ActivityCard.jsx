@@ -82,7 +82,7 @@ const ActivityCard = (props) => {
 					</h2>
 					<div className="my-top-right-button">
 						{/* Share Button */}
-						<FacebookShareButton url={`https://reborn-giwon.vercel.app/activitydetail/${props.activity._id}`} title="My test" quote={props.activity.activity_name} hashtag="#giwon"><FacebookIcon size={32} round={true} /></FacebookShareButton>
+						<FacebookShareButton url={`https://reborn-giwon.vercel.app/activitydetail/${props.activity._id}`} title="Share" quote={props.activity.activity_name} hashtag="#giwon"><FacebookIcon size={32} round={true} /></FacebookShareButton>
 						{/* End Share Button */}
 						{/* Edit Button */}
 						<Link
