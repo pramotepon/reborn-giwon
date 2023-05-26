@@ -1,14 +1,13 @@
 # G-Trainee 
 
-<div style="text-align:center">
-<p>
+<p align="center" width="100%">
 At G-Trainee, we empower individuals to achieve their weight loss goals through personalized and motivating workouts. 
 Our platform offers the choice to follow your favorite idols' weight goals or set custom targets, inspiring your weight loss journey with added passion. 
-Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together!
+Track your progress and see your weight loss journal come to life. Join our community, and let's create a healthier and happier you together! 
+  </br></br></br>
+  <img style="width: 50%; margin-top: 1.5rem;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/640px-MERN-logo.png" />
+  
 </p>
-</div>
-
-<img style="margin-left: auto; margin-right: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/640px-MERN-logo.png" />
 
 ## Installation
 1. Clone or fork and clone project.
