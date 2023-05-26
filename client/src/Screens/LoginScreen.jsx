@@ -18,7 +18,6 @@ function LoginScreen() {
 
 	const handleChangeEmail = (event) => {
 		setEmail(event.target.value);
-		console.log(event.target.value);
 	};
 	const handleChangePassword = (event) => {
 		setPassword(event.target.value);

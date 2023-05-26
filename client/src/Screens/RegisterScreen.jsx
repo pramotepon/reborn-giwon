@@ -193,7 +193,6 @@ function RegisterScreen() {
 			.finally(() => {
 				setIsLoading(false);
 			});
-		// console.log("Registration successful:", response.data);
 	};
 
 	const handleCancel = () => {
