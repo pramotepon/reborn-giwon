@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 ### Frontend
-1. Change path to cliend.
+1. Change path to client.
 ```bash
 cd ./client/
 ```
